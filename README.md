@@ -1,3 +1,10 @@
-## Ohtu miniprojekti boilerplate
+## Kettu Repolainen
 
-Lue [täältä](https://ohjelmistotuotanto-hy.github.io/flask/) lisää.
+[Product backlog](https://github.com/users/UncSald/projects/2)
+### Definition of Done
+- Hyväksymiskriteerit: User Storyille määritellään hyväksymiskriteerit Robot Framework -syntaksilla alkaen sprintistä 2. Linkki kriteereihin löytyy README:stä.
+- Testikattavuus: Koodin testikattavuus on kohtuullinen ja sitä arvioidaan säännöllisesti.
+- CI-palvelu: Asiakas voi seurata koodin ja testien tilaa jatkuvasti CI-palvelun kautta.
+- Ylläpidettävyys:
+  - Koodi on järkevästi nimetty ja noudattaa selkeää arkkitehtuuria.
+  - Yhtenäinen koodityyli varmistetaan `pylint`-työkalun avulla.
