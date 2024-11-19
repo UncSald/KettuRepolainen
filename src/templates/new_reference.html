@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Create a reference
+{% endblock %}
+
+{% block body %}
+
+<h1>Create a reference</h1>
+<form action="/create_reference" method="post">
+    <input list="styles">
+
+    <datalist id="styles">
+        <option value="article">
+    </datalist>
+    <ul>
+        <li>
+            <label for="name">Name:</label>
+            <input type="text" name="name">
+        </li>
+        <li>
+            <label for="author">Author:</label>
+            <input type="text" name="author">
+        </li>
+        <li>
+            <label for="title">Title:</label>
+            <input type="text" name="title">
+        </li>
+        <li>
+            <label for="title">Title:</label>
+            <input type="text" name="title">
+        </li>
+        <li>
+            <label for="journal">Journal:</label>
+            <input type="text" name="journal">
+        </li>
+        <li>
+            <label for="year">Year:</label>
+            <input type="text" name="year">
+        </li>
+        <li>
+            <label for="volume">Volume:</label>
+            <input type="text" name="volume">
+        </li>
+        <li>
+            <label for="number">Number:</label>
+            <input type="text" name="number">
+        </li>
+        <li>
+            <label for="pages">Pages:</label>
+            <input type="text" name="pages">
+        </li>
+    <button type="submit">submit</button>
+    </ul>
+</form>
+
+{% endblock %}
