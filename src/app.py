@@ -4,12 +4,14 @@ from entities.todo_repository import get_todos, create_todo, set_done
 from config import app, test_env
 from util import validate_todo
 from entities.reference_creation import create_article_reference
+from entities.reference_repository import get_references
+
 
 @app.route("/")
 def index():
     todos = get_todos()
     unfinished = len([todo for todo in todos if not todo.done])
-    return render_template("index.html", todos=todos, unfinished=unfinished) 
+    return render_template("index.html", todos=todos, unfinished=unfinished)
 
 @app.route("/new_todo")
 def new():
@@ -48,6 +50,19 @@ def create_new_reference():
     pages= request.form.get("pages")
     create_article_reference(name,[author,title,journal,year,volume,number,pages])
     return redirect("/")
+ 
+@app.route("/references", methods=["GET"])
+def references():
+    """
+    Fetches all references from the database and returns them as a JSON response.
+    Returns a 200 status with the references or a 500 status with an error message.
+    """
+    try:
+        ref = get_references()   # Fetch references from the repository
+        return jsonify(ref), 200   # Return references as JSON with a 200 status code
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500  # Return an error message if an exception occurs
+
 
 # testausta varten oleva reitti
 if test_env:
