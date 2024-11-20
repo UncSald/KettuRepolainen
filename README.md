@@ -9,4 +9,6 @@
   - Koodi on järkevästi nimetty ja noudattaa selkeää arkkitehtuuria.
   - Yhtenäinen koodityyli varmistetaan `pylint`-työkalun avulla.
 
-<img src=".src/images/Burndown_chart.jpg"/>
+<img width= src=".src/images/Burndown_chart.jpg"/>
+[Burndown chart](src/images/Burndown_chart.jpg)
+![](https://github.com/UncSald/KettuRepolainen/tree/viitteiden_listaus_n%C3%A4kym%C3%A4/src/images/Burndown_chart.jpg)
