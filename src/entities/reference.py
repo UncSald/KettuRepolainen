@@ -1,4 +1,4 @@
-class Viite:
+class Reference:
     def __init__(self, id, author, title, journal, year, url):
         self.id = id
         self.author = author
