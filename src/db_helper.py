@@ -1,5 +1,4 @@
-from db import db
-from app import app
+from app import app, db
 from sqlalchemy import text
 
 def table_exists(name: str):

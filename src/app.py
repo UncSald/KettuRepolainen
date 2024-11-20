@@ -1,17 +1,10 @@
-from flask import Flask, redirect, render_template, request, jsonify, flash
-from db_helper import reset_db
-from entities.todo_repository import get_todos, create_todo, set_done
-from config import app
-from util import validate_todo
+from flask import redirect, render_template, request, jsonify, flash
+from flask_sqlalchemy import SQLAlchemy
 from entities.reference_creation import create_article_reference
 from entities.reference_repository import get_references
-from config import SECRET_KEY
+
 from daos.reference_dao import ReferenceDao
-
-app = Flask(__name__)
-app.secret_key = SECRET_KEY
-
-from db import db
+from config import app, db
 
 reference_dao = ReferenceDao(db)
 

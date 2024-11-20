@@ -1,19 +1,14 @@
 from dotenv import load_dotenv
 from os import getenv
-
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 load_dotenv()
 
+SECRET_KEY = getenv("SECRET_KEY")
+DATABASE_URL = getenv("DATABASE_URL")
+
 app = Flask(__name__)
-app.secret_key = getenv("SECRET_KEY")
+app.secret_key = SECRET_KEY
 
-database_url = getenv("DATABASE_URL")
-if 'sslmode' not in database_url:
-    if '?' in database_url:
-        database_url += '&sslmode=require'
-    else:
-        database_url += '?sslmode=require'
-
-app.config["SQLALCHEMY_DATABASE_URI"] = database_url
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
-
+app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 db = SQLAlchemy(app)
