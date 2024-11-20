@@ -34,33 +34,6 @@ def setup_db():
             db.session.execute(sql)
     db.session.commit()
 
-<<<<<<< HEAD
-    print("Creating table reference_id")
-    sql = text(
-        "CREATE TABLE reference_id ("
-        "  id SERIAL PRIMARY KEY, "
-        "  type TEXT NOT NULL"
-        ")"
-    )
-    db.session.execute(sql)
-    db.session.commit()
-
-    print("Creating table article_data")
-    sql = text(
-        "CREATE TABLE article_data ("
-        "  id SERIAL PRIMARY KEY, "
-        "  ref_id int REFERENCES reference_id (id), "
-        "  name TEXT NOT NULL, "
-        "  author TEXT NOT NULL, "
-        "  title TEXT NOT NULL, "
-        "  journal TEXT NOT NULL, "
-        "  year INT NOT NULL, "
-        "  volume TEXT NOT NULL, "
-        "  number TEXT NOT NULL, "
-        "  pages TEXT NOT NULL"
-        ")"
-    )
-=======
     print("Creating table references")
     sql = text("""
         CREATE TABLE references (
@@ -75,7 +48,6 @@ def setup_db():
             pages INT
         )
     """)
->>>>>>> 835a65b (refactoring)
     db.session.execute(sql)
     db.session.commit()
 

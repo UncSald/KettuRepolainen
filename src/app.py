@@ -8,8 +8,6 @@ from entities.reference_repository import get_references
 from config import SECRET_KEY
 from daos.reference_dao import ReferenceDao
 
-<<<<<<< HEAD
-=======
 app = Flask(__name__)
 app.secret_key = SECRET_KEY
 
@@ -17,7 +15,6 @@ from db import db
 
 reference_dao = ReferenceDao(db)
 
->>>>>>> 835a65b (refactoring)
 @app.route("/")
 def index():
     return render_template("index.html")
