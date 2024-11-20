@@ -10,8 +10,4 @@
   - Yhtenäinen koodityyli varmistetaan `pylint`-työkalun avulla.
 
 
-[alt text](https://github.com/UncSald/KettuRepolainen/src/images/Burndown_chart.jpg)
-[alt text](https://github.com/UncSald/KettuRepolainen/tree/viitteiden_listaus_n%C3%A4kym%C3%A4/Burndown_chart.jpg)
-
-
-[alt text](src/images/Burndown_chart.jpg)
+(src/images/Burndown_chart.jpg)
