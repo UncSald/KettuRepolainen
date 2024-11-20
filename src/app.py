@@ -20,12 +20,10 @@ def references():
     Fetches all references from the database and returns them as a JSON response.
     Returns a 200 status with the references or a 500 status with an error message.
     """
-    try:
-        ref = reference_dao.get_references()   # Fetch references from the repository
-        return jsonify(ref), 200   # Return references as JSON with a 200 status code    
-        return render_template("reference_list.html", references=references)
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500  # Return an error message if an exception occurs
+
+    refs = reference_dao.get_references()   # Fetch references from the repository
+    return render_template("reference_list.html", references=refs)
+
 
 
 @app.route("/references", methods=["POST"])
