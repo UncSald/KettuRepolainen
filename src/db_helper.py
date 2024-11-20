@@ -35,7 +35,6 @@ def setup_db():
     sql = text(
         "CREATE TABLE reference_id ("
         "  id SERIAL PRIMARY KEY, "
-        "  name TEXT NOT NULL, "
         "  type TEXT NOT NULL"
         ")"
     )
@@ -46,6 +45,8 @@ def setup_db():
     sql = text(
         "CREATE TABLE article_data ("
         "  id SERIAL PRIMARY KEY, "
+        "  ref_id int FOREIGN KEY REFERENCES reference_id (id), "
+        "  name TEXT NOT NULL, "
         "  author TEXT NOT NULL, "
         "  title TEXT NOT NULL, "
         "  journal TEXT NOT NULL, "
