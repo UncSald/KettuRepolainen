@@ -10,4 +10,4 @@
   - Yhtenäinen koodityyli varmistetaan `pylint`-työkalun avulla.
 
 
-(src/images/Burndown_chart.jpg)
+[](src/images/Burndown_chart.jpg)
