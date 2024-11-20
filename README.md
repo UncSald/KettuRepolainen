@@ -8,3 +8,6 @@
 - Ylläpidettävyys:
   - Koodi on järkevästi nimetty ja noudattaa selkeää arkkitehtuuria.
   - Yhtenäinen koodityyli varmistetaan `pylint`-työkalun avulla.
+
+
+(https://github.com/UncSald/KettuRepolainen/tree/viitteiden_listaus_n%C3%A4kym%C3%A4/src/images)
