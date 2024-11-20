@@ -5,27 +5,22 @@ Suite Teardown   Close Browser
 Test Setup       Reset Todos
 
 *** Test Cases ***
-At start there are no todos
+After adding a reference, there is one reference
     Go To  ${HOME_URL}
-    Title Should Be  Todo app
-    Page Should Contain  things still unfinished: 0
+    Click Link  new_reference
+    References Should Be Open
+    Set Author  Aleksis Kivi
+    Set Title  Seitsemän Veljestä
+    Click Button  submit
+    Go To  ${HOME_URL}
+    Click Link  reference_list
+    Page Should Contain  Aleksis Kivi
 
-After adding a todo, there is one
-    Go To  ${HOME_URL}
-    Click Link  Create new todo
-    Input Text  content  Buy milk
-    Click Button  Create
-    Page Should Contain  things still unfinished: 1
-    Page Should Contain  Buy milk
+*** Keywords ***
+Set Author
+    [Arguments]  ${author}
+    Input Text  author  ${author}
 
-After adding two todos and marking one done, there is one unfinished
-    Go To  ${HOME_URL}
-    Click Link  Create new todo
-    Input Text  content  Buy milk
-    Click Button  Create
-    Click Link  Create new todo
-    Input Text  content  Clean house
-    Click Button  Create
-    Click Button  //li[div[contains(text(), 'Buy milk')]]/form/button
-    Page Should Contain  things still unfinished: 1
-    Page Should Contain  Buy milk, done
+Set Title
+    [Arguments]  ${title}
+    Input Text  author  ${title}

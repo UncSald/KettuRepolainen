@@ -26,3 +26,6 @@ Open And Configure Browser
 
 Reset Todos
     Go To  ${RESET_URL}
+
+References Page Should Be Open
+    Title Should Be  References
