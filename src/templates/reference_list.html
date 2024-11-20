@@ -13,7 +13,22 @@ References
   {% for reference in references %}
     <li style="display: flex">
       <div>
-        {{ reference }} 
+        @article({{ reference[1] }},
+        <br>
+        author: "{{ reference[2] }}",
+        <br>
+        title: "{{ reference[3] }}",
+        <br>
+        journal: "{{ reference[4] }}",
+        <br>
+        year: {{ reference[5] }},
+        <br>
+        volume: "{{ reference[6] }}",
+        <br>
+        number: "{{ reference[7] }}",
+        <br>
+        pages: "{{ reference[8] }}"
+        )
       </div>
     </li>
   {% endfor %}
