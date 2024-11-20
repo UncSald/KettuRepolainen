@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Viitteet
+{% endblock %}
+
+{% block body %}
+
+<h2>Viitteet</h2>
+
+
+<ul>
+  {% for viite in viitteet %}
+    <li style="display: flex">
+      <div>
+        {{ viite }} 
+      </div>
+    </li>
+  {% endfor %}
+</ul>
+
+
+{% endblock %}

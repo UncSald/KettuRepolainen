@@ -3,19 +3,8 @@ from db_helper import reset_db
 from entities.todo_repository import get_todos, create_todo, set_done
 from config import app, test_env
 from util import validate_todo
-from entities.reference_repository import get_references  # Backend-route / Import the function to fetch references
-
-@app.route("/references", methods=["GET"])
-def references():
-    """
-    Fetches all references from the database and returns them as a JSON response.
-    Returns a 200 status with the references or a 500 status with an error message.
-    """
-    try:
-        ref = get_references()   # Fetch references from the repository
-        return jsonify(ref), 200   # Return references as JSON with a 200 status code
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500  # Return an error message if an exception occurs
+from entities.reference_creation import create_article_reference
+from entities.reference_repository import get_references
 
 
 @app.route("/")
@@ -44,6 +33,36 @@ def todo_creation():
 def toggle_todo(todo_id):
     set_done(todo_id)
     return redirect("/")
+
+@app.route("/new_reference")
+def new_reference():
+    return render_template("new_reference.html")
+
+@app.route("/create_reference", methods=["POST"])
+def create_new_reference():
+    name = request.form.get("name")
+    author= request.form.get("author")
+    title= request.form.get("title")
+    journal= request.form.get("journal")
+    year= request.form.get("year")
+    volume= request.form.get("volume")
+    number= request.form.get("number")
+    pages= request.form.get("pages")
+    create_article_reference(name,[author,title,journal,year,volume,number,pages])
+    return redirect("/")
+ 
+@app.route("/references", methods=["GET"])
+def references():
+    """
+    Fetches all references from the database and returns them as a JSON response.
+    Returns a 200 status with the references or a 500 status with an error message.
+    """
+    try:
+        ref = get_references()   # Fetch references from the repository
+        return jsonify(ref), 200   # Return references as JSON with a 200 status code
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500  # Return an error message if an exception occurs
+
 
 # testausta varten oleva reitti
 if test_env:
