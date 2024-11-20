@@ -9,9 +9,12 @@ from entities.reference_repository import get_references
 
 @app.route("/")
 def index():
-    todos = get_todos()
-    unfinished = len([todo for todo in todos if not todo.done])
-    return render_template("index.html", todos=todos, unfinished=unfinished)
+    return render_template("index.html")
+
+@app.route("/")
+def reference_list():
+    references = get_references()
+    return render_template("reference_list.html", references=references)
 
 @app.route("/new_todo")
 def new():
