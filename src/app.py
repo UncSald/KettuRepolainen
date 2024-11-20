@@ -28,17 +28,19 @@ def reference_list():
     references = get_references()
     return render_template("reference_list.html", references=references)
 
-@app.route("/create_reference", methods=["POST"])
+@app.route("/references", methods=["POST"])
 def create_new_reference():
-    name = request.form.get("name")
-    author= request.form.get("author")
-    title= request.form.get("title")
-    journal= request.form.get("journal")
-    year= request.form.get("year")
-    volume= request.form.get("volume")
-    number= request.form.get("number")
-    pages= request.form.get("pages")
-    create_article_reference(name,[author,title,journal,year,volume,number,pages])
+    data = {}
+    data["name"] = request.form.get("name")
+    data["author"] = request.form.get("author")
+    data["title"] = request.form.get("title")
+    data["journal"] = request.form.get("journal")
+    data["year"] = request.form.get("year")
+    data["volume"] = request.form.get("volume")
+    data["number"] = request.form.get("number")
+    data["pages"] = request.form.get("pages")
+
+    create_article_reference(data)
     return redirect("/")
  
 @app.route("/get_references", methods=["GET"])
