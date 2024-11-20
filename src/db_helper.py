@@ -1,29 +1,32 @@
-from config import db, app
+from db import db
+from app import app
 from sqlalchemy import text
 
-def table_exists(name):
-    sql_table_existence = text(
-        "SELECT EXISTS ("
-        "  SELECT 1"
-        "  FROM information_schema.tables"
-        f" WHERE table_name = '{name}'"
-        ")"
+def table_exists(name: str):
+    sql = text
+    """
+    SELECT EXISTS (
+        SELECT 1
+        FROM information_schema.tables
+        WHERE table_name = :table_name
     )
+    """
+    
     print(f"Checking if table {name} exists")
-    print(sql_table_existence)
-    result = db.session.execute(sql_table_existence)
+    print(sql)
+    result = db.session.execute(sql, {"table_name": name})
     return result.fetchone()[0]
 
 def reset_db():
-    tables = ["reference_id", "article_data"]
+    tables = ["references"]
     for table_name in tables:
         print(f"Clearing contents from table {table_name}")
-        sql = text(f"DELETE FROM {table_name}")
+        sql = text(f"TRUNCATE TABLE {table_name}")
         db.session.execute(sql)
     db.session.commit()
 
 def setup_db():
-    tables = ["reference_id", "article_data"]
+    tables = ["references"]
     for table_name in tables:
         if table_exists(table_name):
             print(f"Table {table_name} exists, dropping")
@@ -31,6 +34,7 @@ def setup_db():
             db.session.execute(sql)
     db.session.commit()
 
+<<<<<<< HEAD
     print("Creating table reference_id")
     sql = text(
         "CREATE TABLE reference_id ("
@@ -56,6 +60,22 @@ def setup_db():
         "  pages TEXT NOT NULL"
         ")"
     )
+=======
+    print("Creating table references")
+    sql = text("""
+        CREATE TABLE references (
+            id SERIAL PRIMARY KEY,
+            name TEXT NOT NULL,
+            author TEXT NOT NULL,
+            title TEXT NOT NULL,
+            journal TEXT,
+            year INT NOT NULL,
+            volume INT,
+            number INT,
+            pages INT
+        )
+    """)
+>>>>>>> 835a65b (refactoring)
     db.session.execute(sql)
     db.session.commit()
 
