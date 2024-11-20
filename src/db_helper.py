@@ -1,21 +1,6 @@
 from app import app, db
 from sqlalchemy import text
 
-def table_exists(name: str):
-    sql = text
-    """
-    SELECT EXISTS (
-        SELECT 1
-        FROM information_schema.tables
-        WHERE table_name = :table_name
-    )
-    """
-    
-    print(f"Checking if table {name} exists")
-    print(sql)
-    result = db.session.execute(sql, {"table_name": name})
-    return result.fetchone()[0]
-
 def reset_db():
     tables = ["references"]
     for table_name in tables:
@@ -27,15 +12,14 @@ def reset_db():
 def setup_db():
     tables = ["references"]
     for table_name in tables:
-        if table_exists(table_name):
-            print(f"Table {table_name} exists, dropping")
-            sql = text(f"DROP TABLE {table_name}")
-            db.session.execute(sql)
+        print(f"Table {table_name} exists, dropping")
+        sql = text(f"DROP TABLE IF EXISTS \"{table_name}\" CASCADE;")
+        db.session.execute(sql)
     db.session.commit()
 
     print("Creating table references")
     sql = text("""
-        CREATE TABLE references (
+        CREATE TABLE \"references\" (
             id SERIAL PRIMARY KEY,
             type TEXT,
             name TEXT NOT NULL,
@@ -51,7 +35,7 @@ def setup_db():
     db.session.execute(sql)
     db.session.commit()
 
-def add_article_data(author, title, journal, year, volume, number, pages):
+def add_article_data(author, title, journal, year, volume, number, pages): 
     sql = text(
         "INSERT INTO article_data (author, title, journal, year, volume, number, pages) "
         "VALUES (:author, :title, :journal, :year, :volume, :number, :pages)"

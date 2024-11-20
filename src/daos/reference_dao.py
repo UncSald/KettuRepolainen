@@ -16,7 +16,7 @@ class ReferenceDao:
         """
 
         sql = text("""
-            INSERT INTO references (
+            INSERT INTO \"references\" (
                 name,author,title,journal,year,volume,number,pages
             )                
             VALUES (
@@ -49,7 +49,7 @@ class ReferenceDao:
             SELECT 
                 id, name, author, title, journal, year, number, pages
             FROM 
-                references
+                \"references\"
         """)
         result = self.__db.session.execute(sql).fetchall()
 
