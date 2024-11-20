@@ -14,6 +14,11 @@ def index():
 def new_reference():
     return render_template("new_reference.html")
 
+@app.route("/references")
+def reference_list():
+    references = get_references()
+    return render_template("reference_list.html", references=references)
+
 @app.route("/create_reference", methods=["POST"])
 def create_new_reference():
     name = request.form.get("name")
@@ -27,7 +32,7 @@ def create_new_reference():
     create_article_reference(name,[author,title,journal,year,volume,number,pages])
     return redirect("/")
  
-@app.route("/references", methods=["GET"])
+@app.route("/get_references", methods=["GET"])
 def references():
     """
     Fetches all references from the database and returns them as a JSON response.
