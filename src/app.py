@@ -1,7 +1,5 @@
 from flask import redirect, render_template, request, jsonify, flash
 from flask_sqlalchemy import SQLAlchemy
-from entities.reference_creation import create_article_reference
-from entities.reference_repository import get_references
 
 from daos.reference_dao import ReferenceDao
 from config import app, db
@@ -12,14 +10,20 @@ reference_dao = ReferenceDao(db)
 def index():
     return render_template("index.html")
 
-@app.route("/new_reference")
-def new_reference():
-    return render_template("new_reference.html")
-
-@app.route("/references")
-def reference_list():
-    references = get_references()
-    return render_template("reference_list.html", references=references)
+ 
+@app.route("/references", methods=["GET"])
+def references():
+    """
+    Fetches all references from the database and returns them as a JSON response.
+    Returns a 200 status with the references or a 500 status with an error message.
+    """
+    try:
+        ref = reference_dao.get_references()   # Fetch references from the repository
+        return render_template("reference_list.html", references=references)
+        return jsonify(ref), 200   # Return references as JSON with a 200 status code    
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500  # Return an error message if an exception occurs
+    
 
 @app.route("/references", methods=["POST"])
 def create_new_reference():
@@ -33,17 +37,5 @@ def create_new_reference():
     data["number"] = request.form.get("number")
     data["pages"] = request.form.get("pages")
 
-    create_article_reference(data)
+    reference_dao.create_reference(data)
     return redirect("/")
- 
-@app.route("/get_references", methods=["GET"])
-def references():
-    """
-    Fetches all references from the database and returns them as a JSON response.
-    Returns a 200 status with the references or a 500 status with an error message.
-    """
-    try:
-        ref = get_references()   # Fetch references from the repository
-        return jsonify(ref), 200   # Return references as JSON with a 200 status code
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500  # Return an error message if an exception occurs

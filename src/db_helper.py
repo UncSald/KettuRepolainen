@@ -37,6 +37,7 @@ def setup_db():
     sql = text("""
         CREATE TABLE references (
             id SERIAL PRIMARY KEY,
+            type TEXT,
             name TEXT NOT NULL,
             author TEXT NOT NULL,
             title TEXT NOT NULL,
