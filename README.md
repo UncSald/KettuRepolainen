@@ -9,5 +9,4 @@
   - Koodi on järkevästi nimetty ja noudattaa selkeää arkkitehtuuria.
   - Yhtenäinen koodityyli varmistetaan `pylint`-työkalun avulla.
 
-
-[](src/images/Burndown_chart.jpg)
+<img src=".src/images/Burndown_chart.jpg/>
