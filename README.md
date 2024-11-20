@@ -16,4 +16,18 @@
 
 ## Käyttöohje
 
-- Tähän tulee ohjelman asennus- ja käyttöohje
+- Kloonaa repositorio haluamaasi paikkaan
+- Lisää kantaan .env tiedosto sisältäen seuraavat tiedot:
+```
+DATABASE_URL=
+```
+- Pyöritä komentorivillä komennot:
+```
+poetry install
+poetry shell
+```
+- Tämän jälkeen ohjelma on käynnistettävissä komennolla:
+```
+python src/index.py
+```
+- Ohjelma aukeaa automaattisesti localhost osoitteseen, eli 127.0.0.1:5001
