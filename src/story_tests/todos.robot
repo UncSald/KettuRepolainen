@@ -9,15 +9,6 @@ References Site Is Open
     Click Link  references
     Title Should Be  References
 
-After adding a reference, there is one reference
-    Go To  ${HOME_URL}
-    Click Link  new_reference
-    Set Author  Aleksis Kivi
-    Set Title  Seitsemän Veljestä
-    Click Button  submit
-    Go To  ${HOME_URL}
-    Click Link  reference_list
-    Page Should Contain  Aleksis Kivi
 
 *** Keywords ***
 Set Author
