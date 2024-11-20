@@ -13,3 +13,7 @@
   - Yhtenäinen koodityyli varmistetaan `pylint`-työkalun avulla.
 
 ![](./src/images/Burndown_chart.jpg)
+
+## Käyttöohje
+
+- Tähän tulee ohjelman asennus- ja käyttöohje
