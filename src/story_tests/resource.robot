@@ -6,6 +6,7 @@ ${SERVER}     localhost:5001
 ${DELAY}      0.5 seconds
 ${HOME_URL}   http://${SERVER}
 ${RESET_URL}  http://${SERVER}/reset_db
+${CREATE_URL}  http://${SERVER}/new_reference
 ${BROWSER}    chrome
 ${HEADLESS}   false
 
@@ -29,3 +30,9 @@ Reset Todos
 
 References Page Should Be Open
     Title Should Be  References
+
+New Reference Page Should Be Open
+    Title Should Be  Create a reference
+
+Go To New Reference Page
+    Go To  ${CREATE_URL}
