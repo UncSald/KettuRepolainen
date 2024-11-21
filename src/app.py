@@ -16,11 +16,6 @@ def new_reference():
  
 @app.route("/references", methods=["GET"])
 def references():
-    """
-    Fetches all references from the database and returns them as a JSON response.
-    Returns a 200 status with the references or a 500 status with an error message.
-    """
-
     refs = reference_dao.get_references()   # Fetch references from the repository
     return render_template("reference_list.html", references=refs)
 
@@ -28,15 +23,13 @@ def references():
 
 @app.route("/references", methods=["POST"])
 def create_new_reference():
+    datafields = ["name","author","title","journal","year",\
+                  "volume","number","pages","month","note",\
+                    "publisher","editor"]
     data = {}
-    data["name"] = request.form.get("name")
-    data["author"] = request.form.get("author")
-    data["title"] = request.form.get("title")
-    data["journal"] = request.form.get("journal")
-    data["year"] = request.form.get("year")
-    data["volume"] = request.form.get("volume")
-    data["number"] = request.form.get("number")
-    data["pages"] = request.form.get("pages")
+    for field in datafields:
+        input = None if request.form.get(field) == '' else request.form.get(field)
+        data[field] = input
 
     reference_dao.create_reference(data)
     return redirect("/")
