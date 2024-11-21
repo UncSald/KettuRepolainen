@@ -7,37 +7,97 @@ Create a reference
 {% block body %}
 
 <h1>Create a reference</h1>
-<form action="/references" method="post">
-    <input list="styles">
+<label>
+    <input id="result" type="radio" name="refTypeCheckbox" value="article" onclick="openForm()">Article</label>
+<label>
+    <input id="result" type="radio" name="refTypeCheckbox" value="book" onclick="openForm()">Book</label>
 
-    <datalist id="styles">
-        <option value="article">
-    </datalist>
-    <br>
-    <label for="name">Name:</label>
-    <input type="text" name="name">
-    <br>
-    <label for="author">Author:</label>
-    <input type="text" name="author">
-    <br>
-    <label for="title">Title:</label>
-    <input type="text" name="title">
-    <br>
-    <label for="journal">Journal:</label>
-    <input type="text" name="journal">
-    <br>
-    <label for="year">Year:</label>
-    <input type="text" name="year">
-    <br>
-    <label for="volume">Volume:</label>
-    <input type="text" name="volume">
-    <br>
-    <label for="number">Number:</label>
-    <input type="text" name="number">
-    <br>
-    <label for="pages">Pages:</label>
-    <input type="text" name="pages">
-    <button type="submit">submit</button>
-</form>
+<div>
+    <form action="/references" method="post" class="form-article" style="display: none">
+        <h2>Creating article type reference</h2>
+        <label for="name">Name:</label>
+        <input type="text" name="name">
+        <br>
+        <label for="author">Author:</label>
+        <input type="text" name="author">
+        <br>
+        <label for="title">Title:</label>
+        <input type="text" name="title">
+        <br>
+        <label for="journal">Journal:</label>
+        <input type="text" name="journal">
+        <br>
+        <label for="year">Year:</label>
+        <input type="text" name="year">
+        <br>
+        <label for="volume">Volume:</label>
+        <input type="text" name="volume">
+        <br>
+        <label for="number">Number:</label>
+        <input type="text" name="number">
+        <br>
+        <label for="pages">Pages:</label>
+        <input type="text" name="pages">
+        <br>
+        <label for="month">Month:</label>
+        <input type="text" name="month">
+        <br>
+        <label for="note">Note:</label>
+        <input type="text" name="note">
+        <button type="submit">submit</button>
+    </form>
+</div>
 
+<div>
+    <form action="/references" method="post" class="form-book" style="display: none">
+        <h2>Creating book type reference</h2>
+        <label for="name">Name:</label>
+        <input type="text" name="name">
+        <br>
+        <label for="author">Author:</label>
+        <input type="text" name="author">
+        <br>
+        <label for="editor">Editor:</label>
+        <input type="text" name="editor">
+        <br>
+        <label for="title">Title:</label>
+        <input type="text" name="title">
+        <br>
+        <label for="publisher">Publisher:</label>
+        <input type="text" name="publisher">
+        <br>
+        <label for="year">Year:</label>
+        <input type="text" name="year">
+        <br>
+        <label for="volume">Volume:</label>
+        <input type="text" name="volume">
+        <br>
+        <label for="number">Number:</label>
+        <input type="text" name="number">
+        <br>
+        <label for="pages">Pages:</label>
+        <input type="text" name="pages">
+        <br>
+        <label for="month">Month:</label>
+        <input type="text" name="month">
+        <br>
+        <label for="note">Note:</label>
+        <input type="text" name="note">
+        <button type="submit">submit</button>
+    </form>
+</div>
+
+<script>
+    function openForm() {
+        var type = document.getElementsByName('refTypeCheckbox');
+        for (i = 0; i < type.length; i++) {
+                if (type[i].checked)
+                    document.getElementById("result").innerHTML
+                        = document.querySelector('.form-'+type[i].value).style.display = 'block';
+                else
+                    document.getElementById("result").innerHTML
+                    = document.querySelector('.form-'+type[i].value).style.display = 'none';
+            }
+    }
+</script>
 {% endblock %}
