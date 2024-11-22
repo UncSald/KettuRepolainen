@@ -29,7 +29,10 @@ def setup_db():
             year INT NOT NULL,
             volume INT,
             number INT,
-            pages INT
+            pages INT,
+            howpublished TEXT,
+            month TEXT,
+            note TEXT
         )
     """)
     db.session.execute(sql)
@@ -48,6 +51,21 @@ def add_article_data(author, title, journal, year, volume, number, pages):
         'volume': volume,
         'number': number,
         'pages': pages
+    })
+    db.session.commit()
+
+def add_misc_data(author, title, howpublished, month, year, note): 
+    sql = text(
+        "INSERT INTO misc_data (author, title, howpublished, month, year, note) "
+        "VALUES (:author, :title, :howpublished, :month, :year, :note)"
+    )
+    db.session.execute(sql, {
+        'author': author,
+        'title': title,
+        'howpublished': howpublished,
+        'month':month,
+        'year': year,
+        'note': note
     })
     db.session.commit()
 
