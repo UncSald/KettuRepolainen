@@ -11,6 +11,8 @@ Create a reference
     <input id="result" type="radio" name="refTypeCheckbox" value="article" onclick="openForm()">Article</label>
 <label>
     <input id="result" type="radio" name="refTypeCheckbox" value="book" onclick="openForm()">Book</label>
+<label>
+    <input id="result" type="radio" name="refTypeCheckbox" value="misc" onclick="openForm()">Misc</label>
 
 <div>
     <form action="/references" method="post" class="form-article" style="display: none">
@@ -86,6 +88,34 @@ Create a reference
         <button type="submit">submit</button>
     </form>
 </div>
+
+<div>
+    <form action="/references" method="post" class="form-misc" style="display: none">
+        <h2>Creating misc type reference</h2>
+        <label for="name">Name:</label>
+        <input type="text" name="name">
+        <br>
+        <label for="author">Author:</label>
+        <input type="text" name="author">
+        <br>
+        <label for="title">Title:</label>
+        <input type="text" name="title">
+        <br>
+        <label for="howpublished">Howpublished:</label>
+        <input type="text" name="howpublished">
+        <br>
+        <label for="month">Month:</label>
+        <input type="text" name="month">
+        <br>
+        <label for="year">Year:</label>
+        <input type="text" name="year">
+        <br>
+        <label for="note">Note:</label>
+        <input type="text" name="note">
+        <button type="submit">submit</button>
+    </form>
+</div>
+
 
 <script>
     function openForm() {
