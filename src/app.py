@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 from daos.reference_dao import ReferenceDao
 from config import app, db
+from db_helper import reset_db
 
 reference_dao = ReferenceDao(db)
 
@@ -32,4 +33,10 @@ def create_new_reference():
         data[field] = input
 
     reference_dao.create_reference(data)
+    return redirect("/")
+
+
+@app.route("/reset_db")
+def reset_database():
+    reset_db()
     return redirect("/")

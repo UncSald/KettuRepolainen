@@ -5,7 +5,7 @@ def reset_db():
     tables = ["references"]
     for table_name in tables:
         print(f"Clearing contents from table {table_name}")
-        sql = text(f"TRUNCATE TABLE {table_name}")
+        sql = text(f"TRUNCATE TABLE \"references\";") # Täytyy muuttaa vastaamaan oikeaa tietokantapöytää lopuksi
         db.session.execute(sql)
     db.session.commit()
 

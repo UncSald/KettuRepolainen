@@ -2,6 +2,7 @@
 Resource  resource.robot
 Suite Setup      Open And Configure Browser
 Suite Teardown   Close Browser
+Test Setup       Reset Database
 
 *** Test Cases ***
 When article form is selected article form is shown
@@ -9,25 +10,11 @@ When article form is selected article form is shown
     Select Radio Button  refTypeCheckbox  article
     Page Should Contain  Creating article type reference
 
-When book form is selected book form is shown
-    Go To New Reference Page
-    Select Radio Button  refTypeCheckbox  book
-    Page Should Contain  Creating book type reference
-
-When book form is selected book form is shown
-    Go To New Reference Page
-    Select Radio Button  refTypeCheckbox  misc
-    Page Should Contain  Creating misc type reference
-
 When Article Is Submitted Page Should Redirect To Main
     Go To New Reference Page
     Select Radio Button  refTypeCheckbox  article
     Page Should Contain  Creating article type reference
-    Set Name  Referenssi 1
-    Set Author  Kirjoittaja
-    Set Title  Kirjoitus
-    Set Journal  Sanomalehti
-    Set Year  1999
+    Set ARticle Information
     Click Button  submit
     Main Page Should Be Open
 
@@ -35,12 +22,21 @@ When Posting Article Without Author Error Is shown
     Go To New Reference Page
     Select Radio Button  refTypeCheckbox  article
     Page Should Contain  Creating article type reference
-    Set Name  Referenssi 2
-    Set Title  Kirjoitus
-    Set Journal  Sanomalehti
-    Set Year  1999
+    Set Article Information
+    Clear Element Text  author
     Click Button  submit
     Page Should Contain  Author is required
+
+When Posting Article With Year As A String Error Is shown
+    Go To New Reference Page
+    Select Radio Button  refTypeCheckbox  article
+    Page Should Contain  Creating article type reference
+    Set Article Information
+    Clear Element Text  author
+    Clear Element  year
+    Set Year  kaksi
+    Click Button  submit
+    Page Should Contain  Year must be a number
     
 
 *** Keywords ***
@@ -63,3 +59,10 @@ Set Journal
 Set Year
     [Arguments]  ${year}
     Input Text  year  ${year}
+
+Set Article Information
+    Set Name  Referenssi 1
+    Set Author  Kirjoittaja
+    Set Title  Kirjoitus
+    Set Journal  Sanomalehti
+    Set Year  1999
