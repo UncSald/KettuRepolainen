@@ -28,6 +28,9 @@ Open And Configure Browser
 Reset Todos
     Go To  ${RESET_URL}
 
+Main Page Should Be Open
+    Title Should Be  Main
+
 References Page Should Be Open
     Title Should Be  References
 

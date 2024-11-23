@@ -1,19 +1,21 @@
 {% extends "layout.html" %}
 
 {% block title %}
-References
+Main
 {% endblock %}
 
 {% block body %}
 
-<h2>References</h2>
 
-<div>
-  <a href="/new_reference">Create new reference</a>
-</div>
 
-<div>
-  <a href="/references" name="references">All References</a>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <h2>References</h2>
+      <a href="/new_reference">Create new reference</a>
+      <a href="/references" name="references">All References</a>
+    </div>
+  </div>
 </div>
 
 {% endblock %}
