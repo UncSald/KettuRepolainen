@@ -14,26 +14,38 @@ References
 
 <ul>
   {% for reference in references %}
-    <li style="display: flex">
+    <li>
       <div>
-        @article({{ reference[1] }},
-        <br>
-        author: "{{ reference[2] }}",
-        <br>
-        title: "{{ reference[3] }}",
-        <br>
-        journal: "{{ reference[4] }}",
-        <br>
-        year: {{ reference[5] }},
-        <br>
-        volume: "{{ reference[6] }}",
-        <br>
-        number: "{{ reference[7] }}",
-        <br>
-        pages: "{{ reference[8] }}"
-        )
-      </div>
-    </li>
+        <!-- author:-->
+        {{ reference[2] }} 
+
+        <!--month:-->
+        ({% if reference[9] %}{{reference[9]}}{% endif %}
+        
+        <!--year-->
+        {{reference[5]}}), 
+        
+        <!--title-->
+        '{{ reference[3] }}'
+                
+        <!--journal-->
+        {% if reference[4] %}, <i>{{ reference[4] }}</i> {% endif %}
+        
+        <!--volume-->
+        {% if reference[6] %}, volume {{ reference[6] }}{% endif %}
+        
+        <!--number-->
+        {% if reference[7] %}, {{ reference[7] }} {% endif %} 
+        
+        <!--pages-->
+        {% if reference[8] %}, p.{{ reference[8] }} {% endif %} 
+         
+        <!--note-->
+        {% if reference[10] %}, {{ reference[10] }} {% endif %}
+
+        <!--howpublished-->
+        {% if reference[11] %}, howpublished{{ reference[11] }} {% endif %}.</div>
+      </li>
   {% endfor %}
 </ul>
 

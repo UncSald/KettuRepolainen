@@ -26,7 +26,7 @@ def references():
 def create_new_reference():
     datafields = ["name","author","title","journal","year",\
                   "volume","number","pages","month","note",\
-                    "publisher","editor"]
+                    "publisher","editor", "howpublished"]
     data = {}
     for field in datafields:
         input = None if request.form.get(field) == '' else request.form.get(field)

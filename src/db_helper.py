@@ -38,10 +38,10 @@ def setup_db():
     db.session.execute(sql)
     db.session.commit()
 
-def add_article_data(author, title, journal, year, volume, number, pages): 
+def add_article_data(author, title, journal, year, volume, number, pages, month, note): 
     sql = text(
-        "INSERT INTO article_data (author, title, journal, year, volume, number, pages) "
-        "VALUES (:author, :title, :journal, :year, :volume, :number, :pages)"
+        "INSERT INTO article_data (author, title, journal, year, volume, number, pages, month, note) "
+        "VALUES (:author, :title, :journal, :year, :volume, :number, :pages, :month, :note)"
     )
     db.session.execute(sql, {
         'author': author,
@@ -50,7 +50,9 @@ def add_article_data(author, title, journal, year, volume, number, pages):
         'year': year,
         'volume': volume,
         'number': number,
-        'pages': pages
+        'pages': pages,
+        'month': month, 
+        'note': note
     })
     db.session.commit()
 
