@@ -27,7 +27,7 @@ When Posting Book Without Publisher Error Is shown
     Set Book Information
     Clear Element Text  xpath=//form[@id='book']//input[@name='publisher']
     Click Book Submit
-    Page Should Contain  Publisher is required
+    Page Should Contain  Please fill out this field.
 
 When Posting Book Without Author Error Is shown
     Go To New Reference Page
