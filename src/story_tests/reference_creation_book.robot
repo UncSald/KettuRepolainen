@@ -12,11 +12,9 @@ When book form is selected book form is shown
 
 When Book Is Submitted Page Should Redirect To Main
     Go To New Reference Page
-    sleep  2s
     Select Radio Button  refTypeCheckbox  book
     Page Should Contain  Creating book type reference
     Set Book Information
-    sleep  2s
     Click Book Submit
     Main Page Should Be Open
 
@@ -66,7 +64,7 @@ Set Year
     Input Text  xpath=//form[@id='book']//input[@name='year']  ${year}
 
 Click Book Submit
-    Click Button  xpath=//form[@id='book']//button[@name='book_submit']
+    Click Element  book_submit
 
 Set Book Information
     Set Name  Referenssi 1
