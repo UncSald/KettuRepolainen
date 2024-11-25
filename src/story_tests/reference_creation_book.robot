@@ -12,9 +12,11 @@ When book form is selected book form is shown
 
 When Book Is Submitted Page Should Redirect To Main
     Go To New Reference Page
+    sleep  2s
     Select Radio Button  refTypeCheckbox  book
     Page Should Contain  Creating book type reference
     Set Book Information
+    sleep  2s
     Click Book Submit
     Main Page Should Be Open
 
