@@ -37,40 +37,7 @@ def setup_db():
     """)
     db.session.execute(sql)
     db.session.commit()
-
-def add_article_data(author, title, journal, year, volume, number, pages, month, note): 
-    sql = text(
-        "INSERT INTO article_data (author, title, journal, year, volume, number, pages, month, note) "
-        "VALUES (:author, :title, :journal, :year, :volume, :number, :pages, :month, :note)"
-    )
-    db.session.execute(sql, {
-        'author': author,
-        'title': title,
-        'journal': journal,
-        'year': year,
-        'volume': volume,
-        'number': number,
-        'pages': pages,
-        'month': month, 
-        'note': note
-    })
-    db.session.commit()
-
-def add_misc_data(author, title, howpublished, month, year, note): 
-    sql = text(
-        "INSERT INTO misc_data (author, title, howpublished, month, year, note) "
-        "VALUES (:author, :title, :howpublished, :month, :year, :note)"
-    )
-    db.session.execute(sql, {
-        'author': author,
-        'title': title,
-        'howpublished': howpublished,
-        'month':month,
-        'year': year,
-        'note': note
-    })
-    db.session.commit()
-
+    
 if __name__ == "__main__":
     with app.app_context():
         setup_db()
