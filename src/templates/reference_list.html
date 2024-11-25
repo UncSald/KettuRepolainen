@@ -11,6 +11,10 @@ References
       <div class="col-8">
 <h2>References</h2>
 
+{% if not view_as_bibtex %}
+<form action="/change_list_format" method="post">
+  <input type="submit" value="View in BibTex format" />
+</form>
 
 <ul>
   {% for reference in references %}
@@ -60,6 +64,14 @@ References
   <br>
   {% endfor %}
 </ul>
+
+{% else %}
+<form action="/change_list_format" method="post">
+  <input type="submit" value="View in normal format" />
+</form>
+
+{% endif %}
+
 
 </div>
 </div>

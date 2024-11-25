@@ -18,9 +18,13 @@ def new_reference():
 @app.route("/references", methods=["GET"])
 def references():
     refs = reference_dao.get_references()   # Fetch references from the repository
-    return render_template("reference_list.html", references=refs)
+    view_as_bibtex = reference_dao.get_reference_view_format()
+    return render_template("reference_list.html", references=refs, view_as_bibtex=view_as_bibtex)
 
-
+@app.route("/change_list_format", methods=["POST"])
+def set_bibtext_format():
+    reference_dao.change_reference_view_format()
+    return redirect("/references")
 
 @app.route("/references", methods=["POST"])
 def create_new_reference():
