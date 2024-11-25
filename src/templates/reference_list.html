@@ -18,6 +18,49 @@ References
 
 <ul>
   {% for reference in references %}
+    <li>
+      <div>
+        <!-- author:-->
+        {{ reference[2] }} 
+
+        <!--month:-->
+        ({% if reference[9] %}{{reference[9]}}{% endif %}
+        
+        <!--year-->
+        {{reference[5]}}), 
+        
+        <!--title-->
+        '{{ reference[3] }}'
+                
+        <!--journal-->
+        {% if reference[4] %}, <i>{{ reference[4] }}</i> {% endif %}
+        
+        <!--volume-->
+        {% if reference[6] %}, volume {{ reference[6] }}{% endif %}
+        
+        <!--number-->
+        {% if reference[7] %}, {{ reference[7] }} {% endif %} 
+        
+        <!--pages-->
+        {% if reference[8] %}, p.{{ reference[8] }} {% endif %} 
+         
+        <!--note-->
+        {% if reference[10] %}, {{ reference[10] }} {% endif %}
+
+        <!--howpublished-->
+        {% if reference[11] %}, howpublished{{ reference[11] }} {% endif %}.
+      </div>
+    </li>  
+  {% endfor %}
+</ul>
+
+{% else %}
+<form action="/change_list_format" method="post">
+  <input type="submit" value="View in normal format" />
+</form>
+
+<ul>
+  {% for reference in references %}
       <div>
         @{{reference[1]}}&#123;{{reference[2]}},
         
@@ -60,15 +103,12 @@ References
         <!--publisher-->
         {% if reference[14] %},<br>publisher = &#123;{{ reference[14] }}&#125;{% endif %}
         <br>
-        &#125;</div>
-  <br>
+        &#125;
+      </div>
+    <br>
   {% endfor %}
 </ul>
 
-{% else %}
-<form action="/change_list_format" method="post">
-  <input type="submit" value="View in normal format" />
-</form>
 
 {% endif %}
 

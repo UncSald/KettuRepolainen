@@ -8,7 +8,6 @@ class ReferenceDao:
 
     def change_reference_view_format(self):
         self.___references_in_bibtex_form = not self.___references_in_bibtex_form
-        print("after change", self.___references_in_bibtex_form)
 
     def get_reference_view_format(self):
         return self.___references_in_bibtex_form
