@@ -15,7 +15,7 @@ When Article Is Submitted Page Should Redirect To Main
     Select Radio Button  refTypeCheckbox  article
     Page Should Contain  Creating article type reference
     Set Article Information
-    Wheel Down  1000
+    Scroll Element Into View  article_submit
     Click Article Submit
     Main Page Should Be Open
 
