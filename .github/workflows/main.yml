@@ -1,7 +1,8 @@
 name: CI
 
 env:
-  DATABASE_URL: ${{ database_env.DATABASE_URL }}
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
+  
 
 on:
   push:
