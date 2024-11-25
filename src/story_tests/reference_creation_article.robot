@@ -25,7 +25,7 @@ When Posting Article Without Author Error Is shown
     Set Article Information
     Clear Element Text  author
     Click Button  submit
-    Page Should Contain  Author is required
+    Page Should Contain  Please fill out this field.
 
 When Posting Article With Year As A String Error Is shown
     Go To New Reference Page
