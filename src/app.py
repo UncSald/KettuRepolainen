@@ -1,5 +1,5 @@
-from flask import redirect, render_template, request, jsonify, flash
-from flask_sqlalchemy import SQLAlchemy
+from flask import redirect, render_template, request #jsonify, flash
+#from flask_sqlalchemy import SQLAlchemy
 
 from daos.reference_dao import ReferenceDao
 from config import app, db
@@ -14,7 +14,7 @@ def index():
 @app.route("/new_reference")
 def new_reference():
     return render_template("/new_reference.html")
- 
+
 @app.route("/references", methods=["GET"])
 def references():
     refs = reference_dao.get_references()   # Fetch references from the repository

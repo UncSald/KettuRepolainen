@@ -1,5 +1,5 @@
-import psycopg2
 from os import getenv
+import psycopg2
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -7,7 +7,7 @@ load_dotenv()
 def main():
 
     database_url = getenv("DATABASE_URL")
-    
+
     conn = psycopg2.connect(database_url, sslmode='require')
     cur = conn.cursor()
 

@@ -1,11 +1,12 @@
-from app import app, db
 from sqlalchemy import text
+from config import db
+
 
 def reset_db():
     tables = ["references"]
     for table_name in tables:
         print(f"Clearing contents from table {table_name}")
-        sql = text(f"TRUNCATE TABLE \"references\";") # Täytyy muuttaa vastaamaan oikeaa tietokantapöytää lopuksi
+        sql = text("TRUNCATE TABLE \"references\";")
         db.session.execute(sql)
     db.session.commit()
 
@@ -39,7 +40,3 @@ def setup_db():
     """)
     db.session.execute(sql)
     db.session.commit()
-    
-if __name__ == "__main__":
-    with app.app_context():
-        setup_db()

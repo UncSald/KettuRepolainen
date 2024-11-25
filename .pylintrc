@@ -1,0 +1,28 @@
+[MASTER]
+
+ignore=tests
+
+[MESSAGE CONTROL]
+
+disable=raw-checker-failed,
+        bad-inline-option,
+        locally-disabled,
+        file-ignored,
+        suppressed-message,
+        useless-suppression,
+        deprecated-pragma,
+        use-symbolic-message-instead,
+        missing-module-docstring,
+        missing-function-docstring,
+        missing-class-docstring,
+	too-few-public-methods
+
+[FORMAT]
+
+[REFACTORING]
+
+[DESIGN]
+
+max-args = 10
+max-positional-arguments = 10
+exclude-too-few-public-methods = 1
