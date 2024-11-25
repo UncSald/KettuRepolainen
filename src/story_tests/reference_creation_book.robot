@@ -64,7 +64,7 @@ Set Year
     Input Text  xpath=//form[@id='book']//input[@name='year']  ${year}
 
 Click Book Submit
-    Click Element  book_submit
+    Click Button  book_submit
 
 Set Book Information
     Set Name  Referenssi 1

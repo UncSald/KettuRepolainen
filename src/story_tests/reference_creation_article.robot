@@ -15,7 +15,7 @@ When Article Is Submitted Page Should Redirect To Main
     Select Radio Button  refTypeCheckbox  article
     Page Should Contain  Creating article type reference
     Set ARticle Information
-    Click Button  submit
+    Click Article Submit
     Main Page Should Be Open
 
 When Posting Article Without Author Error Is shown
@@ -24,7 +24,7 @@ When Posting Article Without Author Error Is shown
     Page Should Contain  Creating article type reference
     Set Article Information
     Clear Element Text  author
-    Click Button  submit
+    Click Article Submit
     Page Should Contain  Please fill out this field.
 
 When Posting Article With Year As A String Error Is shown
@@ -35,7 +35,7 @@ When Posting Article With Year As A String Error Is shown
     Clear Element Text  author
     Clear Element  year
     Set Year  kaksi
-    Click Button  submit
+    Click Article Submit
     Page Should Contain  Year must be a number
     
 
@@ -59,6 +59,9 @@ Set Journal
 Set Year
     [Arguments]  ${year}
     Input Text  year  ${year}
+
+Click Article Submit
+    Click Button  article_submit
 
 Set Article Information
     Set Name  Referenssi 1

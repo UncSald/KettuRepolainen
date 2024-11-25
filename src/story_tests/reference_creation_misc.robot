@@ -40,7 +40,7 @@ Set Year
     Input Text  xpath=//form[@id='misc']//input[@name='year']  ${year}
 
 Click Misc Submit
-    Click Button  xpath=//form[@id='misc']//button[@type='submit']
+    Click Button  misc_submit
 
 Set Misc Information
     Set Name  Referenssi 1
