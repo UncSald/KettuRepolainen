@@ -26,34 +26,34 @@ Create a reference
             <form action="/references" method="post" class="form-article" style="display: none" id="article">
                 <h2>Creating article type reference</h2>
                 <label for="name">Name:</label>
-                <input type="text" name="name">
+                <input type="text" name="name" minlength="2" maxlength="30" required>
                 <br>
                 <label for="author">Author:</label>
-                <input type="text" name="author">
+                <input type="text" name="author" minlength="2" maxlength="30" required>
                 <br>
                 <label for="title">Title:</label>
-                <input type="text" name="title">
+                <input type="text" name="title" minlength="2" maxlength="70" required>
                 <br>
                 <label for="journal">Journal:</label>
-                <input type="text" name="journal">
+                <input type="text" name="journal" minlength="2" maxlength="70" required>
                 <br>
                 <label for="year">Year:</label>
-                <input type="text" name="year">
+                <input type="number" name="year" max="9999" required>
                 <br>
                 <label for="volume">Volume:</label>
-                <input type="text" name="volume">
+                <input type="number" name="volume" max="50">
                 <br>
                 <label for="number">Number:</label>
-                <input type="text" name="number">
+                <input type="number" name="number" max="50">
                 <br>
                 <label for="pages">Pages:</label>
-                <input type="text" name="pages">
+                <input type="number" name="pages" min="1" max="20">
                 <br>
                 <label for="month">Month:</label>
-                <input type="text" name="month">
+                <input type="number" name="month" min="1" max="12">
                 <br>
                 <label for="note">Note:</label>
-                <input type="text" name="note">
+                <input type="text" name="note" maxlength="100">
                 <br>
                 <button type="submit">submit</button>
             </form>
@@ -67,37 +67,37 @@ Create a reference
             <form action="/references" method="post" class="form-book" style="display: none" id="book">
                 <h2>Creating book type reference</h2>
                 <label for="name">Name:</label>
-                <input type="text" name="name">
+                <input type="text" name="name" minlength="2" maxlength="30" required>
                 <br>
                 <label for="author">Author:</label>
-                <input type="text" name="author">
+                <input type="text" name="author" minlength="2" maxlength="30" required>
                 <br>
                 <label for="editor">Editor:</label>
-                <input type="text" name="editor">
+                <input type="text" name="editor" minlength="2" maxlength="30" required>
                 <br>
                 <label for="title">Title:</label>
-                <input type="text" name="title">
+                <input type="text" name="title" minlength="2" maxlength="70" required>
                 <br>
-                <label for="publisher">Publisher:</label>
-                <input type="text" name="publisher">
+                <label for="journal">Publisher:</label>
+                <input type="text" name="publisher" minlength="2" maxlength="70" required>
                 <br>
                 <label for="year">Year:</label>
-                <input type="text" name="year">
+                <input type="number" name="year" max="9999" required>
                 <br>
                 <label for="volume">Volume:</label>
-                <input type="text" name="volume">
+                <input type="number" name="volume" max="50">
                 <br>
                 <label for="number">Number:</label>
-                <input type="text" name="number">
+                <input type="number" name="number" max="50">
                 <br>
                 <label for="pages">Pages:</label>
-                <input type="text" name="pages">
+                <input type="number" name="pages" min="1" max="20">
                 <br>
                 <label for="month">Month:</label>
-                <input type="text" name="month">
+                <input type="number" name="month" min="1" max="12">
                 <br>
                 <label for="note">Note:</label>
-                <input type="text" name="note">
+                <input type="text" name="note" maxlength="100">
                 <br>
                 <button type="submit" name="book_submit">submit</button>
             </form>
@@ -111,25 +111,25 @@ Create a reference
             <form action="/references" method="post" class="form-misc" style="display: none" id="misc">
                 <h2>Creating misc type reference</h2>
                 <label for="name">Name:</label>
-                <input type="text" name="name">
+                <input type="text" name="name" minlength="2" maxlength="30" required>
                 <br>
                 <label for="author">Author:</label>
-                <input type="text" name="author">
+                <input type="text" name="author" minlength="2" maxlength="30" required>
                 <br>
                 <label for="title">Title:</label>
-                <input type="text" name="title">
+                <input type="text" name="title" minlength="2" maxlength="70" required>
                 <br>
                 <label for="howpublished">Howpublished:</label>
-                <input type="text" name="howpublished">
+                <input type="text" name="howpublished" minlength="2" maxlength="30">
                 <br>
                 <label for="month">Month:</label>
-                <input type="text" name="month">
+                <input type="number" name="month" min="1" max="12">
                 <br>
                 <label for="year">Year:</label>
-                <input type="text" name="year">
+                <input type="number" name="year" max="9999" required>
                 <br>
                 <label for="note">Note:</label>
-                <input type="text" name="note">
+                <input type="text" name="note" maxlength="100">
                 <br>
                 <button type="submit">submit</button>
             </form>
