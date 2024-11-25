@@ -15,6 +15,7 @@ When Book Is Submitted Page Should Redirect To Main
     Select Radio Button  refTypeCheckbox  book
     Page Should Contain  Creating book type reference
     Set Book Information
+    Scroll Element Into View  book_submit
     Click Book Submit
     Main Page Should Be Open
 
@@ -24,6 +25,7 @@ When Posting Book Without Publisher Error Is shown
     Page Should Contain  Creating book type reference
     Set Book Information
     Clear Element Text  xpath=//form[@id='book']//input[@name='publisher']
+    Scroll Element Into View  book_submit
     Click Book Submit
     Page Should Contain  Please fill out this field.
 
@@ -34,6 +36,7 @@ When Posting Book Without Author Error Is shown
     Set Book Information
     Clear Element Text  xpath=//form[@id='book']//input[@name='year']
     Set Year  kaksi
+    Scroll Element Into View  book_submit
     Click Book Submit
     Page Should Contain  Year must be a number
     

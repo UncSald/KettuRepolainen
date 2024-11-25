@@ -15,6 +15,7 @@ When Misc Is Submitted Page Should Redirect To Main
     Select Radio Button  refTypeCheckbox  misc
     Page Should Contain  Creating misc type reference
     Set Misc Information
+    Scroll Element Into View  misc_submit
     Click Misc Submit
     Main Page Should Be Open
 

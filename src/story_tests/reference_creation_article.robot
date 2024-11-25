@@ -25,6 +25,7 @@ When Posting Article Without Author Error Is shown
     Page Should Contain  Creating article type reference
     Set Article Information
     Clear Element Text  author
+    Scroll Element Into View  article_submit
     Click Article Submit
     Page Should Contain  Please fill out this field.
 
@@ -36,6 +37,7 @@ When Posting Article With Year As A String Error Is shown
     Clear Element Text  author
     Clear Element  year
     Set Year  kaksi
+    Scroll Element Into View  article_submit
     Click Article Submit
     Page Should Contain  Year must be a number
     
