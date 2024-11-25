@@ -29,8 +29,8 @@ def create_new_reference():
                     "publisher","editor", "howpublished"]
     data = {}
     for field in datafields:
-        input = None if request.form.get(field) == '' else request.form.get(field)
-        data[field] = input
+        field_data = None if request.form.get(field) == '' else request.form.get(field)
+        data[field] = field_data
 
     reference_dao.create_reference(data)
     return redirect("/")
