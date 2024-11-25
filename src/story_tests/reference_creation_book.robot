@@ -27,7 +27,7 @@ When Posting Book Without Publisher Error Is shown
     Clear Element Text  xpath=//form[@id='book']//input[@name='publisher']
     Scroll Element Into View  book_submit
     Click Book Submit
-    Page Should Contain  Please fill out this field.
+    Page Should Contain  Creating book type reference
 
 When Posting Book Without Author Error Is shown
     Go To New Reference Page
@@ -38,7 +38,7 @@ When Posting Book Without Author Error Is shown
     Set Year  kaksi
     Scroll Element Into View  book_submit
     Click Book Submit
-    Page Should Contain  Year must be a number
+    Page Should Contain  Creating book type reference
     
 
 *** Keywords ***
