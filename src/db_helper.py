@@ -32,7 +32,9 @@ def setup_db():
             pages INT,
             howpublished TEXT,
             month TEXT,
-            note TEXT
+            note TEXT,
+            editor TEXT,
+            publisher TEXT
         )
     """)
     db.session.execute(sql)

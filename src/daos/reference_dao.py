@@ -17,16 +17,17 @@ class ReferenceDao:
 
         sql = text("""
             INSERT INTO \"references\" (
-                name,author,title,journal,year,volume,number,pages, month, note, howpublished
+                type,name,author,title,journal,year,volume,number,pages, month, note, howpublished, editor, publisher
             )                
             VALUES (
-                :name, :author, :title, :journal,:year,:volume,:number,:pages, :month, :note, :howpublished
+                :type, :name, :author, :title, :journal,:year,:volume,:number,:pages, :month, :note, :howpublished, :editor, :publisher
             )
         """)
 
         self.__db.session.execute(
             sql,
             {
+                "type":data["type"],
                 "name":data["name"],
                 "author":data["author"],
                 "title":data["title"],
@@ -37,7 +38,9 @@ class ReferenceDao:
                 "pages":data["pages"],
                 "month":data["month"],
                 "note":data["note"],
-                "howpublished":data["howpublished"]
+                "howpublished":data["howpublished"],
+                "editor":data["editor"],
+                "publisher":data["publisher"]
             }
         )
         self.__db.session.commit()
@@ -50,7 +53,7 @@ class ReferenceDao:
         """
         sql = text("""
             SELECT 
-                id, name, author, title, journal, year, volume, number, pages, month, note, howpublished
+                id, type, name, author, title, journal, year, volume, number, pages, month, note, howpublished, editor, publisher
             FROM 
                 \"references\"
         """)

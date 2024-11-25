@@ -24,9 +24,9 @@ def references():
 
 @app.route("/references", methods=["POST"])
 def create_new_reference():
-    datafields = ["name","author","title","journal","year",\
+    datafields = ["type", "name","author","title","journal","year",\
                   "volume","number","pages","month","note",\
-                    "publisher","editor", "howpublished"]
+                    "howpublished","publisher","editor"]
     data = {}
     for field in datafields:
         field_data = None if request.form.get(field) == '' else request.form.get(field)

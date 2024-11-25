@@ -25,6 +25,7 @@ Create a reference
         <div class="col-8">
             <form action="/references" method="post" class="form-article" style="display: none" id="article">
                 <h2>Creating article type reference</h2>
+                <input type="hidden" name="type" value="article">
                 <label for="name">Name:</label>
                 <input type="text" name="name" minlength="2" maxlength="30" required>
                 <br>
@@ -66,6 +67,7 @@ Create a reference
         <div class="col-8">
             <form action="/references" method="post" class="form-book" style="display: none" id="book">
                 <h2>Creating book type reference</h2>
+                <input type="hidden" name="type" value="book">
                 <label for="name">Name:</label>
                 <input type="text" name="name" minlength="2" maxlength="30" required>
                 <br>
@@ -110,6 +112,7 @@ Create a reference
         <div class="col-8">
             <form action="/references" method="post" class="form-misc" style="display: none" id="misc">
                 <h2>Creating misc type reference</h2>
+                <input type="hidden" name="type" value="misc">
                 <label for="name">Name:</label>
                 <input type="text" name="name" minlength="2" maxlength="30" required>
                 <br>

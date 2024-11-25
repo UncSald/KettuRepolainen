@@ -14,38 +14,50 @@ References
 
 <ul>
   {% for reference in references %}
-    <li>
       <div>
+        @{{reference[1]}}&#123;{{reference[2]}},
+        
+        <br>
         <!-- author:-->
-        {{ reference[2] }} 
-
-        <!--month:-->
-        ({% if reference[9] %}{{reference[9]}}{% endif %}
+        author = &#123;{{ reference[3] }}&#125;,
         
-        <!--year-->
-        {{reference[5]}}), 
-        
+        <br>
         <!--title-->
-        '{{ reference[3] }}'
-                
+        title = &#123;{{ reference[4] }}&#125;,
+
         <!--journal-->
-        {% if reference[4] %}, <i>{{ reference[4] }}</i> {% endif %}
+        {% if reference[5] %}<br>journal = &#123;{{ reference[5] }}&#125;, {% endif %}
+
+        <br>
+        <!--year-->
+        year = &#123;{{reference[6]}}&#125;
         
         <!--volume-->
-        {% if reference[6] %}, volume {{ reference[6] }}{% endif %}
+        {% if reference[7] %},<br>volume = &#123;{{ reference[7] }}&#125;{% endif %}
         
         <!--number-->
-        {% if reference[7] %}, {{ reference[7] }} {% endif %} 
+        {% if reference[8] %},<br>number = &#123;{{ reference[8] }}&#125;{% endif %} 
         
         <!--pages-->
-        {% if reference[8] %}, p.{{ reference[8] }} {% endif %} 
-         
+        {% if reference[9] %},<br>pages = &#123;{{ reference[9] }}&#125;{% endif %} 
+
+        <!--month:-->
+        {% if reference[10] %},<br>month = &#123;{{reference[10]}}&#125;{% endif %}
+        
         <!--note-->
-        {% if reference[10] %}, {{ reference[10] }} {% endif %}
+        {% if reference[11] %},<br>note = &#123;{{ reference[11] }}&#125;{% endif %}
 
         <!--howpublished-->
-        {% if reference[11] %}, howpublished{{ reference[11] }} {% endif %}.</div>
-      </li>
+        {% if reference[12] %},<br>howpublished = &#123;{{ reference[12] }}&#125;{% endif %}
+  
+        <!--editor-->
+        {% if reference[13] %},<br>editor = &#123;{{ reference[13] }}&#125;{% endif %}
+
+        <!--publisher-->
+        {% if reference[14] %},<br>publisher = &#123;{{ reference[14] }}&#125;{% endif %}
+        <br>
+        &#125;</div>
+  <br>
   {% endfor %}
 </ul>
 
