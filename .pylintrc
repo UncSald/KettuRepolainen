@@ -23,6 +23,3 @@ disable=raw-checker-failed,
 
 [DESIGN]
 
-max-args = 10
-max-positional-arguments = 10
-exclude-too-few-public-methods = 1
