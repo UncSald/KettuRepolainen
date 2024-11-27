@@ -35,8 +35,8 @@ References
         {% endif %}
         
         <!--title-->
-        '{{ reference[4] }}'
-                
+        '{{reference[4]}}'
+        
         <!--journal-->
         {% if reference[5] %}, <i>{{ reference[5] }}</i>{% endif %}
         
@@ -44,24 +44,25 @@ References
         {% if reference[7] %}, volume {{ reference[7] }}{% endif %}
         
         <!--number-->
-        {% if reference[8] %}, {{ reference[8] }} {% endif %} 
+        {% if reference[8] %}, number {{ reference[8] }}{% endif %} 
         
         <!--pages-->
-        {% if reference[9] %}, p. {{ reference[9] }} {% endif %} 
+        {% if reference[9] %}, p. {{ reference[9] }}{% endif %} 
          
         <!--note-->
-        {% if reference[11] %}, {{ reference[11] }} {% endif %}
+        {% if reference[11] %}, note: {{ reference[11] }}{% endif %}
 
         <!--howpublished-->
-        {% if reference[12] %}, {{ reference[12] }} {% endif %}
+        {% if reference[12] %}, {{ reference[12] }}{% endif %}
         
         <!--editor-->
-        {% if reference[13] %}, {{ reference[13] }} {% endif %}
+        {% if reference[13] %}, {{ reference[13] }}{% endif %}
 
         <!--publisher-->
-        {% if reference[14] %}, {{ reference[14] }} {% endif %}.
+        {% if reference[14] %}, {{ reference[14] }}{% endif %}
       </div>
     </li>  
+    <br>
   {% endfor %}
 </ul>
 
