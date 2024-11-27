@@ -1,5 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text
+from ref_enum import Reference
 
 class ReferenceDao:
     def __init__(self, db_connection: SQLAlchemy):
@@ -67,3 +68,34 @@ class ReferenceDao:
         result = self.__db.session.execute(sql).fetchall()
 
         return result
+    def return_references_in_bibtex_form(self):
+        references = self.get_references()
+        bibtex_data = ""
+        for ref in references:
+            ref_data = f"@{ref[Reference.TYPE.value]}""{"f"{ref[Reference.NAME.value]}"
+            if ref[Reference.AUTHOR.value]:
+                ref_data += f',\n  author       = "{ref[Reference.AUTHOR.value]}"'
+            if ref[Reference.TITLE.value]:
+                ref_data += f',\n  title        = "{ref[Reference.TITLE.value]}"'
+            if ref[Reference.JOURNAL.value]:
+                ref_data += f',\n  journal      = "{ref[Reference.JOURNAL.value]}"'
+            if ref[Reference.YEAR.value]:
+                ref_data += f',\n  year         = {ref[Reference.YEAR.value]}'
+            if ref[Reference.VOLUME.value]:
+                ref_data += f',\n  volume       = "{ref[Reference.VOLUME.value]}"'
+            if ref[Reference.NUMBER.value]:
+                ref_data += f',\n  number       = "{ref[Reference.NUMBER.value]}"'
+            if ref[Reference.PAGES.value]:
+                ref_data += f',\n  pages        = "{ref[Reference.PAGES.value]}"'
+            if ref[Reference.MONTH.value]:
+                ref_data += f',\n  month        = "{ref[Reference.MONTH.value]}"'
+            if ref[Reference.NOTE.value]:
+                ref_data += f',\n  note         = "{ref[Reference.NOTE.value]}"'
+            if ref[Reference.HOWPUBLISHED.value]:
+                ref_data += f',\n  howpublished = "{ref[Reference.HOWPUBLISHED.value]}"'
+            if ref[Reference.EDITOR.value]:
+                ref_data += f',\n  editor       = "{ref[Reference.EDITOR.value]}"'
+            if ref[Reference.PUBLISHER.value]:
+                ref_data += f',\n  publisher    = "{ref[Reference.PUBLISHER.value]}"'
+            bibtex_data += ref_data+"\n}\n\n"
+        return bibtex_data

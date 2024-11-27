@@ -4,7 +4,7 @@ from flask import redirect, render_template, request, flash, Response
 from daos.reference_dao import ReferenceDao
 from config import app, db
 from db_helper import reset_db
-from ref_enum import Reference
+
 
 reference_dao = ReferenceDao(db)
 
@@ -48,13 +48,7 @@ def reset_database():
 
 @app.route("/export_bibtex")
 def export_bibtex():
-    references = reference_dao.get_references()
-    bibtex_data = ""
-    for ref in references:
-        ref_data = f"@{ref[Reference.TYPE.value]}{ref[Reference.NAME.value]}\n"
-        if ref[Reference.AUTHOR.value]:
-            ref_data += f"  {ref[Reference.AUTHOR.value]}"
-        bibtex_data += ref_data
+    bibtex_print = reference_dao.return_references_in_bibtex_form()
 
-    return bibtex_data
+    return bibtex_print
 
