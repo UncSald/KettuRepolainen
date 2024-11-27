@@ -21,34 +21,45 @@ References
     <li>
       <div>
         <!-- author:-->
-        {{ reference[2] }} 
-
-        <!--month:-->
-        ({% if reference[9] %}{{reference[9]}}{% endif %}
+        {{ reference[3] }}.
         
-        <!--year-->
-        {{reference[5]}}), 
+        {% if reference[10] %}
+
+        <!--month and year-->
+        ({{reference[10]}} {{reference[6]}}),
+
+        <!--just year-->
+        {% else %}
+        ({{reference[6]}}), 
+
+        {% endif %}
         
         <!--title-->
-        '{{ reference[3] }}'
+        '{{ reference[4] }}'
                 
         <!--journal-->
-        {% if reference[4] %}, <i>{{ reference[4] }}</i> {% endif %}
+        {% if reference[5] %}, <i>{{ reference[5] }}</i>{% endif %}
         
         <!--volume-->
-        {% if reference[6] %}, volume {{ reference[6] }}{% endif %}
+        {% if reference[7] %}, volume {{ reference[7] }}{% endif %}
         
         <!--number-->
-        {% if reference[7] %}, {{ reference[7] }} {% endif %} 
+        {% if reference[8] %}, {{ reference[8] }} {% endif %} 
         
         <!--pages-->
-        {% if reference[8] %}, p.{{ reference[8] }} {% endif %} 
+        {% if reference[9] %}, p. {{ reference[9] }} {% endif %} 
          
         <!--note-->
-        {% if reference[10] %}, {{ reference[10] }} {% endif %}
+        {% if reference[11] %}, {{ reference[11] }} {% endif %}
 
         <!--howpublished-->
-        {% if reference[11] %}, howpublished{{ reference[11] }} {% endif %}.
+        {% if reference[12] %}, {{ reference[12] }} {% endif %}
+        
+        <!--editor-->
+        {% if reference[13] %}, {{ reference[13] }} {% endif %}
+
+        <!--publisher-->
+        {% if reference[14] %}, {{ reference[14] }} {% endif %}.
       </div>
     </li>  
   {% endfor %}

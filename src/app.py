@@ -30,7 +30,7 @@ def set_bibtext_format():
 def create_new_reference():
     datafields = ["type", "name","author","title","journal","year",\
                   "volume","number","pages","month","note",\
-                    "howpublished","publisher","editor"]
+                    "howpublished","editor", "publisher"]
     data = {}
     for field in datafields:
         field_data = None if request.form.get(field) == '' else request.form.get(field)
