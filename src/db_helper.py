@@ -1,6 +1,5 @@
 from sqlalchemy import text
 from config import db
-from app import app
 
 
 def reset_db():
@@ -41,7 +40,3 @@ def setup_db():
     """)
     db.session.execute(sql)
     db.session.commit()
-
-if __name__ == "__main__":
-    with app.app_context():
-        setup_db()
