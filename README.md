@@ -1,6 +1,6 @@
 ## Kettu Repolainen
 
-![GHA workflow badge](https://github.com/UncSald/KettuRepolainen/.github/workflows/CI/badge.svg)
+![GHA workflow badge](https://github.com/UncSald/KettuRepolainen/workflows/CI/badge.svg)
 
 [Product backlog](https://github.com/users/UncSald/projects/2)
 
