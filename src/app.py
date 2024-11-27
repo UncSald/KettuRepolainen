@@ -1,9 +1,10 @@
-from flask import redirect, render_template, request #jsonify, flash
+from flask import redirect, render_template, request, flash, Response
 #from flask_sqlalchemy import SQLAlchemy
 
 from daos.reference_dao import ReferenceDao
 from config import app, db
 from db_helper import reset_db
+
 
 reference_dao = ReferenceDao(db)
 
@@ -44,3 +45,10 @@ def create_new_reference():
 def reset_database():
     reset_db()
     return redirect("/")
+
+@app.route("/export_bibtex")
+def export_bibtex():
+    bibtex_print = reference_dao.return_references_in_bibtex_form()
+
+    return bibtex_print
+
