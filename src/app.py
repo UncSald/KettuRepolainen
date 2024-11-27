@@ -1,9 +1,10 @@
-from flask import redirect, render_template, request #jsonify, flash
+from flask import redirect, render_template, request, flash, Response
 #from flask_sqlalchemy import SQLAlchemy
 
 from daos.reference_dao import ReferenceDao
 from config import app, db
 from db_helper import reset_db
+from ref_enum import Reference
 
 reference_dao = ReferenceDao(db)
 
@@ -47,61 +48,13 @@ def reset_database():
 
 @app.route("/export_bibtex")
 def export_bibtex():
-    try:
-        references = reference_dao.get_references()
+    references = reference_dao.get_references()
+    bibtex_data = ""
+    for ref in references:
+        ref_data = f"@{ref[Reference.TYPE.value]}{ref[Reference.NAME.value]}\n"
+        if ref[Reference.AUTHOR.value]:
+            ref_data += f"  {ref[Reference.AUTHOR.value]}"
+        bibtex_data += ref_data
 
-        bibtex_data = ""
-        for ref in references:
-            ref_type = ref.get("type", "misc")
-            if ref_type == "article":
-                bibtex_entry = f"""
-                @article{{{ref["year"]}{ref["name"]},
-                  author = {{{ref["author"]}}},
-                  title = {{{ref["title"]}}},
-                  journal = {{{ref["journal"]}}},
-                  year = {{{ref["year"]}}},
-                  volume = {{{ref["volume"]}}},
-                  number = {{{ref["number"]}}},
-                  pages = {{{ref["pages"]}}},
-                  month = {{{ref["month"]}}},
-                  note = {{{ref["note"]}}}
-                }}
-                """
-            elif ref_type == "book":
-                bibtex_entry = f"""
-                @book{{{ref["year"]}{ref["name"]},
-                  author = {{{ref["author"]}}},
-                  editor = {{{ref["editor"]}}},
-                  title = {{{ref["title"]}}},
-                  publisher = {{{ref["publisher"]}}},
-                  year = {{{ref["year"]}}},
-                  volume = {{{ref["volume"]}}},
-                  number = {{{ref["number"]}}},
-                  pages = {{{ref["pages"]}}},
-                  month = {{{ref["month"]}}},
-                  note = {{{ref["note"]}}}
-                }}
-                """
-            else:
-                bibtex_entry = f"""
-                @misc{{{ref["year"]}{ref["name"]},
-                  author = {{{ref["author"]}}},
-                  title = {{{ref["title"]}}},
-                  howpublished = {{{ref["howpublished"]}}},
-                  year = {{{ref["year"]}}},
-                  month = {{{ref["month"]}}},
-                  note = {{{ref["note"]}}}
-                }}
-                """
-            bibtex_data += bibtex_entry
+    return bibtex_data
 
-        return Response(
-            bibtex_data,
-            mimetype="text/plain",
-            headers={"Content-Disposition": "attachment;filename=references.bib",
-		"Content-Type": "application/x-bibtex"
-	    }
-        )
-    except Exception as e:
-        flash(f"Virhe BibTeX-tiedoston luomisessa: {str(e)}", "error")
-        return redirect("/")
