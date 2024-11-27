@@ -19,38 +19,65 @@ Create a reference
         </div>
     </div>
 </div>
+<hr>
 
 <div class="container">
     <div class="row">
         <div class="col-8">
             <form action="/references" method="post" class="form-article" style="display: none" id="article">
-                <h2>Creating article type reference</h2>
+                <div class="form-group row">
+                <h3>Creating article type reference</h3>
                 <input type="hidden" name="type" value="article">
-                <label for="name">Name:</label>
-                <input type="text" name="name" minlength="2" maxlength="30" required>
+                <label class="col-sm-2 col-form-label col-form-label-sm" for="name">Name:</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="name" minlength="2" maxlength="30" required>
+                    </div>
                 <br>
-                <label for="author">Author:</label>
-                <input type="text" name="author" minlength="2" maxlength="100" required>
                 <br>
-                <label for="title">Title:</label>
-                <input type="text" name="title" minlength="2" maxlength="70" required>
+                <label for="author" class="col-sm-2 col-form-label col-form-label-sm">Author:</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="author" minlength="2" maxlength="100" required>
+                    </div>
                 <br>
-                <label for="journal">Journal:</label>
+                <br>
+                <label for="title" class="col-sm-2 col-form-label col-form-label-sm">Title:</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="title" minlength="2" maxlength="70" required>
+                    </div>
+                <br>
+                <br>
+                <label for="journal" class="col-sm-2 col-form-label col-form-label-sm">Journal:</label>
+                <div class="col-sm-10">
                 <input type="text" name="journal" minlength="2" maxlength="70" required>
+                </div>
                 <br>
-                <label for="year">Year:</label>
+                <br>
+                <label for="year" class="col-sm-2 col-form-label col-form-label-sm">Year:</label>
+                <div class="col-sm-10">
                 <input type="number" name="year" max="9999" required>
+                </div>
                 <br>
-                <label for="volume">Volume:</label>
+                <br>
+                <label for="volume" class="col-sm-2 col-form-label col-form-label-sm">Volume:</label>
+                <div class="col-sm-10">
                 <input type="number" name="volume" max="50">
+                </div>
                 <br>
-                <label for="number">Number:</label>
+                <br>
+                <label for="number" class="col-sm-2 col-form-label col-form-label-sm">Number:</label>
+                <div class="col-sm-10">
                 <input type="number" name="number" max="50">
+                </div>
                 <br>
-                <label for="pages">Pages:</label>
+                <br>
+                <label for="pages" class="col-sm-2 col-form-label col-form-label-sm">Pages:</label>
+                <div class="col-sm-10">
                 <input type="text" name="pages" maxlength="20">
+                </div>
                 <br>
-                <label for="month">Month:</label>
+                <br>
+                <label for="month" class="col-sm-2 col-form-label col-form-label-sm">Month:</label>
+                <div class="col-sm-10">
                 <select name="month" id="month">
                     <option value=""></option>
                     <option value="january">January</option>
@@ -66,11 +93,19 @@ Create a reference
                     <option value="november">November</option>
                     <option value="december">December</option>
                 </select>
+                </div>
                 <br>
-                <label for="note">Note:</label>
+                <br>
+                <label for="note" class="col-sm-2 col-form-label col-form-label-sm">Note:</label>
+                <div class="col-sm-10">
                 <input type="text" name="note" maxlength="100">
+                </div>
                 <br>
+                <br>
+                <div class="col-sm-10">
                 <button type="submit" name="article_submit" id="article_submit">submit</button>
+                </div>
+            </div>
             </form>
         </div>
     </div>
@@ -80,36 +115,65 @@ Create a reference
     <div class="row">
         <div class="col-8">
             <form action="/references" method="post" class="form-book" style="display: none" id="book">
+                <div class="form-group row">
                 <h2>Creating book type reference</h2>
                 <input type="hidden" name="type" value="book">
-                <label for="name">Name:</label>
+                <label for="name" for="pages" class="col-sm-2 col-form-label col-form-label-sm">Name:</label>
+                <div class="col-sm-10">
                 <input type="text" name="name" minlength="2" maxlength="30" required>
+                </div>
                 <br>
-                <label for="author">Author:</label>
+                <br>
+                <label for="author" for="pages" class="col-sm-2 col-form-label col-form-label-sm">Author:</label>
+                <div class="col-sm-10">
                 <input type="text" name="author" minlength="2" maxlength="100" required>
+                </div>
                 <br>
-                <label for="editor">Editor:</label>
+                <br>
+                <label for="editor" for="pages" class="col-sm-2 col-form-label col-form-label-sm">Editor:</label>
+                <div class="col-sm-10">
                 <input type="text" name="editor" minlength="2" maxlength="30" required>
+                </div>
                 <br>
-                <label for="title">Title:</label>
+                <br>
+                <label for="title" for="pages" class="col-sm-2 col-form-label col-form-label-sm">Title:</label>
+                <div class="col-sm-10">
                 <input type="text" name="title" minlength="2" maxlength="70" required>
+                </div>
                 <br>
-                <label for="journal">Publisher:</label>
+                <br>
+                <label for="journal" for="pages" class="col-sm-2 col-form-label col-form-label-sm">Publisher:</label>
+                <div class="col-sm-10">
                 <input type="text" name="publisher" minlength="2" maxlength="70" required>
+                </div>
                 <br>
-                <label for="year">Year:</label>
+                <br>
+                <label for="year" for="pages" class="col-sm-2 col-form-label col-form-label-sm">Year:</label>
+                <div class="col-sm-10">
                 <input type="number" name="year" max="9999" required>
+                </div>
                 <br>
-                <label for="volume">Volume:</label>
+                <br>
+                <label for="volume" for="pages" class="col-sm-2 col-form-label col-form-label-sm">Volume:</label>
+                <div class="col-sm-10">
                 <input type="number" name="volume" max="50">
+                </div>
                 <br>
-                <label for="number">Number:</label>
+                <br>
+                <label for="number" for="pages" class="col-sm-2 col-form-label col-form-label-sm">Number:</label>
+                <div class="col-sm-10">
                 <input type="number" name="number" max="50">
+                </div>
                 <br>
-                <label for="pages">Pages:</label>
+                <br>
+                <label for="pages" for="pages" class="col-sm-2 col-form-label col-form-label-sm">Pages:</label>
+                <div class="col-sm-10">
                 <input type="text" name="pages" maxlength="20">
+                </div>
                 <br>
-                <label for="month">Month:</label>
+                <br>
+                <label for="month" for="pages" class="col-sm-2 col-form-label col-form-label-sm">Month:</label>
+                <div class="col-sm-10">
                 <select name="month" id="month">
                     <option value=""></option>
                     <option value="january">January</option>
@@ -125,11 +189,19 @@ Create a reference
                     <option value="november">November</option>
                     <option value="december">December</option>
                 </select>
+                </div>
                 <br>
-                <label for="note">Note:</label>
+                <br>
+                <label for="note" for="pages" class="col-sm-2 col-form-label col-form-label-sm">Note:</label>
+                <div class="col-sm-10">
                 <input type="text" name="note" maxlength="100">
+                </div>
                 <br>
+                <br>
+                <div class="col-sm-10">
                 <button type="submit" name="book_submit" id="book_submit">submit</button>
+                </div>
+            </div>
             </form>
         </div>
     </div>
@@ -139,21 +211,35 @@ Create a reference
     <div class="row">
         <div class="col-8">
             <form action="/references" method="post" class="form-misc" style="display: none" id="misc">
+                <div class="form-group row">
                 <h2>Creating misc type reference</h2>
                 <input type="hidden" name="type" value="misc">
-                <label for="name">Name:</label>
+                <label for="name" for="pages" class="col-sm-2 col-form-label col-form-label-sm">Name:</label>
+                <div class="col-sm-10">
                 <input type="text" name="name" minlength="2" maxlength="30" required>
+            </div>
                 <br>
-                <label for="author">Author:</label>
+                <br>
+                <label for="author" for="pages" class="col-sm-2 col-form-label col-form-label-sm">Author:</label>
+                <div class="col-sm-10">
                 <input type="text" name="author" minlength="2" maxlength="100" required>
+            </div>
                 <br>
-                <label for="title">Title:</label>
+                <br>
+                <label for="title" for="pages" class="col-sm-2 col-form-label col-form-label-sm">Title:</label>
+                <div class="col-sm-10">
                 <input type="text" name="title" minlength="2" maxlength="70" required>
+            </div>
                 <br>
-                <label for="howpublished">Howpublished:</label>
+                <br>
+                <label for="howpublished" for="pages" class="col-sm-2 col-form-label col-form-label-sm">Howpublished:</label>
+                <div class="col-sm-10">
                 <input type="text" name="howpublished" minlength="2" maxlength="30">
+            </div>
                 <br>
-                <label for="month">Month:</label>
+                <br>
+                <label for="month" for="pages" class="col-sm-2 col-form-label col-form-label-sm">Month:</label>
+                <div class="col-sm-10">
                 <select name="month" id="month">
                     <option value=""></option>
                     <option value="january">January</option>
@@ -169,14 +255,25 @@ Create a reference
                     <option value="november">November</option>
                     <option value="december">December</option>
                 </select>
+            </div>
                 <br>
-                <label for="year">Year:</label>
+                <br>
+                <label for="year" for="pages" class="col-sm-2 col-form-label col-form-label-sm">Year:</label>
+                <div class="col-sm-10">
                 <input type="number" name="year" max="9999" required>
+            </div>
                 <br>
-                <label for="note">Note:</label>
+                <br>
+                <label for="note" for="pages" class="col-sm-2 col-form-label col-form-label-sm">Note:</label>
+                <div class="col-sm-10">
                 <input type="text" name="note" maxlength="100">
+            </div>
                 <br>
+                <br>
+                <div class="col-sm-10">
                 <button type="submit" name="misc_submit" id="misc_submit">submit</button>
+            </div>
+                </div>
             </form>
         </div>
     </div>
