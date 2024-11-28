@@ -73,8 +73,7 @@ class ReferenceDao:
         bibtex_data = ""
         for ref in references:
             ref_data = f"@{ref[Reference.TYPE.value]}""{"f"{ref[Reference.NAME.value]}"
-            if ref[Reference.AUTHOR.value]:
-                ref_data += f',\n  author       = "{ref[Reference.AUTHOR.value]}"'
+            ref_data += f',\n  author       = "{ref[Reference.AUTHOR.value]}"'
             if ref[Reference.TITLE.value]:
                 ref_data += f',\n  title        = "{ref[Reference.TITLE.value]}"'
             if ref[Reference.JOURNAL.value]:

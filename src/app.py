@@ -1,4 +1,4 @@
-from flask import redirect, render_template, request, flash, Response
+from flask import redirect, render_template, request
 #from flask_sqlalchemy import SQLAlchemy
 
 from daos.reference_dao import ReferenceDao
@@ -51,4 +51,3 @@ def export_bibtex():
     bibtex_print = reference_dao.return_references_in_bibtex_form()
 
     return bibtex_print
-
