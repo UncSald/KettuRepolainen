@@ -68,6 +68,68 @@ class ReferenceDao:
         result = self.__db.session.execute(sql).fetchall()
 
         return result
+    
+
+    def get_reference(self, id):
+        sql = text("""
+            SELECT 
+                id, type, name, author, title, journal, year, volume, number, pages, month, note, howpublished, editor, publisher
+            FROM 
+                \"references\"
+            WHERE
+                id=:id
+        """)
+
+        result = self.__db.session.execute(sql, {"id":id}).fetchone()
+        return result
+    
+    
+    def update_reference(self, data):
+        sql = text("""
+            UPDATE
+                \"references\" 
+            SET 
+                name=:name, 
+                author=:author, 
+                title=:title, 
+                journal=:journal, 
+                year=:year, 
+                volume=:volume, 
+                number=:number, 
+                pages=:pages, 
+                month=:month, 
+                note=:note, 
+                howpublished=:howpublished, 
+                editor=:editor, 
+                publisher=:publisher
+            WHERE
+                id=:id
+        """)
+
+        self.__db.session.execute(
+            sql,
+            {
+                "id":data["id"],
+                "type":data["type"],
+                "name":data["name"],
+                "author":data["author"],
+                "title":data["title"],
+                "journal":data["journal"],
+                "year":data["year"],
+                "volume":data["volume"],
+                "number":data["number"],
+                "pages":data["pages"],
+                "month":data["month"],
+                "note":data["note"],
+                "howpublished":data["howpublished"],
+                "editor":data["editor"],
+                "publisher":data["publisher"]
+            }
+        )
+        self.__db.session.commit()
+
+
+
     def return_references_in_bibtex_form(self):
         references = self.get_references()
         bibtex_data = ""

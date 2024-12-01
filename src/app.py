@@ -1,7 +1,7 @@
 from flask import redirect, render_template, request
 #from flask_sqlalchemy import SQLAlchemy
 
-from daos.reference_dao import ReferenceDao
+from daos.reference_dao import ReferenceDao 
 from config import app, db
 from db_helper import reset_db
 
@@ -51,3 +51,22 @@ def export_bibtex():
     bibtex_print = reference_dao.return_references_in_bibtex_form()
 
     return bibtex_print
+
+@app.route("/edit_reference/<int:id>")
+def edit_reference(id):
+    reference = reference_dao.get_reference(id)
+
+    return render_template("edit_reference.html", reference=reference)
+
+@app.route("/update_reference", methods=["POST"])
+def update_reference():
+    datafields = ["id", "type", "name","author","title","journal","year",\
+                  "volume","number","pages","month","note",\
+                    "howpublished","editor", "publisher"]
+    data = {}
+    for field in datafields:
+        field_data = None if request.form.get(field) == '' else request.form.get(field)
+        data[field] = field_data
+
+    reference_dao.update_reference(data)
+    return redirect("/references")
