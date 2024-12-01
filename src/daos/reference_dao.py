@@ -160,3 +160,10 @@ class ReferenceDao:
                 ref_data += f',\n  publisher    = "{ref[Reference.PUBLISHER.value]}"'
             bibtex_data += ref_data+"\n}\n\n"
         return bibtex_data
+    def delete_reference(self, reference_id):
+        sql = text("""
+            DELETE FROM "references"
+            WHERE id = :id
+        """)
+        self.__db.session.execute(sql, {"id": reference_id})
+        self.__db.session.commit()

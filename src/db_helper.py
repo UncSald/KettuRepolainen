@@ -24,10 +24,10 @@ def setup_db():
             id SERIAL PRIMARY KEY,
             type TEXT,
             name TEXT NOT NULL,
-            author TEXT NOT NULL,
-            title TEXT NOT NULL,
+            author TEXT,
+            title TEXT,
             journal TEXT,
-            year INT NOT NULL,
+            year INT,
             volume INT,
             number INT,
             pages TEXT,
@@ -35,6 +35,7 @@ def setup_db():
             month TEXT,
             note TEXT,
             editor TEXT,
+            link TEXT,
             publisher TEXT
         )
     """)

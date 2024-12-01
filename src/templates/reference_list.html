@@ -61,9 +61,12 @@ References
         <!--publisher-->
         {% if reference[14] %}, {{ reference[14] }}{% endif %}
 
-        <a type="button" class="btn btn-primary" href="/edit_reference/{{ reference[0] }}" name="new_reference" style="float: right;" >
+        <a type="button" class="btn btn-primary" href="/edit_reference/{{ reference[0] }}" name="new_reference" style="float: right;">
           Edit
         </a>
+        <form action="/delete_reference/{{ reference[0] }}" method="post" style="float: right; margin-right: 10px;">
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
       </div>
     </li>  
   {% endfor %}

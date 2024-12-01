@@ -16,9 +16,12 @@ Create a reference
                 <input id="result" type="radio" name="refTypeCheckbox" value="book" onclick="openForm()">Book</label>
             <label>
                 <input id="result" type="radio" name="refTypeCheckbox" value="misc" onclick="openForm()">Misc</label>
+            <label>
+                <input id="result" type="radio" name="refTypeCheckbox" value="acm" onclick="openForm()">ACM</label>
         </div>
     </div>
 </div>
+
 <hr>
 
 <div class="container">
@@ -273,6 +276,31 @@ Create a reference
                 <div class="col-sm-10">
                 <button type="submit" name="misc_submit" id="misc_submit">submit</button>
             </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <form action="/references" method="post" class="form-acm" style="display: none" id="acm">
+                <div class="form-group row">
+                    <h3>Creating ACM type reference</h3>
+                    <input type="hidden" name="type" value="acm">
+                    <label class="col-sm-2 col-form-label col-form-label-sm" for="name">Name:</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="name" minlength="2" maxlength="30" required>
+                    </div>
+                    <br><br>
+                    <label for="link" class="col-sm-2 col-form-label col-form-label-sm">ACM Link:</label>
+                    <div class="col-sm-10">
+                        <input type="url" name="link" minlength="2" maxlength="100" required>
+                    </div>
+                    <br><br>
+                    <div class="col-sm-10">
+                        <button type="submit" name="acm_submit" id="acm_submit">submit</button>
+                    </div>
                 </div>
             </form>
         </div>

@@ -28,11 +28,12 @@ def set_bibtext_format():
     return redirect("/references")
 
 @app.route("/references", methods=["POST"])
-def create_new_reference():
-    datafields = ["type", "name","author","title","journal","year",\
-                  "volume","number","pages","month","note",\
-                    "howpublished","editor", "publisher"]
+def create_new_reference():  
+    datafields = ["type", "name", "author", "title", "journal", "year", 
+                  "volume", "number", "pages", "month", "note", 
+                  "howpublished", "link", "editor", "publisher"]
     data = {}
+    
     for field in datafields:
         field_data = None if request.form.get(field) == '' else request.form.get(field)
         data[field] = field_data
@@ -62,7 +63,7 @@ def edit_reference(reference_id):
 def update_reference():
     datafields = ["id", "type", "name","author","title","journal","year",\
                   "volume","number","pages","month","note",\
-                    "howpublished","editor", "publisher"]
+                    "howpublished","editor","link", "publisher"]
     data = {}
     for field in datafields:
         field_data = None if request.form.get(field) == '' else request.form.get(field)
@@ -70,3 +71,9 @@ def update_reference():
 
     reference_dao.update_reference(data)
     return redirect("/references")
+
+@app.route("/delete_reference/<int:reference_id>", methods=["POST"])
+def delete_reference(reference_id):
+    reference_dao.delete_reference(reference_id)
+    return redirect("/references")
+
