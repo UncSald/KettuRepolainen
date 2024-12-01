@@ -68,9 +68,9 @@ class ReferenceDao:
         result = self.__db.session.execute(sql).fetchall()
 
         return result
-    
 
-    def get_reference(self, id):
+
+    def get_reference(self, reference_id):
         sql = text("""
             SELECT 
                 id, type, name, author, title, journal, year, volume, number, pages, month, note, howpublished, editor, publisher
@@ -80,10 +80,10 @@ class ReferenceDao:
                 id=:id
         """)
 
-        result = self.__db.session.execute(sql, {"id":id}).fetchone()
+        result = self.__db.session.execute(sql, {"id":reference_id}).fetchone()
         return result
-    
-    
+
+
     def update_reference(self, data):
         sql = text("""
             UPDATE

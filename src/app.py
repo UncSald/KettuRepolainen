@@ -1,7 +1,7 @@
 from flask import redirect, render_template, request
 #from flask_sqlalchemy import SQLAlchemy
 
-from daos.reference_dao import ReferenceDao 
+from daos.reference_dao import ReferenceDao
 from config import app, db
 from db_helper import reset_db
 
@@ -52,9 +52,9 @@ def export_bibtex():
 
     return bibtex_print
 
-@app.route("/edit_reference/<int:id>")
-def edit_reference(id):
-    reference = reference_dao.get_reference(id)
+@app.route("/edit_reference/<int:reference_id>")
+def edit_reference(reference_id):
+    reference = reference_dao.get_reference(reference_id)
 
     return render_template("edit_reference.html", reference=reference)
 
