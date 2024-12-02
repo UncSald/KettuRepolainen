@@ -1,5 +1,6 @@
 from flask import redirect, render_template, request
 import requests
+import entities.acm_scraper as acm_scraper
 
 from daos.reference_dao import ReferenceDao
 from config import app, db
@@ -34,7 +35,17 @@ def create_new_reference():
                   "howpublished", "link", "editor", "publisher"]
     data = {}
     
+    if request.form.get("type") == "acm":
+        link = request.form.get("link")
+        html = requests.get(link).content
+        data = acm_scraper.scrape_article(html)
+        data["link"] = link
+        data["type"] = "acm"
+    
     for field in datafields:
+        if field in data:
+            continue
+        
         field_data = None if request.form.get(field) == '' else request.form.get(field)
         data[field] = field_data
 
