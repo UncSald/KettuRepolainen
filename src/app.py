@@ -1,5 +1,5 @@
 from flask import redirect, render_template, request
-#from flask_sqlalchemy import SQLAlchemy
+import requests
 
 from daos.reference_dao import ReferenceDao
 from config import app, db
