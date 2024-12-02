@@ -23,3 +23,6 @@ disable=raw-checker-failed,
 
 [DESIGN]
 
+[REPORTS]
+# Minimun score before pylint fails
+fail-under=8
