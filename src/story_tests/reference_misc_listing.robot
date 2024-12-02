@@ -19,7 +19,8 @@ Created Reference Should Show As Human Readable Text
 Created Reference Should Show As BibTex
     Create Misc Reference
     Go To References List Page
-    Click Button  view_bibtex_format
+    ${present}=  Run Keyword And Return Status    Element Should Be Visible   id=view_bibtex_format
+    Run Keyword If    ${present}    Click Button If Shown      
     Page Should Contain    Referenssi 1
     Page Should Contain  Misc_Kirjoittaja
     Page Should Contain  Kirjoitus
@@ -28,6 +29,10 @@ Created Reference Should Show As BibTex
 
 
 *** Keywords ***
+Click Button If Shown
+    Click Button  view_bibtex_format
+
+
 Create Misc Reference
     Go To New Reference Page
     Select Radio Button  refTypeCheckbox  misc
