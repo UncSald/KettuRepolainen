@@ -7,6 +7,7 @@ ${DELAY}      0.2 seconds
 ${HOME_URL}   http://${SERVER}
 ${RESET_URL}  http://${SERVER}/reset_db
 ${CREATE_URL}  http://${SERVER}/new_reference
+${LIST_URL}    http://${SERVER}/references
 ${BROWSER}    chrome
 ${HEADLESS}   false
 
@@ -39,3 +40,6 @@ New Reference Page Should Be Open
 
 Go To New Reference Page
     Go To  ${CREATE_URL}
+
+Go To References List Page
+    Go To  ${LIST_URL}
