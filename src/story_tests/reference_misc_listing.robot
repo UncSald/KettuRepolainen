@@ -23,8 +23,8 @@ Created Reference Should Show As Human Readable Text
 Created Reference Should Show As BibTex
     Create Misc Reference
     Go To References List Page
-    ${present}=  Run Keyword And Return Status    Element Should Be Visible   id=view_bibtex_format
-    Run Keyword If    ${present}    Click BibTex Button If Shown      
+    ${bibtex}=  Run Keyword And Return Status    Element Should Be Visible   id=view_bibtex_format
+    Run Keyword If    ${bibtex}    Click BibTex Button If Shown      
     Page Should Contain    Referenssi 1
     Page Should Contain  Misc_Kirjoittaja
     Page Should Contain  Kirjoitus
