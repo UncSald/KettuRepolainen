@@ -6,21 +6,25 @@ Test Setup       Reset Database
 
 
 *** Test Cases ***
-Created Reference Should Show In List
+Created Reference Should Show As Human Readable Text
     Create Book Reference
     Go To References List Page
+    ${normal}=  Run Keyword And Return Status    Element Should Be Visible   id=view_normal_format
+    Run Keyword If    ${normal}    Click Normal Button If Shown   
     Page Should Contain  Book_Kirjoittaja
     Page Should Contain  Editori
     Page Should Contain  Kirjoitus
     Page Should Contain  Publisher
     Page Should Contain    1999
+    Page Should Not Contain    Referenssi 1
+
 
 
 Created Reference Should Show As BibTex
     Create Book Reference
     Go To References List Page
     ${present}=  Run Keyword And Return Status    Element Should Be Visible   id=view_bibtex_format
-    Run Keyword If    ${present}    Click Button If Shown   
+    Run Keyword If    ${present}    Click BibTex Button If Shown   
     Page Should Contain    Referenssi 1
     Page Should Contain  Book_Kirjoittaja
     Page Should Contain  Editori
@@ -39,8 +43,11 @@ Create Book Reference
     Click Book Submit
     Main Page Should Be Open
 
-Click Button If Shown
+Click BibTex Button If Shown
     Click Button  view_bibtex_format
+
+Click Normal Button If Shown
+    Click Button  view_normal_format
 
 Set Name
     [Arguments]  ${name}
