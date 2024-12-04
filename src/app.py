@@ -53,8 +53,9 @@ def create_new_reference():
         data[field] = field_data
 
     all_names = reference_dao.get_all_names()
+    reference_name = request.form["name"].lower()
 
-    if request.form["name"] in all_names:
+    if reference_name in all_names:
         errors.append("Keyword already in use!")
         
     if errors:

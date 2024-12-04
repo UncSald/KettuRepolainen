@@ -92,7 +92,7 @@ class ReferenceDao:
         """)
 
         result = self.__db.session.execute(sql).fetchall()
-        all_names = [i[0] for i in result]
+        all_names = [i[0].lower() for i in result]
         return all_names
 
 
