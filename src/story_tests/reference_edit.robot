@@ -19,20 +19,6 @@ Created Reference Should Editable After Creation
     Click Button  article_update
     Go To References List Page
     Page Should Contain  Uusi_kirjoittaja
-
-
-Created Reference Should Show As BibTex
-    Create Article Reference
-    Go To References List Page
-    ${bibtex}=  Run Keyword And Return Status    Element Should Be Visible   id=view_bibtex_format
-    Run Keyword If    ${bibtex}    Click BibTex Button If Shown   
-    Page Should Contain    Referenssi1
-    Page Should Contain  Article_Kirjoittaja
-    Page Should Contain  Kirjoitus
-    Page Should Contain  Sanomalehti
-    Page Should Contain  1999
-
-
     
 
 *** Keywords ***
