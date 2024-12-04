@@ -66,7 +66,7 @@ Click Article Submit
     Click Button  article_submit
 
 Set Article Information
-    Set Name  Referenssi 1
+    Set Name  Referenssi1
     Set Author  Kirjoittaja
     Set Title  Kirjoitus
     Set Journal  Sanomalehti

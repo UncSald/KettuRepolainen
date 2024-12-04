@@ -16,7 +16,7 @@ Created Reference Should Show As Human Readable Text
     Page Should Contain  Kirjoitus
     Page Should Contain  Publisher
     Page Should Contain    1999
-    Page Should Not Contain    Referenssi 1
+    Page Should Not Contain    Referenssi1
 
 
 
@@ -25,7 +25,7 @@ Created Reference Should Show As BibTex
     Go To References List Page
     ${bibtex}=  Run Keyword And Return Status    Element Should Be Visible   id=view_bibtex_format
     Run Keyword If    ${bibtex}    Click BibTex Button If Shown   
-    Page Should Contain    Referenssi 1
+    Page Should Contain    Referenssi1
     Page Should Contain  Book_Kirjoittaja
     Page Should Contain  Editori
     Page Should Contain  Kirjoitus
@@ -77,7 +77,7 @@ Click Book Submit
     Click Button  book_submit
 
 Set Book Information
-    Set Name  Referenssi 1
+    Set Name  Referenssi1
     Set Author  Book_Kirjoittaja
     Set Editor  Editori
     Set Title  Kirjoitus

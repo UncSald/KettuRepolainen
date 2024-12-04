@@ -44,7 +44,7 @@ Click Misc Submit
     Click Button  misc_submit
 
 Set Misc Information
-    Set Name  Referenssi 1
+    Set Name  Referenssi1
     Set Author  Kirjoittaja
     Set Title  Kirjoitus
     Set Howpublished  Sanomalehti

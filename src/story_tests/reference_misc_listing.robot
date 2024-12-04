@@ -17,7 +17,7 @@ Created Reference Should Show As Human Readable Text
     Page Should Contain  Kirjoitus
     Page Should Contain  Sanomalehti
     Page Should Contain  1999
-    Page Should Not Contain    Referenssi 1
+    Page Should Not Contain    Referenssi1
 
 
 Created Reference Should Show As BibTex
@@ -25,7 +25,7 @@ Created Reference Should Show As BibTex
     Go To References List Page
     ${bibtex}=  Run Keyword And Return Status    Element Should Be Visible   id=view_bibtex_format
     Run Keyword If    ${bibtex}    Click BibTex Button If Shown      
-    Page Should Contain    Referenssi 1
+    Page Should Contain    Referenssi1
     Page Should Contain  Misc_Kirjoittaja
     Page Should Contain  Kirjoitus
     Page Should Contain  Sanomalehti
@@ -73,7 +73,7 @@ Click Misc Submit
     Click Button  misc_submit
 
 Set Misc Information
-    Set Name  Referenssi 1
+    Set Name  Referenssi1
     Set Author  Misc_Kirjoittaja
     Set Title  Kirjoitus
     Set Howpublished  Sanomalehti

@@ -70,7 +70,7 @@ Click Book Submit
     Click Button  book_submit
 
 Set Book Information
-    Set Name  Referenssi 1
+    Set Name  Referenssi1
     Set Author  Kirjoittaja
     Set Editor  Editori
     Set Title  Kirjoitus
