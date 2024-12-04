@@ -144,9 +144,7 @@ class ReferenceDao:
 
     def return_references_in_bibtex_form(self):
         references = self.get_references()
-        print(references)
         bibtex_data = self.convert_to_bibtex(references)
-        print(bibtex_data)
         return bibtex_data
     
     def convert_to_bibtex(self, references):
