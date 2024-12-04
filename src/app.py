@@ -15,6 +15,7 @@ def index():
 
 @app.route("/new_reference")
 def new_reference():
+    errors = []
     return render_template("/new_reference.html")
 
 @app.route("/references", methods=["GET"])
@@ -29,7 +30,9 @@ def set_bibtext_format():
     return redirect("/references")
 
 @app.route("/references", methods=["POST"])
-def create_new_reference():  
+def create_new_reference():
+    errors = []
+
     datafields = ["type", "name", "author", "title", "journal", "year", 
                   "volume", "number", "pages", "month", "note", 
                   "howpublished", "link", "editor", "publisher"]
@@ -48,6 +51,14 @@ def create_new_reference():
         
         field_data = None if request.form.get(field) == '' else request.form.get(field)
         data[field] = field_data
+
+    all_names = reference_dao.get_all_names()
+
+    if request.form["name"] in all_names:
+        errors.append("Keyword already in use!")
+        
+    if errors:
+        return render_template("/new_reference.html", errors=errors)
 
     reference_dao.create_reference(data)
     return redirect("/")

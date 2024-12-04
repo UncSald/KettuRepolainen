@@ -82,6 +82,18 @@ class ReferenceDao:
 
         result = self.__db.session.execute(sql, {"id":reference_id}).fetchone()
         return result
+    
+    def get_all_names(self):
+        sql = text("""
+            SELECT 
+                   name
+            FROM 
+                \"references\"
+        """)
+
+        result = self.__db.session.execute(sql).fetchall()
+        all_names = [i[0] for i in result]
+        return all_names
 
 
     def update_reference(self, data):
@@ -167,3 +179,5 @@ class ReferenceDao:
         """)
         self.__db.session.execute(sql, {"id": reference_id})
         self.__db.session.commit()
+
+
