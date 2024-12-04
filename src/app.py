@@ -61,7 +61,7 @@ def create_new_reference():
 
     valid_name_format = re.compile(r"^[a-zA-Z0-9]+$")
     if not re.fullmatch(valid_name_format, reference_name):
-        errors.append("Keyword should contain only numbers or/and letters and no spaces.")
+        errors.append("Keyword should contain only numbers and/or letters and no spaces.")
 
     if request.form.get("pages"):
         reference_pages = request.form["pages"]
@@ -69,7 +69,7 @@ def create_new_reference():
         if reference_pages != None:
             valid_pages_format = re.compile(r"(\d{1,4}(-[1-9]\d{0,3})?)?")
             if not re.fullmatch(valid_pages_format, reference_pages):
-                errors.append("Pages need to be written as a number or two numbers divided by a dash (e.g. 1 or 1-25)")
+                errors.append("Pages needs to be written as a number or two numbers divided by a dash (e.g. 1 or 1-25)")
  
         
     if errors:
