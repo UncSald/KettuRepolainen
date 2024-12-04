@@ -25,6 +25,19 @@ Create a reference
     </div>
 </div>
 
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            {% if errors %}
+            {% for error in errors %}
+                <div class="alert alert-danger" role="alert" style="margin-top: 20px;">
+                {{ error }}
+                </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
 <hr>
 
 <div class="container">
@@ -310,19 +323,7 @@ Create a reference
     </div>
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-8">
-            {% if errors %}
-            {% for error in errors %}
-                <div class="alert alert-danger" role="alert" style="margin-top: 20px;">
-                {{ error }}
-                </div>
-            {% endfor %}
-            {% endif %}
-        </div>
-    </div>
-</div>
+
 
 <script>
     function openForm() {
