@@ -59,6 +59,9 @@ def create_new_reference():
     if reference_name in all_names:
         errors.append("Keyword already in use!")
 
+    valid_name_format = re.compile(r"^[a-zA-Z0-9]+$")
+    if not re.fullmatch(valid_name_format, reference_name):
+        errors.append("Keyword should contain only numbers and/or letters and no spaces.")
 
     if request.form.get("pages"):
         reference_pages = request.form["pages"]
