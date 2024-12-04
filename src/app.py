@@ -16,8 +16,8 @@ def index():
 
 @app.route("/new_reference")
 def new_reference():
-    errors = []
-    return render_template("/new_reference.html")
+
+    return render_template("/new_reference.html", errors=None)
 
 @app.route("/references", methods=["GET"])
 def references():
