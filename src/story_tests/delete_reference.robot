@@ -6,39 +6,54 @@ Test Setup       Reset Database
 
 *** Test Cases ***
 Deleting a Reference Should Remove It From The List
-    Create Misc Reference
+    Create Article Reference
     Go To References List Page
-    ${exists}=    Run Keyword And Return Status    Page Should Contain    Referenssi1
-    Should Be True    ${exists}    Reference should exist before deletion.
-    Delete Reference    Referenssi1
+    Click Button  delete
     Go To References List Page
-    ${deleted}=  Run Keyword And Return Status    Page Should Contain    Referenssi1
-    Should Be False    ${deleted}    Reference should no longer exist after deletion.
+    Page Should Not Contain  Article_Kirjoittaja
 
 *** Keywords ***
-Delete Reference
-    [Arguments]  ${name}
-    Click Button  xpath=//tr[td[contains(text(), '${name}')]]//button[contains(text(), 'Delete')]
-    Confirm Deletion
-
-Confirm Deletion
-    Wait Until Page Contains Element    xpath=//div[@id='confirmation-dialog']//button[contains(text(), 'Confirm')]
-    Click Button    xpath=//div[@id='confirmation-dialog']//button[contains(text(), 'Confirm')]
-
-Create Misc Reference
+Create Article Reference
     Go To New Reference Page
-    Select Radio Button  refTypeCheckbox  misc
-    Page Should Contain  Creating misc type reference
-    Set Misc Information
-    Scroll Element Into View  misc_submit
-    Click Misc Submit
+    Select Radio Button  refTypeCheckbox  article
+    Page Should Contain  Creating article type reference
+    Set Article Information
+    Scroll Element Into View  article_submit
+    Click Article Submit
     Main Page Should Be Open
 
-the delete button:
-   def delete_reference(self, reference_id):
-        sql = text("""
-            DELETE FROM "references"
-            WHERE id = :id
-        """)
-        self.__db.session.execute(sql, {"id": reference_id})
-        self.__db.session.commit()
+Click BibTex Button If Shown
+    Click Button  view_bibtex_format
+
+Click Normal Button If Shown
+    Click Button  view_normal_format
+
+Set Name
+    [Arguments]  ${name}
+    Input Text  name  ${name}
+
+Set Author
+    [Arguments]  ${author}
+    Input Text  author  ${author}
+
+Set Title
+    [Arguments]  ${title}
+    Input Text  title  ${title}
+
+Set Journal
+    [Arguments]  ${journal}
+    Input Text  journal  ${journal}
+
+Set Year
+    [Arguments]  ${year}
+    Input Text  year  ${year}
+
+Click Article Submit
+    Click Button  article_submit
+
+Set Article Information
+    Set Name  Referenssi1
+    Set Author  Article_Kirjoittaja
+    Set Title  Kirjoitus
+    Set Journal  Sanomalehti
+    Set Year  1999
