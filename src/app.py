@@ -63,7 +63,7 @@ def create_new_reference():
     reference_pages = request.form["pages"]
 
     if reference_pages != None:
-        valid_pages_format = re.compile(r"^(\d{1,3}(-\d{1,3})?)?$")
+        valid_pages_format = re.compile(r"(\d{1,4}(-[1-9]\d{0,3})?)?")
         if not re.fullmatch(valid_pages_format, reference_pages):
             errors.append("Pages need to be written as a number or two numbers divided by a dash (e.g. 1 or 1-25)")
  
