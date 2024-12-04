@@ -19,6 +19,18 @@ When Misc Is Submitted Page Should Redirect To Main
     Click Misc Submit
     Main Page Should Be Open
 
+When Posting Misc With Wrong Fromat Of Keyword Error Is shown
+    Go To New Reference Page
+    Select Radio Button  refTypeCheckbox  misc
+    Page Should Contain  Creating misc type reference
+    Set Misc Information
+    Clear Element Text  xpath=//form[@id='misc']//input[@name='name']
+    Set Name  New Name
+    Scroll Element Into View  misc_submit
+    Click Misc Submit
+    Page Should Contain  Keyword should contain only numbers and/or letters and no spaces.
+   
+
 *** Keywords ***
 Set Name
     [Arguments]  ${name}

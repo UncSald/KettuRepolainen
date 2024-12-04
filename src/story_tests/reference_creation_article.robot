@@ -40,6 +40,40 @@ When Posting Article With Year As A String Error Is shown
     Click Article Submit
     Page Should Contain  Creating article type reference
     
+When Article Is Submitted With Correct Pages Format Should Redirect To Main
+    Go To New Reference Page
+    Select Radio Button  refTypeCheckbox  article
+    Page Should Contain  Creating article type reference
+    Set Article Information
+    Set Pages  13-89
+    Scroll Element Into View  article_submit
+    Click Article Submit
+    Main Page Should Be Open
+
+
+When Posting Article With Wrong Pages Format Error Is shown
+    Go To New Reference Page
+    Select Radio Button  refTypeCheckbox  article
+    Page Should Contain  Creating book type reference
+    Set Article Information
+    Clear Element Text  xpath=//form[@id='article']//input[@name='pages']
+    Set Pages  1-
+    Scroll Element Into View  article_submit
+    Click Article Submit
+    Page Should Contain  Pages needs to be written as a number or two numbers divided by a dash (e.g. 1 or 1-25)
+
+When Posting Article With Wrong Fromat Of Keyword Error Is shown
+    Go To New Reference Page
+    Select Radio Button  refTypeCheckbox  article
+    Page Should Contain  Creating article type reference
+    Set Article Information
+    Clear Element Text  xpath=//form[@id='article']//input[@name='name']
+    Set Name  New Name
+    Scroll Element Into View  article_submit
+    Click Article Submit
+    Page Should Contain  Keyword should contain only numbers and/or letters and no spaces.
+     
+
 
 *** Keywords ***
 Set Name
@@ -61,6 +95,11 @@ Set Journal
 Set Year
     [Arguments]  ${year}
     Input Text  year  ${year}
+
+Set Pages
+    [Arguments]  ${pages}
+    Input Text  xpath=//form[@id='article']//input[@name='pages']  ${pages}
+
 
 Click Article Submit
     Click Button  article_submit

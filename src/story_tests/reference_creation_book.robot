@@ -39,7 +39,39 @@ When Posting Book Without Author Error Is shown
     Scroll Element Into View  book_submit
     Click Book Submit
     Page Should Contain  Creating book type reference
-    
+
+When Book Is Submitted Correct Pages Format Should Redirect To Main
+    Go To New Reference Page
+    Select Radio Button  refTypeCheckbox  book
+    Page Should Contain  Creating book type reference
+    Set Book Information
+    Set Pages  39-70
+    Scroll Element Into View  book_submit
+    Click Book Submit
+    Main Page Should Be Open
+
+When Posting Book With Wrong Pages Format Error Is shown
+    Go To New Reference Page
+    Select Radio Button  refTypeCheckbox  book
+    Page Should Contain  Creating book type reference
+    Set Book Information
+    Clear Element Text  xpath=//form[@id='book']//input[@name='pages']
+    Set Pages  1-
+    Scroll Element Into View  book_submit
+    Click Book Submit
+    Page Should Contain  Pages needs to be written as a number or two numbers divided by a dash (e.g. 1 or 1-25)
+
+When Posting Book With Wrong Fromat Of Keyword Error Is shown
+    Go To New Reference Page
+    Select Radio Button  refTypeCheckbox  book
+    Page Should Contain  Creating book type reference
+    Set Book Information
+    Clear Element Text  xpath=//form[@id='book']//input[@name='name']
+    Set Name  New Name
+    Scroll Element Into View  book_submit
+    Click Book Submit
+    Page Should Contain  Keyword should contain only numbers and/or letters and no spaces.
+     
 
 *** Keywords ***
 Set Name
@@ -65,6 +97,10 @@ Set Publisher
 Set Year
     [Arguments]  ${year}
     Input Text  xpath=//form[@id='book']//input[@name='year']  ${year}
+
+Set Pages
+    [Arguments]  ${pages}
+    Input Text  xpath=//form[@id='book']//input[@name='pages']  ${pages}
 
 Click Book Submit
     Click Button  book_submit
