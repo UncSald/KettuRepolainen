@@ -144,6 +144,12 @@ class ReferenceDao:
 
     def return_references_in_bibtex_form(self):
         references = self.get_references()
+        print(references)
+        bibtex_data = self.convert_to_bibtex(references)
+        print(bibtex_data)
+        return bibtex_data
+    
+    def convert_to_bibtex(self, references):
         bibtex_data = ""
         for ref in references:
             ref_data = f"@{ref[Reference.TYPE.value]}""{"f"{ref[Reference.NAME.value]}"
@@ -172,6 +178,8 @@ class ReferenceDao:
                 ref_data += f',\n  publisher    = "{ref[Reference.PUBLISHER.value]}"'
             bibtex_data += ref_data+"\n}\n\n"
         return bibtex_data
+    
+
     def delete_reference(self, reference_id):
         sql = text("""
             DELETE FROM "references"

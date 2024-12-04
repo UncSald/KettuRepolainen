@@ -73,7 +73,7 @@ def reset_database():
 @app.route("/export_bibtex")
 def export_bibtex():
     bibtex_print = reference_dao.return_references_in_bibtex_form()
-
+    
     return bibtex_print
 
 @app.route("/edit_reference/<int:reference_id>")
