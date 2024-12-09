@@ -33,3 +33,4 @@ poetry shell
 python src/index.py
 ```
 - Ohjelma aukeaa automaattisesti localhost osoitteseen, eli 127.0.0.1:5001
+
