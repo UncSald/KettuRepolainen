@@ -1,0 +1,5 @@
+pytest --cov-config=.coveragerc
+       --cov=myproj
+       myproj/tests/
+[run]
+source = src
