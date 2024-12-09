@@ -22,5 +22,4 @@ class TestTodoValidation(unittest.TestCase):
   year         = 1999
 }"""
 
-        print(expected)
         self.assertEqual(result.strip(), expected.strip())
