@@ -9,6 +9,12 @@ import re
 
 reference_dao = ReferenceDao(db)
 
+def link_is_valid_form(link):
+    regex = re.compile("https:\/\/dl\.acm\.org\/doi\/(book\/)?\d{2}\.\d{4}\/[\d.]+")
+    match = re.fullmatch(regex, link)
+
+    return True if match else False
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -41,7 +47,14 @@ def create_new_reference():
     
     if request.form.get("type") == "acm":
         link = request.form.get("link")
-        html = requests.get(link).content
+        if not link_is_valid_form(link):
+            return render_template("/new_reference.html", errors=["Invalid ACM link"])
+        
+        res = requests.get(link)
+        if res.status_code == 404:
+            return render_template("/new_reference.html", errors=["Invalid ACM link"])
+        
+        html = res.content
         data["link"] = link
         
         if "book" in link:

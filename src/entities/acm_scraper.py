@@ -44,6 +44,21 @@ def __parse_article_number(soup):
 
     return int(element.get_text())
 
+def __parse_journal(soup):
+    element = soup.select_one('.core-enumeration span[property="name"]')
+    print(element)
+    if not element:
+        return None
+
+    return element.get_text()
+
+def __parse_volume(soup):
+    element = soup.find('span', property='volumeNumber')
+    if not element:
+        return None
+
+    return int(element.get_text())
+
 def scrape_article(html: str | bytes):
     # parsed tree object of page html
     soup = BeautifulSoup(html,'html.parser')
@@ -53,9 +68,9 @@ def scrape_article(html: str | bytes):
     article_data = {
         'author': __parse_article_authors(soup),
         'title': soup.select_one('.core-container h1').get_text(),
-        'journal': soup.select_one('.core-enumeration span[property="name"]').get_text(),
+        'journal': __parse_journal(soup),
         'year': date_data['year'],
-        'volume': int(soup.find('span', property='volumeNumber').get_text()),
+        'volume': __parse_volume(soup),
         'number': __parse_article_number(soup),
         'pages': __parse_article_pages(soup),
         'month': date_data['month'],
