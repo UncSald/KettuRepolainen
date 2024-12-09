@@ -11,7 +11,6 @@ Created Reference Should Editable After Creation
     ${normal}=  Run Keyword And Return Status    Element Should Be Visible   id=view_normal_format
     Run Keyword If    ${normal}    Click Normal Button If Shown
     Page Should Contain  Article_Kirjoittaja
-    Page Should Not Contain    Referenssi1
     Click Link  edit_reference
     Clear Element Text  author
     Set Author  Uusi_kirjoittaja

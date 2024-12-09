@@ -8,7 +8,10 @@ Test Setup       Reset Database
 Deleting a Reference Should Remove It From The List
     Create Article Reference
     Go To References List Page
-    Click Button  delete
+    Page Should Contain    Article_Kirjoittaja
+    ${normal}=  Run Keyword And Return Status    Element Should Be Visible   id=view_normal_format
+    Run Keyword If    ${normal}    Click Normal Button If Shown   
+    Click Button  Delete
     Go To References List Page
     Page Should Not Contain  Article_Kirjoittaja
 

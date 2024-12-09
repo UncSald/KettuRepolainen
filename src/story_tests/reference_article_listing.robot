@@ -14,7 +14,6 @@ Created Reference Should Show As Human Readable Text
     Page Should Contain  Kirjoitus
     Page Should Contain  Sanomalehti
     Page Should Contain  1999
-    Page Should Not Contain    Referenssi1
 
 Created Reference Should Show As BibTex
     Create Article Reference

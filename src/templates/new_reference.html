@@ -241,19 +241,19 @@ Create a reference
                 <br>
                 <label for="author" class="col-sm-2 col-form-label col-form-label-sm">Author:</label>
                 <div class="col-sm-10">
-                <input type="text" name="author" minlength="2" maxlength="100" value="{{ request.form.get('author', '') }}" required>
+                <input type="text" pattern="^[a-zA-Z.,\s]*$" title="allowed: letters, spaces, '.' and ','" name="author" minlength="2" maxlength="1000" value="{{ request.form.get('author', '') }}" required>
             </div>
                 <br>
                 <br>
                 <label for="title" class="col-sm-2 col-form-label col-form-label-sm">Title:</label>
                 <div class="col-sm-10">
-                <input type="text" name="title" minlength="2" maxlength="70" value="{{ request.form.get('title', '') }}" required>
+                <input type="text" name="title" minlength="2" maxlength="1000" value="{{ request.form.get('title', '') }}" required>
             </div>
                 <br>
                 <br>
                 <label for="howpublished" class="col-sm-2 col-form-label col-form-label-sm">Howpublished:</label>
                 <div class="col-sm-10">
-                <input type="text" name="howpublished" minlength="2" maxlength="30" value="{{ request.form.get('howpublished', '') }}">
+                <input type="text" name="howpublished" minlength="2" maxlength="1000" value="{{ request.form.get('howpublished', '') }}">
             </div>
                 <br>
                 <br>
@@ -279,7 +279,7 @@ Create a reference
                 <br>
                 <label for="year" class="col-sm-2 col-form-label col-form-label-sm">Year:</label>
                 <div class="col-sm-10">
-                <input type="number" name="year" max="9999" required value="{{ request.form.get('year', '') }}">
+                <input type="number" name="year" min="1000", max="2024" required value="{{ request.form.get('year', '') }}">
             </div>
                 <br>
                 <br>
