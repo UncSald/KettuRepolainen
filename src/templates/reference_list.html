@@ -11,126 +11,150 @@ References
       <div class="col-8">
 <h2>References</h2>
 
+{% if references %}
+<div>
+  <a class="btn btn-primary btn-sm py-0 px-1 ms-2" href="/export_bibtex" role="button" download="references.bib" style="margin-top: 20px;">Download references as BibTeX -file</a>
+</div>
+
 {% if not view_as_bibtex %}
-<form action="/change_list_format" method="post" style="padding-bottom: 20px;">
-  <input type="submit" id="view_bibtex_format" value="View in BibTex format" />
-</form>
+<div>
+  <form action="/change_list_format" method="post" style="padding-bottom: 20px;">
+    <input type="submit" id="view_bibtex_format" value="View in BibTex format" />
+  </form>
 
-<ul class="list-group">
-  {% for reference in references %}
-    <li class="list-group-item">
-      <div>
-        <!-- author:-->
-        {{ reference[3] }}.
-        
-        {% if reference[10] %}
+  <ul class="list-group">
+    {% for reference in references %}
+      <li class="list-group-item">
+        <div>
+          <!-- author:-->
+            {{ reference[3] }}.
+          
+          {% if reference[10] %}
 
-        <!--month and year-->
-        ({{reference[10]}} {{reference[6]}}),
+          <!--month and year-->
+          ({{reference[10]}} {{reference[6]}}),
 
-        <!--just year-->
-        {% else %}
-        ({{reference[6]}}), 
+          <!--just year-->
+          {% else %}
+          ({{reference[6]}}), 
 
-        {% endif %}
-        
-        <!--title-->
-        '{{reference[4]}}'
-        
-        <!--journal-->
-        {% if reference[5] %}, <i>{{ reference[5] }}</i>{% endif %}
-        
-        <!--volume-->
-        {% if reference[7] %}, volume {{ reference[7] }}{% endif %}
-        
-        <!--number-->
-        {% if reference[8] %}, number {{ reference[8] }}{% endif %} 
-        
-        <!--pages-->
-        {% if reference[9] %}, p. {{ reference[9] }}{% endif %} 
-         
-        <!--note-->
-        {% if reference[11] %}, note: {{ reference[11] }}{% endif %}
+          {% endif %}
+          
+          <!--title-->
+          '{{reference[4]}}'
+          
+          <!--journal-->
+          {% if reference[5] %}, <i>{{ reference[5] }}</i>{% endif %}
+          
+          <!--volume-->
+          {% if reference[7] %}, volume {{ reference[7] }}{% endif %}
+          
+          <!--number-->
+          {% if reference[8] %}, number {{ reference[8] }}{% endif %} 
+          
+          <!--pages-->
+          {% if reference[9] %}, p. {{ reference[9] }}{% endif %} 
+          
+          <!--note-->
+          {% if reference[11] %}, note: {{ reference[11] }}{% endif %}
 
-        <!--howpublished-->
-        {% if reference[12] %}, {{ reference[12] }}{% endif %}
-        
-        <!--editor-->
-        {% if reference[13] %}, {{ reference[13] }}{% endif %}
+          <!--howpublished-->
+          {% if reference[12] %}, {{ reference[12] }}{% endif %}
+          
+          <!--editor-->
+          {% if reference[13] %}, {{ reference[13] }}{% endif %}
 
-        <!--publisher-->
-        {% if reference[14] %}, {{ reference[14] }}{% endif %}
+          <!--publisher-->
+          {% if reference[14] %}, {{ reference[14] }}{% endif %}
 
-        <a type="button" class="btn btn-primary" href="/edit_reference/{{ reference[0] }}" name="edit_reference" id="edit_reference" style="float: right;">
-          Edit
-        </a>
-        <form action="/delete_reference/{{ reference[0] }}" method="post" style="float: right; margin-right: 10px;">
-          <button type="button" class="btn btn-danger" id="delete" name="delete" onclick="confirmDelete(this.form)">Delete</button>
-        </form>
-      </div>
-    </li>  
-  {% endfor %}
-</ul>
+          {% if reference in selected_references %}
+          <script>console.log("{{ reference }}")</script>
+          <script>console.log("{{ selected_references[0] }}")</script>
+          <form action="/deselect_reference/{{ reference[0] }}" method="post" style="float: right; margin-right: 10px; margin-left: 10px;">
+            <button type="submit" class="btn btn-danger">Deselect</button>
+          </form>
+          {% else %}
+          <form action="/select_reference/{{ reference[0] }}" method="post" style="float: right; margin-right: 10px; margin-left: 10px;">
+            <button type="submit" class="btn btn-primary">Select</button>
+          </form>
+          <script>console.log("{{ reference }}", "selected")</script>
+          <script>console.log("{{ selected_references[0] }}", "selected")</script>
+          {% endif %}
 
+          <a type="button" class="btn btn-primary" href="/edit_reference/{{ reference[0] }}" name="new_reference" style="float: right;">
+            Edit
+          </a>
+          <form action="/delete_reference/{{ reference[0] }}" method="post" style="float: right; margin-right: 10px;">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+      </li>  
+    {% endfor %}
+  </ul>
+</div>
 {% else %}
 <form action="/change_list_format" method="post">
   <input type="submit" id="view_normal_format" value="View in normal format" />
 </form>
 
-<ul>
+<div>
   {% for reference in references %}
       <div>
         @{{reference[1]}}&#123;{{reference[2]}},
-        
-        <br>
-        <!-- author:-->
-        author = &#123;{{ reference[3] }}&#125;,
-        
-        <br>
-        <!--title-->
-        title = &#123;{{ reference[4] }}&#125;,
+        <p style="margin-left: 1.5em; margin-top: 0px; margin-bottom: 0px;">
+          <!-- author:-->
+          author = &#123;{{ reference[3] }}&#125;,
+          
+          <br>
+          <!--title-->
+          title = &#123;{{ reference[4] }}&#125;,
 
-        <!--journal-->
-        {% if reference[5] %}<br>journal = &#123;{{ reference[5] }}&#125;, {% endif %}
+          <!--journal-->
+          {% if reference[5] %}<br>journal = &#123;{{ reference[5] }}&#125;, {% endif %}
 
-        <br>
-        <!--year-->
-        year = &#123;{{reference[6]}}&#125;
-        
-        <!--volume-->
-        {% if reference[7] %},<br>volume = &#123;{{ reference[7] }}&#125;{% endif %}
-        
-        <!--number-->
-        {% if reference[8] %},<br>number = &#123;{{ reference[8] }}&#125;{% endif %} 
-        
-        <!--pages-->
-        {% if reference[9] %},<br>pages = &#123;{{ reference[9] }}&#125;{% endif %} 
+          <br>
+          <!--year-->
+          year = &#123;{{reference[6]}}&#125;
+          
+          <!--volume-->
+          {% if reference[7] %},<br>volume = &#123;{{ reference[7] }}&#125;{% endif %}
+          
+          <!--number-->
+          {% if reference[8] %},<br>number = &#123;{{ reference[8] }}&#125;{% endif %} 
+          
+          <!--pages-->
+          {% if reference[9] %},<br>pages = &#123;{{ reference[9] }}&#125;{% endif %} 
 
-        <!--month:-->
-        {% if reference[10] %},<br>month = &#123;{{reference[10]}}&#125;{% endif %}
-        
-        <!--note-->
-        {% if reference[11] %},<br>note = &#123;{{ reference[11] }}&#125;{% endif %}
+          <!--month:-->
+          {% if reference[10] %},<br>month = &#123;{{reference[10]}}&#125;{% endif %}
+          
+          <!--note-->
+          {% if reference[11] %},<br>note = &#123;{{ reference[11] }}&#125;{% endif %}
 
-        <!--howpublished-->
-        {% if reference[12] %},<br>howpublished = &#123;{{ reference[12] }}&#125;{% endif %}
-  
-        <!--editor-->
-        {% if reference[13] %},<br>editor = &#123;{{ reference[13] }}&#125;{% endif %}
+          <!--howpublished-->
+          {% if reference[12] %},<br>howpublished = &#123;{{ reference[12] }}&#125;{% endif %}
+    
+          <!--editor-->
+          {% if reference[13] %},<br>editor = &#123;{{ reference[13] }}&#125;{% endif %}
 
-        <!--publisher-->
-        {% if reference[14] %},<br>publisher = &#123;{{ reference[14] }}&#125;{% endif %}
-        <br>
+          <!--publisher-->
+          {% if reference[14] %},<br>publisher = &#123;{{ reference[14] }}&#125;{% endif %}
+        </p>
         &#125;
       </div>
     <br>
   {% endfor %}
-</ul>
+    </div>
 
 
 {% endif %}
-<a class="btn btn-primary btn-sm py-0 px-1 ms-2" href="/export_bibtex" role="button" download="references.bib" style="margin-top: 20px;">Download references as BibTeX -file</a>
+{% else %}
 
+<div>
+  No references in database.
+</div>
+
+{% endif %}
 
 </div>
 </div>

@@ -21,9 +21,10 @@ def new_reference():
 
 @app.route("/references", methods=["GET"])
 def references():
-    refs = reference_dao.get_references()   # Fetch references from the repository
+    refs = reference_dao.get_references()
     view_as_bibtex = reference_dao.get_reference_view_format()
-    return render_template("reference_list.html", references=refs, view_as_bibtex=view_as_bibtex)
+
+    return render_template("reference_list.html", references=refs, view_as_bibtex=view_as_bibtex, selected_references=[])
 
 @app.route("/change_list_format", methods=["POST"])
 def set_bibtext_format():
@@ -45,7 +46,7 @@ def create_new_reference():
         data = acm_scraper.scrape_article(html)
         data["link"] = link
         data["type"] = "acm"
-    
+
     for field in datafields:
         if field in data:
             continue
@@ -87,7 +88,8 @@ def reset_database():
 @app.route("/export_bibtex")
 def export_bibtex():
     bibtex_print = reference_dao.return_references_in_bibtex_form()
-    
+
+
     return bibtex_print
 
 @app.route("/edit_reference/<int:reference_id>")
@@ -114,3 +116,18 @@ def delete_reference(reference_id):
     reference_dao.delete_reference(reference_id)
     return redirect("/references")
 
+@app.route("/select_reference/<int:reference_id>", methods=["POST"])
+def select_reference(reference_id):
+    reference_dao.add_selected_reference(reference_id)
+    selected_references = reference_dao.get_selected_references()
+    refs = reference_dao.get_references()
+    view_as_bibtex = reference_dao.get_reference_view_format()
+    return render_template("reference_list.html", references=refs, view_as_bibtex=view_as_bibtex, selected_references=selected_references)
+
+@app.route("/deselect_reference/<int:reference_id>", methods=["POST"])
+def deselect_reference(reference_id):
+    reference_dao.remove_from_selected(reference_id)
+    selected_references = reference_dao.get_selected_references()
+    refs = reference_dao.get_references()
+    view_as_bibtex = reference_dao.get_reference_view_format()
+    return render_template("reference_list.html", references=refs, view_as_bibtex=view_as_bibtex, selected_references=selected_references)

@@ -6,6 +6,7 @@ class ReferenceDao:
     def __init__(self, db_connection: SQLAlchemy):
         self.__db = db_connection
         self.___references_in_bibtex_form: bool = False
+        self.__selected_reference_ids = []
 
     def change_reference_view_format(self):
         self.___references_in_bibtex_form = not self.___references_in_bibtex_form
@@ -143,7 +144,7 @@ class ReferenceDao:
 
 
     def return_references_in_bibtex_form(self):
-        references = self.get_references()
+        references = self.get_selected_references()
         bibtex_data = self.convert_to_bibtex(references)
         return bibtex_data
     
@@ -187,3 +188,22 @@ class ReferenceDao:
         self.__db.session.commit()
 
 
+    def add_selected_reference(self, reference_id):
+        if reference_id not in self.__selected_reference_ids and reference_id:
+            self.__selected_reference_ids.append(reference_id)
+
+    def remove_from_selected(self, reference_id):
+        if reference_id in self.__selected_reference_ids:
+            self.__selected_reference_ids.remove(reference_id)
+
+    def get_selected_references(self):
+        selected = []
+        for id in self.__selected_reference_ids:
+            sql = text("""
+                        SELECT id, type, name, author, title, journal, year, volume, number, pages, month, note, howpublished, editor, publisher
+                        FROM \"references\"
+                        WHERE id=(:id)
+                       """)
+            found_reference = self.__db.session.execute(sql, {"id":id}).fetchone()
+            selected.append(found_reference)
+        return selected
