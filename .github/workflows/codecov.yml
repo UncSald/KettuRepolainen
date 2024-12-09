@@ -26,6 +26,9 @@ jobs:
         pip install poetry
         poetry install
 
+    - name: Run tests
+      run: poetry run coverage run --branch -m pytest
+      
     - name: Coverage report
       run: poetry run coverage xml
     - name: Coverage report to Codecov
