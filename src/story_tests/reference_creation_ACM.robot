@@ -8,12 +8,12 @@ Test Setup       Reset Database
 When article form is selected article form is shown
     Go To New Reference Page
     Select Radio Button  refTypeCheckbox  acm
-    Page Should Contain  Creating ACM type reference
+    Page Should Contain  Get reference from ACM link
 
 When ACM Is Submitted Page Should Redirect To Main
     Go To New Reference Page
     Select Radio Button  refTypeCheckbox  acm
-    Page Should Contain  Creating ACM type reference
+    Page Should Contain  Get reference from ACM link
     Set Name  ACMTest1
     Set Link   https://dl.acm.org/doi/10.1145/3695770
     Scroll Element Into View  acm_submit

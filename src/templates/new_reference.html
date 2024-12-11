@@ -10,6 +10,7 @@ Create a reference
     <div class="row">
         <div class="col-8">
             <h2>Create a reference</h2>
+            <p>Choose reference type</p>
             <input class="form-check-input" id="result" type="radio" name="refTypeCheckbox" value="article" onclick="openForm()">
             <label class="form-check-label" for="exampleRadios1" style="padding-right: 5px;">
                 Article
@@ -127,7 +128,7 @@ Create a reference
                 <br>
                 <br>
                 <div class="col-sm-10">
-                <button type="submit" name="article_submit" id="article_submit">submit</button>
+                <button class="btn btn-secondary" type="submit" name="article_submit" id="article_submit">Submit</button>
                 </div>
             </div>
             </form>
@@ -223,7 +224,7 @@ Create a reference
                 <br>
                 <br>
                 <div class="col-sm-10">
-                <button type="submit" name="book_submit" id="book_submit">submit</button>
+                <button class="btn btn-secondary" type="submit" name="book_submit" id="book_submit">Submit</button>
                 </div>
             </div>
             </form>
@@ -295,7 +296,7 @@ Create a reference
                 <br>
                 <br>
                 <div class="col-sm-10">
-                <button type="submit" name="misc_submit" id="misc_submit">submit</button>
+                <button class="btn btn-secondary" type="submit" name="misc_submit" id="misc_submit">Submit</button>
             </div>
                 </div>
             </form>
@@ -307,7 +308,7 @@ Create a reference
         <div class="col-8">
             <form action="/references" method="post" class="form-acm" {% if request.form.get('type', '')!="acm" %}style="display: none"{% endif %} id="acm">
                 <div class="form-group row">
-                    <h3>Creating ACM type reference</h3>
+                    <h3 style="padding-bottom: 20px;">Get reference from ACM link</h3>
                     <input type="hidden" name="type" value="acm">
                     <label class="col-sm-2 col-form-label col-form-label-sm" for="name">Keyword:</label>
                     <div class="col-sm-10">
@@ -320,7 +321,7 @@ Create a reference
                     </div>
                     <br><br>
                     <div class="col-sm-10">
-                        <button type="submit" name="acm_submit" id="acm_submit">submit</button>
+                        <button class="btn btn-secondary" type="submit" name="acm_submit" id="acm_submit">Submit</button>
                     </div>
                 </div>
             </form>
