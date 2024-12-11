@@ -56,7 +56,7 @@ Create a reference
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text">Keyword</span>
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Keyword</span>
                     </div>
                     <input type="text" pattern="^[a-zA-ZäÄåÅöÖ0-9]+$" title="Keyword should contain only numbers and/or letters and no spaces." class="form-control" name="name" minlength="2" maxlength="30" required>
                   </div>
@@ -65,7 +65,7 @@ Create a reference
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text">Author</span>
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Author</span>
                     </div>
                     <input type="text" class="form-control" name="author" pattern="^[a-zA-ZäöåÄÖÅ,_\.\s]+$" title="allowed: letters, spaces and characters: _ . ," name="author" minlength="2" maxlength="1000" value="{{ request.form.get('author', '') }}" required>
                   </div>
@@ -74,7 +74,7 @@ Create a reference
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text">Title</span>
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Title</span>
                     </div>
                     <input type="text" class="form-control" name="title" pattern="^[a-zA-Z0-9äöåÄÖÅ,_\.\s]+$" title="allowed: letters, numbers, spaces and characters: _ . ," minlength="2" maxlength="70" value="{{ request.form.get('title', '') }}" required>
                   </div>
@@ -83,7 +83,7 @@ Create a reference
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text">Journal</span>
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Journal</span>
                     </div>
                     <input type="text" pattern="^[a-zA-Z0-9äöåÄÖÅ,_\.\s]+$" title="allowed: letters, numbers, spaces and characters: _ . ," class="form-control" name="journal" minlength="2" maxlength="70" value="{{ request.form.get('journal', '') }}" required>
                   </div>
@@ -92,34 +92,47 @@ Create a reference
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text">Year</span>
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Year</span>
                     </div>
-                    <input type="number" class="form-control" name="year" pattern="/^\d+$/" title="Year contain only nubers" min="1000" max="2024" value="{{ request.form.get('year', '') }}" required>
+
+                    <input type="number" class="form-control" name="year" pattern="/^\d+$/" title="Year contain only numbers" min="1000" max="2025" value="{{ request.form.get('year', '') }}" required>
+                  </div>
+                <br>
+                <br>
+                
+                
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Volume</span>
+                    </div>
+                    <input type="number" class="form-control"  name="volume" max="50" value="{{ request.form.get('volume', '') }}">
                   </div>
                 <br>
                 <br>
 
-                <label for="volume" class="col-sm-2 col-form-label col-form-label-sm">Volume:</label>
-                <div class="col-sm-10">
-                <input type="number" name="volume" max="50" value="{{ request.form.get('volume', '') }}">
-                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Number</span>
+                    </div>
+                    <input type="number" class="form-control" name="number" max="50" value="{{ request.form.get('number', '') }}">
+                  </div>
                 <br>
                 <br>
-                <label for="number" class="col-sm-2 col-form-label col-form-label-sm">Number:</label>
-                <div class="col-sm-10">
-                <input type="number" name="number" max="50" value="{{ request.form.get('number', '') }}">
-                </div>
+                
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Pages</span>
+                    </div>
+                    <input type="text" pattern="(\d{1,4}(-[1-9]\d{0,3})?)?" title="Pages needs to be written as a number or two numbers divided by a dash (e.g. 1 or 1-25)" class="form-control" name="pages" maxlength="20" value="{{ request.form.get('pages', '') }}">
+                  </div>
                 <br>
                 <br>
-                <label for="pages" class="col-sm-2 col-form-label col-form-label-sm">Pages:</label>
-                <div class="col-sm-10">
-                <input type="text" pattern="(\d{1,4}(-[1-9]\d{0,3})?)?" title="Pages needs to be written as a number or two numbers divided by a dash (e.g. 1 or 1-25)" name="pages" maxlength="20" value="{{ request.form.get('pages', '') }}">
-                </div>
-                <br>
-                <br>
-                <label for="month" class="col-sm-2 col-form-label col-form-label-sm">Month:</label>
-                <div class="col-sm-10">
-                    <select name="month" id="month">
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Month</span>
+                    </div>
+                    <select class="form-select" name="month" id="month">
                         <option value=""></option>
                         <option value="January">January</option>
                         <option value="February">February</option>
@@ -134,15 +147,20 @@ Create a reference
                         <option value="November">November</option>
                         <option value="December">December</option>
                     </select>
-                </div>
+                  </div>
                 <br>
                 <br>
-                <label for="note" class="col-sm-2 col-form-label col-form-label-sm">Note:</label>
-                <div class="col-sm-10">
-                <input type="text" name="note" maxlength="1000" value="{{ request.form.get('note', '') }}">
-                </div>
+
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Note</span>
+                    </div>
+                    <input type="text" class="form-control" name="note" maxlength="1000" value="{{ request.form.get('note', '') }}">
+                  </div>
                 <br>
                 <br>
+
                 <div class="col-sm-10">
                 <button class="btn btn-secondary" type="submit" name="article_submit" id="article_submit">Submit</button>
                 </div>
@@ -157,88 +175,123 @@ Create a reference
         <div class="col-8">
             <form action="/references" method="post" class="form-book" {% if request.form.get('type', '')!="book" %}style="display: none"{% endif %} id="book">
                 <div class="form-group row">
-                <h2>Creating book type reference</h2>
+                <h2 style="padding-bottom: 20px;">Creating book type reference</h2>
                 <input type="hidden" name="type" value="book">
-                <label for="name" for="pages" class="col-sm-2 col-form-label col-form-label-sm">Keyword:</label>
-                <div class="col-sm-10">
-                <input type="text" pattern="^[a-zA-ZäÄåÅöÖ0-9]+$" title="Keyword should contain only numbers and/or letters and no spaces." name="name" minlength="2" maxlength="30" required>
-                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Keyword</span>
+                    </div>
+                    <input type="text" pattern="^[a-zA-ZäÄåÅöÖ0-9]+$" title="Keyword should contain only numbers and/or letters and no spaces." class="form-control" name="name" minlength="2" maxlength="30" required>
+                  </div>
                 <br>
                 <br>
-                <label for="author"class="col-sm-2 col-form-label col-form-label-sm">Author:</label>
-                <div class="col-sm-10">
-                <input type="text" pattern="^[a-zA-ZäöåÄÖÅ,_\.\s]+$" title="allowed: letters, spaces and characters: _ . ," name="author" minlength="2" maxlength="1000" value="{{ request.form.get('author', '') }}" required>
-                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Author</span>
+                    </div>
+                    <input type="text" class="form-control" name="author" pattern="^[a-zA-ZäöåÄÖÅ,_\.\s]+$" title="allowed: letters, spaces and characters: _ . ,"  minlength="2" maxlength="1000" value="{{ request.form.get('author', '') }}" required>
+                  </div>
                 <br>
                 <br>
-                <label for="editor"class="col-sm-2 col-form-label col-form-label-sm">Editor:</label>
-                <div class="col-sm-10">
-                <input type="text" pattern="^[a-zA-Z0-9äöåÄÖÅ,_\.\s]+$" title="allowed: letters, numbers, spaces and characters: _ . ," name="editor" minlength="2" maxlength="1000" value="{{ request.form.get('editor', '') }}" required>
-                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Editor</span>
+                    </div>
+                    <input type="text" class="form-control" name="editor" pattern="^[a-zA-Z0-9äöåÄÖÅ,_\.\s]+$" title="allowed: letters, numbers, spaces and characters: _ . ," minlength="2" maxlength="1000" value="{{ request.form.get('editor', '') }}" required>
+                  </div>
                 <br>
                 <br>
-                <label for="title" class="col-sm-2 col-form-label col-form-label-sm">Title:</label>
-                <div class="col-sm-10">
-                <input type="text" pattern="^[a-zA-Z0-9äöåÄÖÅ,_\.\s]+$" title="allowed: letters, numbers, spaces and characters: _ . ," name="title" minlength="2" maxlength="1000" value="{{ request.form.get('title', '') }}" required>
-                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Title</span>
+                    </div>
+                    <input type="text" class="form-control" name="title" pattern="^[a-zA-Z0-9äöåÄÖÅ,_\.\s]+$" title="allowed: letters, numbers, spaces and characters: _ . ," minlength="2" maxlength="1000" value="{{ request.form.get('title', '') }}" required>
+                  </div>
                 <br>
                 <br>
-                <label for="journal" class="col-sm-2 col-form-label col-form-label-sm">Publisher:</label>
-                <div class="col-sm-10">
-                <input type="text" pattern="^[a-zA-ZäöåÄÖÅ,_\.\s]+$" title="allowed: letters, spaces and characters: _ . ," name="publisher" minlength="2" maxlength="1000" value="{{ request.form.get('publisher', '') }}" required>
-                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Publisher</span>
+                    </div>
+                    <input type="text" class="form-control" name="publisher" pattern="^[a-zA-ZäöåÄÖÅ,_\.\s]+$" title="allowed: letters, spaces and characters: _ . ," minlength="2" maxlength="1000" value="{{ request.form.get('publisher', '') }}" required>
+                  </div>
                 <br>
                 <br>
-                <label for="year" class="col-sm-2 col-form-label col-form-label-sm">Year:</label>
-                <div class="col-sm-10">
-                <input type="number" name="year" min="1000" max="2024" value="{{ request.form.get('year', '') }}" required>
-                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Year</span>
+                    </div>
+                    <input type="number" class="form-control" name="year" pattern="/^\d+$/" title="Year contain only numbers" min="1000" max="2024" value="{{ request.form.get('year', '') }}" required>
+                  </div>
                 <br>
                 <br>
-                <label for="volume" class="col-sm-2 col-form-label col-form-label-sm">Volume:</label>
-                <div class="col-sm-10">
-                <input type="number" name="volume" max="50" value="{{ request.form.get('volume', '') }}">
-                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Volume</span>
+                    </div>
+                    <input type="number" class="form-control"  name="volume" max="50" value="{{ request.form.get('volume', '') }}">
+                  </div>
                 <br>
                 <br>
-                <label for="number" class="col-sm-2 col-form-label col-form-label-sm">Number:</label>
-                <div class="col-sm-10">
-                <input type="number" name="number" max="50" value="{{ request.form.get('number', '') }}">
-                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Number</span>
+                    </div>
+                    <input type="number" class="form-control" name="number" max="50" value="{{ request.form.get('number', '') }}">
+                  </div>
                 <br>
                 <br>
-                <label for="pages" class="col-sm-2 col-form-label col-form-label-sm">Pages:</label>
-                <div class="col-sm-10">
-                <input type="text" pattern="(\d{1,4}(-[1-9]\d{0,3})?)?" title="Pages needs to be written as a number or two numbers divided by a dash (e.g. 1 or 1-25)" name="pages" maxlength="20" value="{{ request.form.get('pages', '') }}">
-                </div>
+
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Pages</span>
+                    </div>
+                    <input type="text" pattern="(\d{1,4}(-[1-9]\d{0,3})?)?" title="Pages needs to be written as a number or two numbers divided by a dash (e.g. 1 or 1-25)" class="form-control" name="pages" maxlength="20" value="{{ request.form.get('pages', '') }}">
+                  </div>
                 <br>
                 <br>
-                <label for="month" class="col-sm-2 col-form-label col-form-label-sm">Month:</label>
-                <div class="col-sm-10">
-                <select name="month" id="month">
-                    <option value=""></option>
-                    <option value="January">January</option>
-                    <option value="February">February</option>
-                    <option value="March">March</option>
-                    <option value="April">April</option>
-                    <option value="May">May</option>
-                    <option value="June">June</option>
-                    <option value="July">July</option>
-                    <option value="August">August</option>
-                    <option value="September">September</option>
-                    <option value="October">October</option>
-                    <option value="November">November</option>
-                    <option value="December">December</option>
-                </select>
-                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Month</span>
+                    </div>
+                    <select class="form-select" name="month" id="month">
+                        <option value=""></option>
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                    </select>
+                  </div>
                 <br>
                 <br>
-                <label for="note" class="col-sm-2 col-form-label col-form-label-sm">Note:</label>
-                <div class="col-sm-10">
-                <input type="text" name="note" maxlength="1000" value="{{ request.form.get('note', '') }}">
-                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Note</span>
+                    </div>
+                    <input type="text" class="form-control" name="note" maxlength="1000" value="{{ request.form.get('note', '') }}">
+                  </div>
                 <br>
                 <br>
+
                 <div class="col-sm-10">
                 <button class="btn btn-secondary" type="submit" name="book_submit" id="book_submit">Submit</button>
                 </div>
@@ -253,37 +306,52 @@ Create a reference
         <div class="col-8">
             <form action="/references" method="post" class="form-misc" {% if request.form.get('type', '')!="misc" %}style="display: none"{% endif %} id="misc">
                 <div class="form-group row">
-                <h2>Creating misc type reference</h2>
+                <h2 style="padding-bottom: 20px;">Creating misc type reference</h2>
                 <input type="hidden" name="type" value="misc">
-                <label for="name" class="col-sm-2 col-form-label col-form-label-sm">Keyword:</label>
-                <div class="col-sm-10">
-                <input type="text" pattern="^[a-zA-Z0-9]+$" title="Keyword should contain only numbers and/or letters and no spaces." name="name" minlength="2" maxlength="30" required>
-            </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Keyword</span>
+                    </div>
+                    <input type="text" pattern="^[a-zA-Z0-9]+$" title="Keyword should contain only numbers and/or letters and no spaces." class="form-control" name="name" minlength="2" maxlength="30" required>
+                  </div>
                 <br>
                 <br>
-                <label for="author" class="col-sm-2 col-form-label col-form-label-sm">Author:</label>
-                <div class="col-sm-10">
-                <input type="text" pattern="^[a-zA-ZäöåÄÖÅ,_\.\s]+$" title="allowed: letters, spaces and characters: _ . ," name="author" minlength="2" maxlength="1000" value="{{ request.form.get('author', '') }}" required>
-            </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Author</span>
+                    </div>
+                    <input type="text"  class="form-control" name="author" pattern="^[a-zA-ZäöåÄÖÅ,_\.\s]+$" title="allowed: letters, spaces and characters: _ . ," minlength="2" maxlength="1000" value="{{ request.form.get('author', '') }}" required>
+                  </div>
                 <br>
                 <br>
-                <label for="title" class="col-sm-2 col-form-label col-form-label-sm">Title:</label>
-                <div class="col-sm-10">
-                <input type="text" pattern="^[a-zA-Z0-9äöåÄÖÅ,_\.\s]+$" title="allowed: letters, numbers, spaces and characters: _ . ," name="title" minlength="2" maxlength="1000" value="{{ request.form.get('title', '') }}" required>
-            </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Title</span>
+                    </div>
+                    <input type="text" class="form-control" name="title" pattern="^[a-zA-Z0-9äöåÄÖÅ,_\.\s]+$" title="allowed: letters, numbers, spaces and characters: _ . ," minlength="2" maxlength="1000" value="{{ request.form.get('title', '') }}" required>
+                  </div>
                 <br>
                 <br>
-                <label for="howpublished" class="col-sm-2 col-form-label col-form-label-sm">Howpublished:</label>
-                <div class="col-sm-10">
-                <input type="text" pattern="^[a-zA-Z0-9äöåÄÖÅ,_\.\s]+$" title="allowed: letters, numbers, spaces and characters: _ . ," name="howpublished" minlength="2" maxlength="1000" value="{{ request.form.get('howpublished', '') }}">
-            </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">How Published</span>
+                    </div>
+                    <input type="text" class="form-control" pattern="^[a-zA-Z0-9äöåÄÖÅ,_\.\s]+$" title="allowed: letters, numbers, spaces and characters: _ . ," name="howpublished" minlength="2" maxlength="1000" value="{{ request.form.get('howpublished', '') }}">
+                  </div>
                 <br>
                 <br>
-                <label for="month" class="col-sm-2 col-form-label col-form-label-sm">Month:</label>
-                <div class="col-sm-10">
-                    <select name="month" id="month">
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Month</span>
+                    </div>
+                    <select class="form-select" name="month" id="month">
                         <option value=""></option>
-                        <option value="January" >January</option>
+                        <option value="January">January</option>
                         <option value="February">February</option>
                         <option value="March">March</option>
                         <option value="April">April</option>
@@ -296,28 +364,36 @@ Create a reference
                         <option value="November">November</option>
                         <option value="December">December</option>
                     </select>
-            </div>
+                  </div>
                 <br>
                 <br>
-                <label for="year" class="col-sm-2 col-form-label col-form-label-sm">Year:</label>
-                <div class="col-sm-10">
-                <input type="number" name="year" min="1000", max="2024" required value="{{ request.form.get('year', '') }}">
-            </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Year</span>
+                    </div>
+                    <input type="number" class="form-control" name="year" pattern="/^\d+$/" title="Year contain only numbers" min="1000" max="2025" value="{{ request.form.get('year', '') }}" required>
+                  </div>
                 <br>
                 <br>
-                <label for="note" class="col-sm-2 col-form-label col-form-label-sm">Note:</label>
-                <div class="col-sm-10">
-                <input type="text" name="note" maxlength="1000" value="{{ request.form.get('note', '') }}">
-            </div>
+
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Note</span>
+                    </div>
+                    <input type="text" class="form-control" name="note" maxlength="1000" value="{{ request.form.get('note', '') }}">
+                  </div>
                 <br>
                 <br>
+
                 <div class="col-sm-10">
                 <button class="btn btn-secondary" type="submit" name="misc_submit" id="misc_submit">Submit</button>
             </div>
                 </div>
             </form>
         </div>
-    </div>
+    </div>  
 </div>
 <div class="container">
     <div class="row">
@@ -326,16 +402,27 @@ Create a reference
                 <div class="form-group row">
                     <h3 style="padding-bottom: 20px;">Get reference from ACM link</h3>
                     <input type="hidden" name="type" value="acm">
-                    <label class="col-sm-2 col-form-label col-form-label-sm" for="name">Keyword:</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="name" minlength="2" maxlength="30" required>
-                    </div>
-                    <br><br>
-                    <label for="link" class="col-sm-2 col-form-label col-form-label-sm">ACM Link:</label>
-                    <div class="col-sm-10">
-                        <input type="url" name="link" minlength="2" maxlength="100" required>
-                    </div>
-                    <br><br>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Keyword</span>
+                        </div>
+                        <input type="text" class="form-control" name="name" minlength="2" maxlength="30" required>
+                      </div>
+                    <br>
+                    <br>
+
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" style="width: 150px; display: block; text-align: center;">ACM Link</span>
+                        </div>
+                        <input type="url" class="form-control" name="link" minlength="2" maxlength="100" required>
+                      </div>
+                    <br>
+                    <br>
+
+
                     <div class="col-sm-10">
                         <button class="btn btn-secondary" type="submit" name="acm_submit" id="acm_submit">Submit</button>
                     </div>
