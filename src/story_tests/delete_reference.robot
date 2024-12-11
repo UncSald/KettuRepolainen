@@ -10,6 +10,7 @@ Deleting a Reference Should Remove It From The List
     ${normal}=  Run Keyword And Return Status    Element Should Be Visible   id=view_normal_format
     Run Keyword If    ${normal}    Click Normal Button If Shown
     Click Button  Delete
+    Alert Should Be Present
     Go To References List Page
     Page Should Not Contain  Kernighan, Brian and Ritchie, Dennis
 
