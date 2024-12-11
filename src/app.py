@@ -17,7 +17,7 @@ def link_is_valid_form(link):
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("/new_reference.html", errors=None)
 
 @app.route("/new_reference")
 def new_reference():
@@ -90,7 +90,7 @@ def create_new_reference():
         return render_template("/new_reference.html", errors=errors)
 
     reference_dao.create_reference(data)
-    return redirect("/")
+    return redirect("/references")
 
 
 @app.route("/reset_db")

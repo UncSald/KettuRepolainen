@@ -10,14 +10,14 @@ When misc form is selected misc form is shown
     Select Radio Button  refTypeCheckbox  misc
     Page Should Contain  Creating misc type reference
 
-When Misc Is Submitted Page Should Redirect To Main
+When Misc Is Submitted Page Should Redirect To References
     Go To New Reference Page
     Select Radio Button  refTypeCheckbox  misc
     Page Should Contain  Creating misc type reference
     Set Misc Information
     Scroll Element Into View  misc_submit
     Click Misc Submit
-    Main Page Should Be Open
+    References Page Should Be Open
 
 When Posting Misc With Wrong Fromat Of Keyword Error Is shown
     Go To New Reference Page

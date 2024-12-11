@@ -10,14 +10,14 @@ When article form is selected article form is shown
     Select Radio Button  refTypeCheckbox  article
     Page Should Contain  Creating article type reference
 
-When Article Is Submitted Page Should Redirect To Main
+When Article Is Submitted Page Should Redirect To References
     Go To New Reference Page
     Select Radio Button  refTypeCheckbox  article
     Page Should Contain  Creating article type reference
     Set Article Information
     Scroll Element Into View  article_submit
     Click Article Submit
-    Main Page Should Be Open
+    References Page Should Be Open
 
 When Posting Article Without Author Error Is shown
     Go To New Reference Page
@@ -40,7 +40,7 @@ When Posting Article With Year As A String Error Is shown
     Click Article Submit
     Page Should Contain  Creating article type reference
     
-When Article Is Submitted With Correct Pages Format Should Redirect To Main
+When Article Is Submitted With Correct Pages Format Should Redirect To References
     Go To New Reference Page
     Select Radio Button  refTypeCheckbox  article
     Page Should Contain  Creating article type reference
@@ -48,7 +48,7 @@ When Article Is Submitted With Correct Pages Format Should Redirect To Main
     Set Pages  13-89
     Scroll Element Into View  article_submit
     Click Article Submit
-    Main Page Should Be Open
+    References Page Should Be Open
 
 
 When Posting Article With Wrong Pages Format Error Is shown

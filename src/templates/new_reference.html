@@ -51,38 +51,54 @@ Create a reference
         <div class="col-8">
             <form action="/references" method="post" class="form-article" {% if request.form.get('type', '')!="article" %}style="display: none"{% endif %}  id="article">
                 <div class="form-group row">
-                <h3>Creating article type reference</h3>
+                <h3 style="padding-bottom: 20px;">Creating article type reference</h3>
                 <input type="hidden" name="type" value="article">
-                <label class="col-sm-2 col-form-label col-form-label-sm" for="name">Keyword:</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="name" minlength="2" maxlength="30" required>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Keyword</span>
                     </div>
+                    <input type="text" class="form-control" name="name" minlength="2" maxlength="30" required>
+                  </div>
                 <br>
                 <br>
-                <label for="author" class="col-sm-2 col-form-label col-form-label-sm">Author:</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="author" pattern="[a-zA-ZäöåÄÖÅ,_\.\s]+" title="Author should contain only letters" minlength="2" maxlength="100" value="{{ request.form.get('author', '') }}" required>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Author</span>
                     </div>
+                    <input type="text" class="form-control" name="author" pattern="[a-zA-ZäöåÄÖÅ,_\.\s]+" title="Author should contain only letters" minlength="2" maxlength="100" value="{{ request.form.get('author', '') }}" required>
+                  </div>
                 <br>
                 <br>
-                <label for="title" class="col-sm-2 col-form-label col-form-label-sm">Title:</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="title" pattern="[a-zA-ZäöåÄÖÅ,_\.\s]+" title="Title should contains only letters" minlength="2" maxlength="70" value="{{ request.form.get('title', '') }}" required>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Title</span>
                     </div>
+                    <input type="text" class="form-control" name="title" pattern="[a-zA-ZäöåÄÖÅ,_\.\s]+" title="Title should contains only letters" minlength="2" maxlength="70" value="{{ request.form.get('title', '') }}" required>
+                  </div>
                 <br>
                 <br>
-                <label for="journal" class="col-sm-2 col-form-label col-form-label-sm">Journal:</label>
-                <div class="col-sm-10">
-                <input type="text" name="journal" minlength="2" maxlength="70" value="{{ request.form.get('journal', '') }}" required>
-                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Journal</span>
+                    </div>
+                    <input type="text" class="form-control" name="journal" minlength="2" maxlength="70" value="{{ request.form.get('journal', '') }}" required>
+                  </div>
                 <br>
                 <br>
-                <label for="year" class="col-sm-2 col-form-label col-form-label-sm">Year:</label>
-                <div class="col-sm-10">
-                <input type="number" name="year" pattern="/^\d+$/" title="Year contain only nubers" min="1000" max="2025" value="{{ request.form.get('year', '') }}" required>
-                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Year</span>
+                    </div>
+                    <input type="number" class="form-control" name="year" pattern="/^\d+$/" title="Year contain only nubers" min="1000" max="2025" value="{{ request.form.get('year', '') }}" required>
+                  </div>
                 <br>
                 <br>
+
                 <label for="volume" class="col-sm-2 col-form-label col-form-label-sm">Volume:</label>
                 <div class="col-sm-10">
                 <input type="number" name="volume" max="50" value="{{ request.form.get('volume', '') }}">

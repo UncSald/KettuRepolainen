@@ -40,7 +40,7 @@ Create Book Reference
     Set Book Information
     Scroll Element Into View  book_submit
     Click Book Submit
-    Main Page Should Be Open
+    References Page Should Be Open
 
 Click BibTex Button If Shown
     Click Button  view_bibtex_format

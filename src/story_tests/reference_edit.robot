@@ -28,7 +28,7 @@ Create Article Reference
     Set Article Information
     Scroll Element Into View  article_submit
     Click Article Submit
-    Main Page Should Be Open
+    References Page Should Be Open
 
 Click BibTex Button If Shown
     Click Button  view_bibtex_format

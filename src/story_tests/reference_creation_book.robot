@@ -10,14 +10,14 @@ When book form is selected book form is shown
     Select Radio Button  refTypeCheckbox  book
     Page Should Contain  Creating book type reference
 
-When Book Is Submitted Page Should Redirect To Main
+When Book Is Submitted Page Should Redirect To References
     Go To New Reference Page
     Select Radio Button  refTypeCheckbox  book
     Page Should Contain  Creating book type reference
     Set Book Information
     Scroll Element Into View  book_submit
     Click Book Submit
-    Main Page Should Be Open
+    References Page Should Be Open
 
 When Posting Book Without Publisher Error Is shown
     Go To New Reference Page
@@ -40,7 +40,7 @@ When Posting Book Without Author Error Is shown
     Click Book Submit
     Page Should Contain  Creating book type reference
 
-When Book Is Submitted Correct Pages Format Should Redirect To Main
+When Book Is Submitted Correct Pages Format Should Redirect To References
     Go To New Reference Page
     Select Radio Button  refTypeCheckbox  book
     Page Should Contain  Creating book type reference
@@ -48,7 +48,7 @@ When Book Is Submitted Correct Pages Format Should Redirect To Main
     Set Pages  39-70
     Scroll Element Into View  book_submit
     Click Book Submit
-    Main Page Should Be Open
+    References Page Should Be Open
 
 When Posting Book With Wrong Pages Format Error Is shown
     Go To New Reference Page

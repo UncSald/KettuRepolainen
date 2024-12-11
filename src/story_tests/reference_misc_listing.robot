@@ -46,7 +46,7 @@ Create Misc Reference
     Set Misc Information
     Scroll Element Into View  misc_submit
     Click Misc Submit
-    Main Page Should Be Open
+    References Page Should Be Open
 
 Set Name
     [Arguments]  ${name}

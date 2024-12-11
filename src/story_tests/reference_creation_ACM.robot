@@ -10,7 +10,7 @@ When article form is selected article form is shown
     Select Radio Button  refTypeCheckbox  acm
     Page Should Contain  Get reference from ACM link
 
-When ACM Is Submitted Page Should Redirect To Main
+When ACM Is Submitted Page Should Redirect To References
     Go To New Reference Page
     Select Radio Button  refTypeCheckbox  acm
     Page Should Contain  Get reference from ACM link
@@ -18,7 +18,7 @@ When ACM Is Submitted Page Should Redirect To Main
     Set Link   https://dl.acm.org/doi/10.1145/3695770
     Scroll Element Into View  acm_submit
     Click ACM Submit
-    Main Page Should Be Open
+    References Page Should Be Open
 
 
 *** Keywords ***
