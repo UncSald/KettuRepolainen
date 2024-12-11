@@ -25,13 +25,13 @@ Editing reference {{ reference[2] }}
                 <br>
                 <label for="author" class="col-sm-2 col-form-label col-form-label-sm">Author:</label>
                     <div class="col-sm-10">
-                        <input type="text" name="author" minlength="2" maxlength="100" value="{{ reference[3] }}" required>
+                        <input type="text" pattern="[a-zA-ZäöåÄÖÅ,_\.\s]+" title="Author should contain only letters" name="author" minlength="2" maxlength="100" value="{{ reference[3] }}" required>
                     </div>
                 <br>
                 <br>
                 <label for="title" class="col-sm-2 col-form-label col-form-label-sm">Title:</label>
                     <div class="col-sm-10">
-                        <input type="text" name="title" minlength="2" maxlength="70" value="{{ reference[4] }}" required>
+                        <input type="text" name="title" pattern="[a-zA-ZäöåÄÖÅ,_\.\s]+" title="Title should contains only letters" minlength="2" maxlength="70" value="{{ reference[4] }}" required>
                     </div>
                 <br>
                 <br>
@@ -43,7 +43,7 @@ Editing reference {{ reference[2] }}
                 <br>
                 <label for="year" class="col-sm-2 col-form-label col-form-label-sm">Year:</label>
                 <div class="col-sm-10">
-                <input type="number" name="year" max="9999" value="{{ reference[6] }}" required>
+                <input type="number" name="year" pattern="/^\d+$/" title="Year contain only nubers" min="1000" max="2025" value="{{ reference[6] }}" required>
                 </div>
                 <br>
                 <br>
@@ -114,55 +114,55 @@ Editing reference {{ reference[2] }}
                 <input type="hidden" name="type" value="book">
                 <label for="name" for="pages" class="col-sm-2 col-form-label col-form-label-sm">Keyword:</label>
                 <div class="col-sm-10">
-                <input type="text" name="name" minlength="2" maxlength="30" value="{{ reference[2] }}" required>
+                    <input type="text" name="name" minlength="2" maxlength="30" value="{{ reference[2] }}" required>
                 </div>
                 <br>
                 <br>
                 <label for="author" class="col-sm-2 col-form-label col-form-label-sm">Author:</label>
                 <div class="col-sm-10">
-                <input type="text" name="author" minlength="2" maxlength="100" value="{{ reference[3] }}" required>
+                    <input type="text" name="author" pattern="[a-zA-ZäöåÄÖÅ,_\.\s]+" title="Author should contain only letters" minlength="2" maxlength="100" value="{{ reference[3] }}" required>
                 </div>
                 <br>
                 <br>
                 <label for="editor" class="col-sm-2 col-form-label col-form-label-sm">Editor:</label>
                 <div class="col-sm-10">
-                <input type="text" name="editor" minlength="2" maxlength="30" value="{{ reference[13] }}" required>
+                    <input type="text" name="editor" minlength="2" pattern="[a-zA-ZäöåÄÖÅ,_\.\s]+" title="Author should contain only letters" maxlength="30" value="{{ reference[13] }}" required>
                 </div>
                 <br>
                 <br>
                 <label for="title" class="col-sm-2 col-form-label col-form-label-sm">Title:</label>
                 <div class="col-sm-10">
-                <input type="text" name="title" minlength="2" maxlength="70" value="{{ reference[4] }}" required>
+                    <input type="text" name="title" pattern="[a-zA-ZäöåÄÖÅ,_\.\s]+" title="Title should contains only letters" minlength="2" maxlength="70" value="{{ reference[4] }}" required>
                 </div>
                 <br>
                 <br>
                 <label for="journal" class="col-sm-2 col-form-label col-form-label-sm">Publisher:</label>
                 <div class="col-sm-10">
-                <input type="text" name="publisher" minlength="2" maxlength="70" value="{{ reference[14] }}" required>
+                    <input type="text" name="publisher" minlength="2" maxlength="70" value="{{ reference[14] }}" required>
                 </div>
                 <br>
                 <br>
                 <label for="year" class="col-sm-2 col-form-label col-form-label-sm">Year:</label>
                 <div class="col-sm-10">
-                <input type="number" name="year" max="9999" value="{{ reference[6] }}" required>
+                    <input type="number" name="year" pattern="/^\d+$/" title="Year contain only nubers" min="1000" max="2025" value="{{ reference[6] }}" required>
                 </div>
                 <br>
                 <br>
                 <label for="volume" class="col-sm-2 col-form-label col-form-label-sm">Volume:</label>
                 <div class="col-sm-10">
-                <input type="number" name="volume" max="50" value="{{ reference[7] }}">
+                    <input type="number" name="volume" max="50" value="{{ reference[7] }}">
                 </div>
                 <br>
                 <br>
                 <label for="number" class="col-sm-2 col-form-label col-form-label-sm">Number:</label>
                 <div class="col-sm-10">
-                <input type="number" name="number" max="50" value="{{ reference[8] }}">
+                    <input type="number" name="number" max="50" value="{{ reference[8] }}">
                 </div>
                 <br>
                 <br>
                 <label for="pages" class="col-sm-2 col-form-label col-form-label-sm">Pages:</label>
                 <div class="col-sm-10">
-                <input type="text" name="pages" maxlength="20" value="{{ reference[9] }}">
+                    <input type="text" name="pages" maxlength="20" value="{{ reference[9] }}">
                 </div>
                 <br>
                 <br>
@@ -188,7 +188,7 @@ Editing reference {{ reference[2] }}
                 <br>
                 <label for="note" class="col-sm-2 col-form-label col-form-label-sm">Note:</label>
                 <div class="col-sm-10">
-                <input type="text" name="note" maxlength="100" value="{{ reference[11] }}">
+                    <input type="text" name="note" maxlength="100" value="{{ reference[11] }}">
                 </div>
                 <br>
                 <br>
@@ -220,13 +220,13 @@ Editing reference {{ reference[2] }}
                 <br>
                 <label for="author" for="pages" class="col-sm-2 col-form-label col-form-label-sm">Author:</label>
                 <div class="col-sm-10">
-                <input type="text" name="author" minlength="2" maxlength="100" value="{{ reference[3] }}" required>
+                <input type="text" name="author" pattern="[a-zA-ZäöåÄÖÅ,_\.\s]+" title="Author should contain only letters" minlength="2" maxlength="100" value="{{ reference[3] }}" required>
             </div>
                 <br>
                 <br>
                 <label for="title" for="pages" class="col-sm-2 col-form-label col-form-label-sm">Title:</label>
                 <div class="col-sm-10">
-                <input type="text" name="title" minlength="2" maxlength="70" value="{{ reference[4] }}" required>
+                <input type="text" name="title" pattern="[a-zA-ZäöåÄÖÅ,_\.\s]+" title="Title should contains only letters" minlength="2" maxlength="70" value="{{ reference[4] }}" required>
             </div>
                 <br>
                 <br>
@@ -258,7 +258,7 @@ Editing reference {{ reference[2] }}
                 <br>
                 <label for="year" for="pages" class="col-sm-2 col-form-label col-form-label-sm">Year:</label>
                 <div class="col-sm-10">
-                <input type="number" name="year" max="9999" value="{{ reference[6] }}" required>
+                <input type="number" name="year" pattern="/^\d+$/" title="Year contain only nubers" min="1000" max="2025" value="{{ reference[6] }}" required>
             </div>
                 <br>
                 <br>
