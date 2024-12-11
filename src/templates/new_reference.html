@@ -56,7 +56,7 @@ Create a reference
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text">Keyword</span>
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Keyword</span>
                     </div>
                     <input type="text" class="form-control" name="name" minlength="2" maxlength="30" required>
                   </div>
@@ -65,7 +65,7 @@ Create a reference
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text">Author</span>
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Author</span>
                     </div>
                     <input type="text" class="form-control" name="author" pattern="[a-zA-ZäöåÄÖÅ,_\.\s]+" title="Author should contain only letters" minlength="2" maxlength="100" value="{{ request.form.get('author', '') }}" required>
                   </div>
@@ -74,7 +74,7 @@ Create a reference
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text">Title</span>
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Title</span>
                     </div>
                     <input type="text" class="form-control" name="title" pattern="[a-zA-ZäöåÄÖÅ,_\.\s]+" title="Title should contains only letters" minlength="2" maxlength="70" value="{{ request.form.get('title', '') }}" required>
                   </div>
@@ -83,7 +83,7 @@ Create a reference
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text">Journal</span>
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Journal</span>
                     </div>
                     <input type="text" class="form-control" name="journal" minlength="2" maxlength="70" value="{{ request.form.get('journal', '') }}" required>
                   </div>
@@ -92,7 +92,7 @@ Create a reference
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text">Year</span>
+                      <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Year</span>
                     </div>
                     <input type="number" class="form-control" name="year" pattern="/^\d+$/" title="Year contain only nubers" min="1000" max="2025" value="{{ request.form.get('year', '') }}" required>
                   </div>
