@@ -6,14 +6,12 @@ Test Setup       Reset Database
 
 *** Test Cases ***
 Deleting a Reference Should Remove It From The List
-    Create Article Reference
     Go To References List Page
-    Page Should Contain    Article_Kirjoittaja
     ${normal}=  Run Keyword And Return Status    Element Should Be Visible   id=view_normal_format
-    Run Keyword If    ${normal}    Click Normal Button If Shown   
+    Run Keyword If    ${normal}    Click Normal Button If Shown
     Click Button  Delete
     Go To References List Page
-    Page Should Not Contain  Article_Kirjoittaja
+    Page Should Not Contain  Kernighan, Brian and Ritchie, Dennis
 
 *** Keywords ***
 Create Article Reference

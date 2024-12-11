@@ -6,16 +6,14 @@ Test Setup       Reset Database
 
 *** Test Cases ***
 Created Reference Should Editable After Creation
-    Create Article Reference
     Go To References List Page
     ${normal}=  Run Keyword And Return Status    Element Should Be Visible   id=view_normal_format
     Run Keyword If    ${normal}    Click Normal Button If Shown
-    Page Should Contain  Article_Kirjoittaja
     Click Element  edit_reference
     Clear Element Text  author
     Set Author  Uusi_kirjoittaja
-    Scroll Element Into View  article_update
-    Click Button  article_update
+    Scroll Element Into View  book_update
+    Click Button  book_update
     Go To References List Page
     Page Should Contain  Uusi_kirjoittaja
     

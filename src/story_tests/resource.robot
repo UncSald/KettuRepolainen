@@ -13,7 +13,11 @@ ${HEADLESS}   false
 
 *** Keywords ***
 Open And Configure Browser
-    ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
+    IF  $BROWSER == 'chrome'
+        ${options}  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys
+    ELSE IF  $BROWSER == 'firefox'
+        ${options}  Evaluate  sys.modules['selenium.webdriver'].FirefoxOptions()  sys
+    END
     Run Keyword If    '${HEADLESS}' == 'true'    Call Method    ${options}    add_argument    --headless
     Open Browser    ${HOME_URL}    ${BROWSER}    options=${options}
     Set Selenium Speed    ${DELAY}
