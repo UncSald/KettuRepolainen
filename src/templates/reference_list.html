@@ -13,78 +13,66 @@ References
 
 {% if references %}
 <div>
-  <a class="btn btn-primary btn-sm py-0 px-1 ms-2" href="/export_bibtex" role="button" download="references.bib" style="margin-top: 20px;">Download references as BibTeX -file</a>
+  <a type="button" class="btn btn-primary" href="/export_bibtex" role="button" download="references.bib" style="margin-top: 20px;">Download references as BibTeX -file</a>
 </div>
 
 {% if not view_as_bibtex %}
 <div>
-  <form action="/change_list_format" method="post" style="padding-bottom: 20px;">
+  <form action="/change_list_format" method="post" style="padding-bottom: 20px; padding-top: 20px;">
     <input type="submit" id="view_bibtex_format" value="View in BibTex format" />
   </form>
 
   <ul class="list-group">
     {% for reference in references %}
-      <li class="list-group-item">
-        <div>
+      <li class="list-group-item" style="display: flex; justify-content: space-between; align-items: center;">
+        <div style="display: inline-block">
           <!-- author:-->
             {{ reference[3] }}.
-          
           {% if reference[10] %}
-
           <!--month and year-->
           ({{reference[10]}} {{reference[6]}}),
-
           <!--just year-->
           {% else %}
           ({{reference[6]}}), 
-
           {% endif %}
-          
           <!--title-->
           '{{reference[4]}}'
-          
           <!--journal-->
           {% if reference[5] %}, <i>{{ reference[5] }}</i>{% endif %}
-          
           <!--volume-->
           {% if reference[7] %}, volume {{ reference[7] }}{% endif %}
-          
           <!--number-->
           {% if reference[8] %}, number {{ reference[8] }}{% endif %} 
-          
           <!--pages-->
           {% if reference[9] %}, p. {{ reference[9] }}{% endif %} 
-          
           <!--note-->
           {% if reference[11] %}, note: {{ reference[11] }}{% endif %}
-
           <!--howpublished-->
           {% if reference[12] %}, {{ reference[12] }}{% endif %}
-          
           <!--editor-->
           {% if reference[13] %}, {{ reference[13] }}{% endif %}
-
           <!--publisher-->
           {% if reference[14] %}, {{ reference[14] }}{% endif %}
-
+        </div>
+        <div style="float: right; padding-left: 20px;" >
           {% if reference in selected_references %}
           <script>console.log("{{ reference }}")</script>
           <script>console.log("{{ selected_references[0] }}")</script>
-          <form action="/deselect_reference/{{ reference[0] }}" method="post" style="float: right; margin-right: 10px; margin-left: 10px;">
+          <form action="/deselect_reference/{{ reference[0] }}" method="post" style="padding-bottom: 5px;">
             <button type="submit" class="btn btn-danger">Deselect</button>
           </form>
           {% else %}
-          <form action="/select_reference/{{ reference[0] }}" method="post" style="float: right; margin-right: 10px; margin-left: 10px;">
+          <form action="/select_reference/{{ reference[0] }}" method="post" style="padding-bottom: 5px;">
             <button type="submit" class="btn btn-primary">Select</button>
           </form>
           <script>console.log("{{ reference }}", "selected")</script>
           <script>console.log("{{ selected_references[0] }}", "selected")</script>
           {% endif %}
 
-          <a type="button" class="btn btn-primary" href="/edit_reference/{{ reference[0] }}" name="edit_reference" style="float: right;">
-            Edit
-          </a>
-          <form action="/delete_reference/{{ reference[0] }}" method="post" style="float: right; margin-right: 10px;">
+          <form action="/edit_reference/{{ reference[0] }}" type="button" name="edit_reference" style="padding-bottom: 5px;">
+            <button type="submit" class="btn btn-primary">Edit</button>
+          </form>
+          <form action="/delete_reference/{{ reference[0] }}" method="post">
             <button type="submit" class="btn btn-danger">Delete</button>
           </form>
         </div>
@@ -93,7 +81,7 @@ References
   </ul>
 </div>
 {% else %}
-<form action="/change_list_format" method="post">
+<form action="/change_list_format" method="post" style="padding-bottom: 20px; padding-top: 20px;">
   <input type="submit" id="view_normal_format" value="View in normal format" />
 </form>
 

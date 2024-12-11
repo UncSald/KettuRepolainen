@@ -6,21 +6,26 @@ Create a reference
 
 {% block body %}
 
-<div class="container">
+<div class="container" style="padding-top: 30px;">
     <div class="row">
         <div class="col-8">
-            <h1>Create a reference</h1>
-            <label>
-                <input id="result" type="radio" name="refTypeCheckbox" value="article" onclick="openForm()">Article
+            <h2>Create a reference</h2>
+            <input class="form-check-input" id="result" type="radio" name="refTypeCheckbox" value="article" onclick="openForm()">
+            <label class="form-check-label" for="exampleRadios1" style="padding-right: 5px;">
+                Article
             </label>
-            <label>
-                <input id="result" type="radio" name="refTypeCheckbox" value="book" onclick="openForm()">Book
+            <input class="form-check-input" id="result" type="radio" name="refTypeCheckbox" value="book" onclick="openForm()">
+            <label class="form-check-label" for="exampleRadios1" style="padding-right: 5px;">
+                Book
             </label>
-            <label>
-                <input id="result" type="radio" name="refTypeCheckbox" value="misc" onclick="openForm()">Misc
+            <input class="form-check-input" id="result" type="radio" name="refTypeCheckbox" value="misc" onclick="openForm()">
+            <label class="form-check-label" for="exampleRadios1" style="padding-right: 5px;">
+                Misc
             </label>
-            <label>
-                <input id="result" type="radio" name="refTypeCheckbox" value="acm" onclick="openForm()">ACM</label>
+            <input class="form-check-input" id="result" type="radio" name="refTypeCheckbox" value="acm" onclick="openForm()">
+            <label class="form-check-label" for="exampleRadios1" style="padding-right: 5px;">
+                ACM
+            </label>
         </div>
     </div>
 </div>
