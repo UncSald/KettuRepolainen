@@ -27,7 +27,7 @@ References
       <li class="list-group-item" style="display: flex; justify-content: space-between; align-items: center;">
         <div style="display: inline-block">
           <!-- author:-->
-            {{ reference[3] }}.
+          {% if reference[3] %} {{ reference[3] }}. {% endif %}
           {% if reference[10] %}
           <!--month and year-->
           ({{reference[10]}} {{reference[6]}}),
@@ -91,9 +91,8 @@ References
         @{{reference[1]}}&#123;{{reference[2]}},
         <p style="margin-left: 1.5em; margin-top: 0px; margin-bottom: 0px;">
           <!-- author:-->
-          author = &#123;{{ reference[3] }}&#125;,
+          {% if reference[3] %} author = &#123;{{ reference[3] }}&#125;, <br>{% endif %}
           
-          <br>
           <!--title-->
           title = &#123;{{ reference[4] }}&#125;,
 

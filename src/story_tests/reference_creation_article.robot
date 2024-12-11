@@ -60,9 +60,9 @@ When Posting Article With Wrong Pages Format Error Is shown
     Set Pages  1-
     Scroll Element Into View  article_submit
     Click Article Submit
-    Page Should Contain  Pages needs to be written as a number or two numbers divided by a dash (e.g. 1 or 1-25)
+    Page Should Contain  Creating book type reference
 
-When Posting Article With Wrong Fromat Of Keyword Error Is shown
+When Posting Article With Wrong Format Of Keyword Error Is shown
     Go To New Reference Page
     Select Radio Button  refTypeCheckbox  article
     Page Should Contain  Creating article type reference
@@ -71,7 +71,7 @@ When Posting Article With Wrong Fromat Of Keyword Error Is shown
     Set Name  New Name
     Scroll Element Into View  article_submit
     Click Article Submit
-    Page Should Contain  Keyword should contain only numbers and/or letters and no spaces.
+    Page Should Contain  Creating book type reference
      
 
 

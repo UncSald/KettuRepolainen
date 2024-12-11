@@ -58,7 +58,7 @@ Create a reference
                     <div class="input-group-prepend">
                       <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Keyword</span>
                     </div>
-                    <input type="text" class="form-control" name="name" minlength="2" maxlength="30" required>
+                    <input type="text" pattern="^[a-zA-ZäÄåÅöÖ0-9]+$" title="Keyword should contain only numbers and/or letters and no spaces." class="form-control" name="name" minlength="2" maxlength="30" required>
                   </div>
                 <br>
                 <br>
@@ -67,7 +67,7 @@ Create a reference
                     <div class="input-group-prepend">
                       <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Author</span>
                     </div>
-                    <input type="text" class="form-control" name="author" pattern="[a-zA-ZäöåÄÖÅ,_\.\s]+" title="Author should contain only letters" minlength="2" maxlength="100" value="{{ request.form.get('author', '') }}" required>
+                    <input type="text" class="form-control" name="author" pattern="^[a-zA-ZäöåÄÖÅ,_\.\s]+$" title="allowed: letters, spaces and characters: _ . ," name="author" minlength="2" maxlength="1000" value="{{ request.form.get('author', '') }}" required>
                   </div>
                 <br>
                 <br>
@@ -76,7 +76,7 @@ Create a reference
                     <div class="input-group-prepend">
                       <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Title</span>
                     </div>
-                    <input type="text" class="form-control" name="title" pattern="[a-zA-ZäöåÄÖÅ,_\.\s]+" title="Title should contains only letters" minlength="2" maxlength="70" value="{{ request.form.get('title', '') }}" required>
+                    <input type="text" class="form-control" name="title" pattern="^[a-zA-Z0-9äöåÄÖÅ,_\.\s]+$" title="allowed: letters, numbers, spaces and characters: _ . ," minlength="2" maxlength="70" value="{{ request.form.get('title', '') }}" required>
                   </div>
                 <br>
                 <br>
@@ -85,7 +85,7 @@ Create a reference
                     <div class="input-group-prepend">
                       <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Journal</span>
                     </div>
-                    <input type="text" class="form-control" name="journal" minlength="2" maxlength="70" value="{{ request.form.get('journal', '') }}" required>
+                    <input type="text" pattern="^[a-zA-Z0-9äöåÄÖÅ,_\.\s]+$" title="allowed: letters, numbers, spaces and characters: _ . ," class="form-control" name="journal" minlength="2" maxlength="70" value="{{ request.form.get('journal', '') }}" required>
                   </div>
                 <br>
                 <br>
@@ -94,7 +94,8 @@ Create a reference
                     <div class="input-group-prepend">
                       <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Year</span>
                     </div>
-                    <input type="number" class="form-control" name="year" pattern="/^\d+$/" title="Year contain only numbers" min="1000" max="2025" value="{{ request.form.get('year', '') }}" required>
+
+                    <input type="number" class="form-control" name="year" min="1000" max="2024" value="{{ request.form.get('year', '') }}" required>
                   </div>
                 <br>
                 <br>
@@ -122,7 +123,7 @@ Create a reference
                     <div class="input-group-prepend">
                       <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Pages</span>
                     </div>
-                    <input type="text" class="form-control" name="pages" maxlength="20" value="{{ request.form.get('pages', '') }}">
+                    <input type="text" pattern="(\d{1,4}(-[1-9]\d{0,3})?)?" title="Pages needs to be written as a number or two numbers divided by a dash (e.g. 1 or 1-25)" class="form-control" name="pages" maxlength="20" value="{{ request.form.get('pages', '') }}">
                   </div>
                 <br>
                 <br>
@@ -150,11 +151,12 @@ Create a reference
                 <br>
                 <br>
 
+
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Note</span>
                     </div>
-                    <input type="text" class="form-control" name="note" maxlength="100" value="{{ request.form.get('note', '') }}">
+                    <input type="text" class="form-control" name="note" maxlength="1000" value="{{ request.form.get('note', '') }}">
                   </div>
                 <br>
                 <br>
@@ -180,7 +182,7 @@ Create a reference
                     <div class="input-group-prepend">
                       <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Keyword</span>
                     </div>
-                    <input type="text" class="form-control" name="name" minlength="2" maxlength="30" required>
+                    <input type="text" pattern="^[a-zA-ZäÄåÅöÖ0-9]+$" title="Keyword should contain only numbers and/or letters and no spaces." class="form-control" name="name" minlength="2" maxlength="30" required>
                   </div>
                 <br>
                 <br>
@@ -189,7 +191,7 @@ Create a reference
                     <div class="input-group-prepend">
                       <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Author</span>
                     </div>
-                    <input type="text" class="form-control" name="author" pattern="[a-zA-ZäöåÄÖÅ,_\.\s]+" title="Author should contain only letters" minlength="2" maxlength="100" value="{{ request.form.get('author', '') }}" required>
+                    <input type="text" class="form-control" name="author" pattern="^[a-zA-ZäöåÄÖÅ,_\.\s]+$" title="allowed: letters, spaces and characters: _ . ,"  minlength="2" maxlength="1000" value="{{ request.form.get('author', '') }}" required>
                   </div>
                 <br>
                 <br>
@@ -198,7 +200,7 @@ Create a reference
                     <div class="input-group-prepend">
                       <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Editor</span>
                     </div>
-                    <input type="text" class="form-control" name="editor" pattern="[a-zA-ZäöåÄÖÅ,_\.\s]+" title="Editor should contain only letters" minlength="2" maxlength="100" value="{{ request.form.get('editor', '') }}" required>
+                    <input type="text" class="form-control" name="editor" pattern="^[a-zA-Z0-9äöåÄÖÅ,_\.\s]+$" title="allowed: letters, numbers, spaces and characters: _ . ," minlength="2" maxlength="1000" value="{{ request.form.get('editor', '') }}" required>
                   </div>
                 <br>
                 <br>
@@ -207,7 +209,7 @@ Create a reference
                     <div class="input-group-prepend">
                       <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Title</span>
                     </div>
-                    <input type="text" class="form-control" name="title" pattern="[a-zA-ZäöåÄÖÅ,_\.\s]+" title="Title should contains only letters" minlength="2" maxlength="70" value="{{ request.form.get('title', '') }}" required>
+                    <input type="text" class="form-control" name="title" pattern="^[a-zA-Z0-9äöåÄÖÅ,_\.\s]+$" title="allowed: letters, numbers, spaces and characters: _ . ," minlength="2" maxlength="1000" value="{{ request.form.get('title', '') }}" required>
                   </div>
                 <br>
                 <br>
@@ -216,7 +218,7 @@ Create a reference
                     <div class="input-group-prepend">
                       <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Publisher</span>
                     </div>
-                    <input type="text" class="form-control" name="publisher" pattern="[a-zA-ZäöåÄÖÅ,_\.\s]+" title="Publisher should contain only letters" minlength="2" maxlength="100" value="{{ request.form.get('publisher', '') }}" required>
+                    <input type="text" class="form-control" name="publisher" pattern="^[a-zA-ZäöåÄÖÅ,_\.\s]+$" title="allowed: letters, spaces and characters: _ . ," minlength="2" maxlength="1000" value="{{ request.form.get('publisher', '') }}" required>
                   </div>
                 <br>
                 <br>
@@ -225,7 +227,7 @@ Create a reference
                     <div class="input-group-prepend">
                       <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Year</span>
                     </div>
-                    <input type="number" class="form-control" name="year" pattern="/^\d+$/" title="Year contain only numbers" min="1000" max="2025" value="{{ request.form.get('year', '') }}" required>
+                    <input type="number" class="form-control" name="year" min="1000" max="2024" value="{{ request.form.get('year', '') }}" required>
                   </div>
                 <br>
                 <br>
@@ -248,11 +250,12 @@ Create a reference
                 <br>
                 <br>
 
+
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Pages</span>
                     </div>
-                    <input type="text" class="form-control" name="pages" maxlength="20" value="{{ request.form.get('pages', '') }}">
+                    <input type="text" pattern="(\d{1,4}(-[1-9]\d{0,3})?)?" title="Pages needs to be written as a number or two numbers divided by a dash (e.g. 1 or 1-25)" class="form-control" name="pages" maxlength="20" value="{{ request.form.get('pages', '') }}">
                   </div>
                 <br>
                 <br>
@@ -284,7 +287,7 @@ Create a reference
                     <div class="input-group-prepend">
                       <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Note</span>
                     </div>
-                    <input type="text" class="form-control" name="note" maxlength="100" value="{{ request.form.get('note', '') }}">
+                    <input type="text" class="form-control" name="note" maxlength="1000" value="{{ request.form.get('note', '') }}">
                   </div>
                 <br>
                 <br>
@@ -310,7 +313,7 @@ Create a reference
                     <div class="input-group-prepend">
                       <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Keyword</span>
                     </div>
-                    <input type="text" class="form-control" name="name" minlength="2" maxlength="30" required>
+                    <input type="text" pattern="^[a-zA-Z0-9]+$" title="Keyword should contain only numbers and/or letters and no spaces." class="form-control" name="name" minlength="2" maxlength="30" required>
                   </div>
                 <br>
                 <br>
@@ -319,7 +322,7 @@ Create a reference
                     <div class="input-group-prepend">
                       <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Author</span>
                     </div>
-                    <input type="text" class="form-control" name="author" pattern="[a-zA-ZäöåÄÖÅ,_\.\s]+" title="Author should contain only letters" minlength="2" maxlength="100" value="{{ request.form.get('author', '') }}" required>
+                    <input type="text"  class="form-control" name="author" pattern="^[a-zA-ZäöåÄÖÅ,_\.\s]+$" title="allowed: letters, spaces and characters: _ . ," minlength="2" maxlength="1000" value="{{ request.form.get('author', '') }}" required>
                   </div>
                 <br>
                 <br>
@@ -328,7 +331,7 @@ Create a reference
                     <div class="input-group-prepend">
                       <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Title</span>
                     </div>
-                    <input type="text" class="form-control" name="title" pattern="[a-zA-ZäöåÄÖÅ,_\.\s]+" title="Title should contains only letters" minlength="2" maxlength="70" value="{{ request.form.get('title', '') }}" required>
+                    <input type="text" class="form-control" name="title" pattern="^[a-zA-Z0-9äöåÄÖÅ,_\.\s]+$" title="allowed: letters, numbers, spaces and characters: _ . ," minlength="2" maxlength="1000" value="{{ request.form.get('title', '') }}" required>
                   </div>
                 <br>
                 <br>
@@ -337,7 +340,7 @@ Create a reference
                     <div class="input-group-prepend">
                       <span class="input-group-text" style="width: 150px; display: block; text-align: center;">How Published</span>
                     </div>
-                    <input type="text" class="form-control" name="howpublished" minlength="2" maxlength="1000" value="{{ request.form.get('howpublished', '') }}">
+                    <input type="text" class="form-control" pattern="^[a-zA-Z0-9äöåÄÖÅ,_\.\s]+$" title="allowed: letters, numbers, spaces and characters: _ . ," name="howpublished" minlength="2" maxlength="1000" value="{{ request.form.get('howpublished', '') }}">
                   </div>
                 <br>
                 <br>
@@ -369,16 +372,17 @@ Create a reference
                     <div class="input-group-prepend">
                       <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Year</span>
                     </div>
-                    <input type="number" class="form-control" name="year" pattern="/^\d+$/" title="Year contain only numbers" min="1000" max="2025" value="{{ request.form.get('year', '') }}" required>
+                    <input type="number" class="form-control" name="year" min="1000" max="2024" value="{{ request.form.get('year', '') }}" required>
                   </div>
                 <br>
                 <br>
+
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text" style="width: 150px; display: block; text-align: center;">Note</span>
                     </div>
-                    <input type="text" class="form-control" name="note" maxlength="100" value="{{ request.form.get('note', '') }}">
+                    <input type="text" class="form-control" name="note" maxlength="1000" value="{{ request.form.get('note', '') }}">
                   </div>
                 <br>
                 <br>

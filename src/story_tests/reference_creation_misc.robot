@@ -28,8 +28,52 @@ When Posting Misc With Wrong Fromat Of Keyword Error Is shown
     Set Name  New Name
     Scroll Element Into View  misc_submit
     Click Misc Submit
-    Page Should Contain  Keyword should contain only numbers and/or letters and no spaces.
+    Page Should Contain  Creating misc type reference
    
+
+When Posting Misc With Wrong Format Of Author Error Is shown
+    Go To New Reference Page
+    Select Radio Button  refTypeCheckbox  misc
+    Page Should Contain  Creating misc type reference
+    Set Misc Information
+    Clear Element Text  xpath=//form[@id='misc']//input[@name='author']
+    Set Author  New-Author+
+    Scroll Element Into View  misc_submit
+    Click Misc Submit
+    Page Should Contain  Creating misc type reference
+
+When Posting Misc With Wrong Format Of Title Error Is shown
+    Go To New Reference Page
+    Select Radio Button  refTypeCheckbox  misc
+    Page Should Contain  Creating misc type reference
+    Set Misc Information
+    Clear Element Text  xpath=//form[@id='misc']//input[@name='title']
+    Set Title  New-Title+
+    Scroll Element Into View  misc_submit
+    Click Misc Submit
+    Page Should Contain  Creating misc type reference
+
+When Posting Misc With Wrong Format Of Howpublished Error Is shown
+    Go To New Reference Page
+    Select Radio Button  refTypeCheckbox  misc
+    Page Should Contain  Creating misc type reference
+    Set Misc Information
+    Clear Element Text  xpath=//form[@id='misc']//input[@name='howpublished']
+    Set Howpublished  New-Howpublished+
+    Scroll Element Into View  misc_submit
+    Click Misc Submit
+    Page Should Contain  Creating misc type reference
+
+When Posting Misc With Wrong Format Of Year Error Is shown
+    Go To New Reference Page
+    Select Radio Button  refTypeCheckbox  misc
+    Page Should Contain  Creating misc type reference
+    Set Misc Information
+    Clear Element Text  xpath=//form[@id='misc']//input[@name='year']
+    Set Year  12
+    Scroll Element Into View  misc_submit
+    Click Misc Submit
+    Page Should Contain  Creating misc type reference
 
 *** Keywords ***
 Set Name
