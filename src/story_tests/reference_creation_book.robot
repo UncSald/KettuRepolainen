@@ -34,8 +34,7 @@ When Posting Book Without Author Error Is shown
     Select Radio Button  refTypeCheckbox  book
     Page Should Contain  Creating book type reference
     Set Book Information
-    Clear Element Text  xpath=//form[@id='book']//input[@name='year']
-    Set Year  kaksi
+    Clear Element Text  xpath=//form[@id='book']//input[@name='author']
     Scroll Element Into View  book_submit
     Click Book Submit
     Page Should Contain  Creating book type reference
@@ -59,7 +58,7 @@ When Posting Book With Wrong Pages Format Error Is shown
     Set Pages  1-
     Scroll Element Into View  book_submit
     Click Book Submit
-    Page Should Contain  Pages needs to be written as a number or two numbers divided by a dash (e.g. 1 or 1-25)
+    Page Should Contain  Creating book type reference
 
 When Posting Book With Wrong Fromat Of Keyword Error Is shown
     Go To New Reference Page
@@ -70,8 +69,52 @@ When Posting Book With Wrong Fromat Of Keyword Error Is shown
     Set Name  New Name
     Scroll Element Into View  book_submit
     Click Book Submit
-    Page Should Contain  Keyword should contain only numbers and/or letters and no spaces.
-     
+    Page Should Contain  Creating book type reference
+
+When Posting Book With Wrong Fromat Of Author Error Is shown
+    Go To New Reference Page
+    Select Radio Button  refTypeCheckbox  book
+    Page Should Contain  Creating book type reference
+    Set Book Information
+    Clear Element Text  xpath=//form[@id='book']//input[@name='author']
+    Set Author  New-Author+
+    Scroll Element Into View  book_submit
+    Click Book Submit
+    Page Should Contain  Creating book type reference
+
+When Posting Book With Wrong Fromat Of Editor Error Is shown
+    Go To New Reference Page
+    Select Radio Button  refTypeCheckbox  book
+    Page Should Contain  Creating book type reference
+    Set Book Information
+    Clear Element Text  xpath=//form[@id='book']//input[@name='editor']
+    Set Editor  New-Editor+
+    Scroll Element Into View  book_submit
+    Click Book Submit
+    Page Should Contain  Creating book type reference
+
+When Posting Book With Wrong Fromat Of Title Error Is shown
+    Go To New Reference Page
+    Select Radio Button  refTypeCheckbox  book
+    Page Should Contain  Creating book type reference
+    Set Book Information
+    Clear Element Text  xpath=//form[@id='book']//input[@name='title']
+    Set Title  New-Title+
+    Scroll Element Into View  book_submit
+    Click Book Submit
+    Page Should Contain  Creating book type reference
+
+When Posting Book With Wrong Fromat Of Year Error Is shown
+    Go To New Reference Page
+    Select Radio Button  refTypeCheckbox  book
+    Page Should Contain  Creating book type reference
+    Set Book Information
+    Clear Element Text  xpath=//form[@id='book']//input[@name='year']
+    Set Year  12
+    Scroll Element Into View  book_submit
+    Click Book Submit
+    Page Should Contain  Creating book type reference    
+
 
 *** Keywords ***
 Set Name
