@@ -58,7 +58,7 @@ class ReferenceDao:
         """
         Hakee kaikki viitteet tietokannasta yhdellä optimoidulla kyselyllä.
         Returns:
-            List[dict]: Lista viitteistä JSON-muodossa.
+            List[dict]: Lista viitteistä.
         """
         sql = text("""
             SELECT 
@@ -145,6 +145,8 @@ class ReferenceDao:
 
     def return_references_in_bibtex_form(self):
         references = self.get_selected_references()
+        if references == []:
+            references = self.get_references()
         bibtex_data = self.convert_to_bibtex(references)
         return bibtex_data
     
