@@ -17,7 +17,7 @@ def link_is_valid_form(link):
 
 @app.route("/")
 def index():
-    return render_template("/new_reference.html")
+    return render_template("index.html")
 
 @app.route("/new_reference")
 def new_reference():

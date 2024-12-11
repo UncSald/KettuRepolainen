@@ -23,7 +23,7 @@ Reset Database
 
 
 Main Page Should Be Open
-    Title Should Be  Create a reference
+    Title Should Be  Main
 
 References Page Should Be Open
     Title Should Be  References
