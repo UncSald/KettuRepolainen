@@ -173,7 +173,7 @@ Create a reference
         <div class="col-8">
             <form action="/references" method="post" class="form-book" {% if request.form.get('type', '')!="book" %}style="display: none"{% endif %} id="book">
                 <div class="form-group row">
-                <h2 style="padding-bottom: 20px;">Creating book type reference</h2>
+                <h3 style="padding-bottom: 20px;">Creating book type reference</h3>
                 <input type="hidden" name="type" value="book">
 
                 <div class="input-group mb-3">
@@ -303,7 +303,7 @@ Create a reference
         <div class="col-8">
             <form action="/references" method="post" class="form-misc" {% if request.form.get('type', '')!="misc" %}style="display: none"{% endif %} id="misc">
                 <div class="form-group row">
-                <h2 style="padding-bottom: 20px;">Creating misc type reference</h2>
+                <h3 style="padding-bottom: 20px;">Creating misc type reference</h3>
                 <input type="hidden" name="type" value="misc">
 
                 <div class="input-group mb-3">
