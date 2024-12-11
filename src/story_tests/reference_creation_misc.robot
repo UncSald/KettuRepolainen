@@ -31,7 +31,7 @@ When Posting Misc With Wrong Fromat Of Keyword Error Is shown
     Page Should Contain  Creating misc type reference
    
 
-When Posting Misc With Wrong Fromat Of Author Error Is shown
+When Posting Misc With Wrong Format Of Author Error Is shown
     Go To New Reference Page
     Select Radio Button  refTypeCheckbox  misc
     Page Should Contain  Creating misc type reference
@@ -42,7 +42,7 @@ When Posting Misc With Wrong Fromat Of Author Error Is shown
     Click Misc Submit
     Page Should Contain  Creating misc type reference
 
-When Posting Misc With Wrong Fromat Of Title Error Is shown
+When Posting Misc With Wrong Format Of Title Error Is shown
     Go To New Reference Page
     Select Radio Button  refTypeCheckbox  misc
     Page Should Contain  Creating misc type reference
@@ -53,7 +53,7 @@ When Posting Misc With Wrong Fromat Of Title Error Is shown
     Click Misc Submit
     Page Should Contain  Creating misc type reference
 
-When Posting Misc With Wrong Fromat Of Howpublished Error Is shown
+When Posting Misc With Wrong Format Of Howpublished Error Is shown
     Go To New Reference Page
     Select Radio Button  refTypeCheckbox  misc
     Page Should Contain  Creating misc type reference
@@ -64,7 +64,7 @@ When Posting Misc With Wrong Fromat Of Howpublished Error Is shown
     Click Misc Submit
     Page Should Contain  Creating misc type reference
 
-When Posting Misc With Wrong Fromat Of Year Error Is shown
+When Posting Misc With Wrong Format Of Year Error Is shown
     Go To New Reference Page
     Select Radio Button  refTypeCheckbox  misc
     Page Should Contain  Creating misc type reference

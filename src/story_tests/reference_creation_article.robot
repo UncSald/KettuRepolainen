@@ -62,7 +62,7 @@ When Posting Article With Wrong Pages Format Error Is shown
     Click Article Submit
     Page Should Contain  Creating book type reference
 
-When Posting Article With Wrong Fromat Of Keyword Error Is shown
+When Posting Article With Wrong Format Of Keyword Error Is shown
     Go To New Reference Page
     Select Radio Button  refTypeCheckbox  article
     Page Should Contain  Creating article type reference

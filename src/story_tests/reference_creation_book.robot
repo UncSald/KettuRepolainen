@@ -19,7 +19,7 @@ When Book Is Submitted Page Should Redirect To References
     Click Book Submit
     References Page Should Be Open
 
-When Posting Book Without Publisher Error Is shown
+When Posting Book Without Publisher Error Is Shown
     Go To New Reference Page
     Select Radio Button  refTypeCheckbox  book
     Page Should Contain  Creating book type reference
@@ -29,7 +29,7 @@ When Posting Book Without Publisher Error Is shown
     Click Book Submit
     Page Should Contain  Creating book type reference
 
-When Posting Book Without Author Error Is shown
+When Posting Book Without Author Error Is Shown
     Go To New Reference Page
     Select Radio Button  refTypeCheckbox  book
     Page Should Contain  Creating book type reference
@@ -49,7 +49,7 @@ When Book Is Submitted Correct Pages Format Should Redirect To References
     Click Book Submit
     References Page Should Be Open
 
-When Posting Book With Wrong Pages Format Error Is shown
+When Posting Book With Wrong Pages Format Error Is Shown
     Go To New Reference Page
     Select Radio Button  refTypeCheckbox  book
     Page Should Contain  Creating book type reference
@@ -60,7 +60,7 @@ When Posting Book With Wrong Pages Format Error Is shown
     Click Book Submit
     Page Should Contain  Creating book type reference
 
-When Posting Book With Wrong Fromat Of Keyword Error Is shown
+When Posting Book With Wrong Format Of Keyword Error Is Shown
     Go To New Reference Page
     Select Radio Button  refTypeCheckbox  book
     Page Should Contain  Creating book type reference
@@ -71,7 +71,7 @@ When Posting Book With Wrong Fromat Of Keyword Error Is shown
     Click Book Submit
     Page Should Contain  Creating book type reference
 
-When Posting Book With Wrong Fromat Of Author Error Is shown
+When Posting Book With Wrong Format Of Author Error Is Shown
     Go To New Reference Page
     Select Radio Button  refTypeCheckbox  book
     Page Should Contain  Creating book type reference
@@ -82,7 +82,7 @@ When Posting Book With Wrong Fromat Of Author Error Is shown
     Click Book Submit
     Page Should Contain  Creating book type reference
 
-When Posting Book With Wrong Fromat Of Editor Error Is shown
+When Posting Book With Wrong Format Of Editor Error Is Shown
     Go To New Reference Page
     Select Radio Button  refTypeCheckbox  book
     Page Should Contain  Creating book type reference
@@ -93,7 +93,7 @@ When Posting Book With Wrong Fromat Of Editor Error Is shown
     Click Book Submit
     Page Should Contain  Creating book type reference
 
-When Posting Book With Wrong Fromat Of Title Error Is shown
+When Posting Book With Wrong Format Of Title Error Is Shown
     Go To New Reference Page
     Select Radio Button  refTypeCheckbox  book
     Page Should Contain  Creating book type reference
@@ -104,7 +104,7 @@ When Posting Book With Wrong Fromat Of Title Error Is shown
     Click Book Submit
     Page Should Contain  Creating book type reference
 
-When Posting Book With Wrong Fromat Of Year Error Is shown
+When Posting Book With Wrong Format Of Year Error Is Shown
     Go To New Reference Page
     Select Radio Button  refTypeCheckbox  book
     Page Should Contain  Creating book type reference
