@@ -6,6 +6,8 @@
 
 [Sprint backlog](https://github.com/users/UncSald/projects/3)
 
+[Loppuraportti](https://docs.google.com/document/d/1riJzGMvxH-oBdwl3jVUCdQMvXO8N4oM_Qgcpm_cXeCk/edit?usp=sharing)
+
 ### Definition of Done
 - Hyväksymiskriteerit: User Storyille määritellään hyväksymiskriteerit Robot Framework -syntaksilla alkaen sprintistä 2. Linkki kriteereihin löytyy README:stä.
 - Testikattavuus: Koodin testikattavuus on kohtuullinen ja sitä arvioidaan säännöllisesti.
